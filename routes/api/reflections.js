@@ -5,12 +5,12 @@ const passport = require('passport');
 const Reflection = require('../../models/Reflection');
 const validateReflection = require('../../validation/reflection');
 
-// router.get('/', (req, res) => {
-//   Reflection.find()
-//       .sort({ createdAt: 1 })
-//       .then(reflections => res.json(reflections))
-//       .catch(err => res.status(404).json({ noreflectionsfound: 'No reflections found' }));
-// });
+router.get('/users/:userId', (req, res) => {
+  Reflection.find({ user: req.params.userId })
+    .sort({ date: -1 })
+    .then(reflections => res.json(reflections))
+    .catch(err => res.status(404).json({ noreflectionsfound: 'No reflections found for this user'}));
+});
 
 router.post('/users/:userId',
   passport.authenticate('jwt', { session: false }),
@@ -23,6 +23,7 @@ router.post('/users/:userId',
 
     const newReflection = new Reflection(
       {
+        prompt: req.body.prompt,
         entry: req.body.entry,
         user: req.user.id
       }
@@ -32,6 +33,20 @@ router.post('/users/:userId',
       .save()
       .then(reflection => res.json(reflection))
   }
-)
+);
+
+router.patch('/:reflectionId',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+
+    const editedReflection = await Reflection.findOne({ reflection: req.params.reflectionId })
+
+    editedReflection.entry = req.body.entry;
+
+    editedReflection
+      .save()
+      .then(reflection => res.json(reflection))
+  }
+);
 
 module.exports = router;

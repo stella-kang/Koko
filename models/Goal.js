@@ -12,12 +12,13 @@ const GoalSchema = new Schema(
       required: true
     },
     dueDate: {
-      type: Date
+      type: Date,
+      required: false
     },
     status: {
-      type: Boolean,
+      type: String,
       required: true,
-      default: false
+      default: 'FALSE'
     }
   }, {
     timestamps: true
