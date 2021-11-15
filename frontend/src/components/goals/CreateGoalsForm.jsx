@@ -49,8 +49,8 @@ const mSTP = (state) => {
   };
 };
 
-const mDTP = (dispatch) => {
-  addGoal: (goal) => dispatch(createGoal(goal));
-};
+const mDTP = (dispatch) => ({
+  addGoal: (goal) => dispatch(createGoal(goal)),
+});
 
 export default connect(mSTP, mDTP)(Goals);
