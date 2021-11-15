@@ -1,19 +1,16 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 
-export const LoginForm = ({ login }) => {
+export const LoginForm = ({ errors, login }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const { register, formState: { errors }, handleSubmit } = useForm({
-    reValidateMode: 'onSubmit',
-    shouldFocusError: false
-  });
-
-  const onSubmit = (data) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const user = {
-      email: data.email,
-      password: data.password
+      email,
+      password
     };
     console.log(user);
     // login(user);
@@ -21,14 +18,16 @@ export const LoginForm = ({ login }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit}>
         <div>
           <input type="text"
-            {...register("email")}
+            value={email}
+            onChange={(e) => setEmail(e.currentTarget.value)}
             placeholder="Email"
           />
           <input type="password"
-            {...register("password")}
+            value={password}
+            onChange={(e) => setPassword(e.currentTarget.value)}
             placeholder="Password"
           />
           <button>Login</button>

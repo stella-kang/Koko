@@ -1,21 +1,20 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
 
-export const RegisterForm = ({ signup }) => {
+export const RegisterForm = ({ errors, signup }) => {
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [password2, setPassword2] = useState('');
 
-  const { register, formState: { errors }, handleSubmit } = useForm({
-    reValidateMode: 'onSubmit',
-    shouldFocusError: false
-  });
-
-  const onSubmit = (data) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const user = {
-      email: data.email,
-      username: data.username,
-      password: data.password,
-      password2: data.password2
+      email,
+      username,
+      password,
+      password2
     };
     console.log(user);
     // signup(user);
@@ -23,22 +22,26 @@ export const RegisterForm = ({ signup }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit}>
         <div>
           <input type="text"
-            {...register("email")}
+            value={email}
+            onChange={(e) => setEmail(e.currentTarget.value)}
             placeholder="Email"
           />
           <input type="text"
-            {...register("username")}
+            value={username}
+            onChange={(e) => setUsername(e.currentTarget.value)}
             placeholder="Username"
           />
           <input type="password"
-            {...register("password")}
+            value={password}
+            onChange={(e) => setPassword(e.currentTarget.value)}
             placeholder="Password"
           />
           <input type="password"
-            {...register("password2")}
+            value={password2}
+            onChange={(e) => setPassword2(e.currentTarget.value)}
             placeholder="Confirm Password"
           />
           <button>Register</button>
