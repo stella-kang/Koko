@@ -23,29 +23,44 @@ export const RegisterForm = ({ errors, signup }) => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+
         <div>
-          <input type="text"
+          <label htmlFor="email">Email {errors.email}</label>
+          <input type="text" id="email" spellCheck="false"
             value={email}
             onChange={(e) => setEmail(e.currentTarget.value)}
             placeholder="Email"
           />
-          <input type="text"
+        </div>
+
+        <div>
+          <label htmlFor="username">Username {errors.username}</label>
+          <input type="text" id="username" spellCheck="false"
             value={username}
             onChange={(e) => setUsername(e.currentTarget.value)}
             placeholder="Username"
-          />
-          <input type="password"
+            />
+        </div>
+
+        <div>
+          <label htmlFor="password">Password {errors.password}</label>
+          <input type="password" id="password"
             value={password}
             onChange={(e) => setPassword(e.currentTarget.value)}
             placeholder="Password"
-          />
-          <input type="password"
+            />
+        </div>
+
+        <div>
+          <label htmlFor="password2">Confirm Password {errors.password2}</label>
+          <input type="password" id="password2"
             value={password2}
             onChange={(e) => setPassword2(e.currentTarget.value)}
             placeholder="Confirm Password"
-          />
-          <button>Register</button>
+            />
         </div>
+
+        <button>Register</button>
       </form>
     </div>
   )
