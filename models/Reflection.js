@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 const ReflectionSchema = new Schema(
   {
+    user: {
+      type:  Schema.Types.ObjectId,
+      ref: 'users'
+    },
     entry: {
       type: String,
       required: true

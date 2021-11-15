@@ -6,7 +6,7 @@ module.exports = function validateReflectionInput(reflection) {
 
   reflection.entry = validText(reflection.entry) ? reflection.entry : '';
 
-  if (!Validator.isEmpty(reflection.entry)) {
+  if (Validator.isEmpty(reflection.entry)) {
     errors.entry = 'Entry is required'
   }
 

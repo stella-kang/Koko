@@ -6,6 +6,7 @@ const passport = require("passport");
 const db = require("./config/keys").mongoURI;
 
 const users = require("./routes/api/users");
+const reflections = require("./routes/api/reflections");
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/api/users', users);
+app.use('/api/users/:userId/reflections', reflections)
 
 const port = process.env.PORT || 5000;
 
