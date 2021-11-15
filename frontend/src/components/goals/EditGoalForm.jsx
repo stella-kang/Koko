@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { createGoal } from '../../actions/goal_actions';
+import { updateGoal, requestGoal } from '../../actions/goal_actions';
 
-const Goals = ({ username, goals, errors, addGoal }) => {
+const EditGoalForm = ({ username, goal, errors, updateGoal, requestGoal }) => {
   const [enteredTextGoal, setEnteredTextGoal] = useState('');
   const [enteredDateGoal, setEnteredDateGoal] = useState('');
+
+  useEffect(() => {
+    requestGoal(goal.id);
+  }, [requestGoal, goal.id]);
 
   const goalTextInputHandler = (e) => {
     setEnteredTextGoal(e.target.value);
@@ -17,15 +21,16 @@ const Goals = ({ username, goals, errors, addGoal }) => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
-    addGoal({
+    updateGoal({
       goal: enteredTextGoal,
       date: enteredDateGoal,
     });
   };
 
+  if (!goal) return null;
   return (
     <div>
-      <h1>Hello, {username}, do you have any goals to tell Koko?</h1>
+      <h1>Edit this goal</h1>
       <form onSubmit={formSubmitHandler}>
         <label>
           Current Goal
@@ -35,7 +40,7 @@ const Goals = ({ username, goals, errors, addGoal }) => {
           When do you envision to complete it?
           <input type='date' onChange={goalDateInputHandler} />
         </label>
-        <button>Add Goal</button>
+        <button>Edit Goal</button>
       </form>
     </div>
   );
@@ -45,12 +50,13 @@ const mSTP = (state) => {
   return {
     errors: state.errors.goals,
     username: state.session.username,
-    goals: state.entities.goals,
+    goal: state.entities.goal,
   };
 };
 
-const mDTP = (dispatch) => {
-  addGoal: (goal) => dispatch(createGoal(goal));
-};
+const mDTP = (dispatch) => ({
+  editGoal: (goal) => dispatch(updateGoal(goal)),
+  requestGoal: (goalId) => dispatch(requestGoal(goalId)),
+});
 
-export default connect(mSTP, mDTP)(Goals);
+export default connect(mSTP, mDTP)(EditGoalForm);
