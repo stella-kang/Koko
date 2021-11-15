@@ -1,9 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
+import { signup } from '../../actions/session_actions';
 
-export const LoginForm = ({ login }) => {
+export const RegisterForm = ({ signup }) => {
 
   const { register, formState: { errors }, handleSubmit } = useForm({
     reValidateMode: 'onSubmit',
@@ -13,10 +13,12 @@ export const LoginForm = ({ login }) => {
   const onSubmit = (data) => {
     const user = {
       email: data.email,
-      password: data.password
+      username: data.username,
+      password: data.password,
+      password2: data.password2
     };
     console.log(user);
-    // login(user);
+    // signup(user);
   }
 
   return (
@@ -27,11 +29,19 @@ export const LoginForm = ({ login }) => {
             {...register("email")}
             placeholder="Email"
           />
+          <input type="text"
+            {...register("username")}
+            placeholder="Username"
+          />
           <input type="password"
             {...register("password")}
             placeholder="Password"
           />
-          <button>Login</button>
+          <input type="password"
+            {...register("password2")}
+            placeholder="Confirm Password"
+          />
+          <button>Register</button>
         </div>
       </form>
     </div>
@@ -43,7 +53,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  login
+  signup
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm)
