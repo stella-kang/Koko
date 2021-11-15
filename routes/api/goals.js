@@ -5,16 +5,23 @@ const passport = require('passport');
 const Goal = require('../../models/Goal');
 const validateGoal = require('../../validation/goal');
 
-router.get('/users/:userId', (req, res) => {
-  Goal.find({ user: req.params.userId })
-    .sort({ date: -1 })
-    .then(goals => res.json(goals))
-    .catch(err => res.status(404).json({ nogoalsfound: 'No goals found for this user'}));
+router.get('/users/:userId',
+  async (req, res) => {
+    try {
+      const goals = await Goal.find({ user: req.params.userId })
+        .sort({ createdAt: 1 })
+
+      res.json(goals);
+
+    } catch {
+      res.status(404);
+      res.json({ error: "No goals yet!" });
+    }
 });
 
 router.post('/users/:userId',
   passport.authenticate('jwt', { session: false }),
-  (req, res) => {
+  async (req, res) => {
     const { errors, isValid } = validateGoal(req.body);
 
     if (!isValid) {
@@ -30,9 +37,8 @@ router.post('/users/:userId',
       }
     );
 
-    newGoal
-      .save()
-      .then(goal => res.json(goal))
+    await newGoal.save();
+    res.json(newGoal);
   }
 );
 
@@ -40,15 +46,20 @@ router.patch('/:goalId',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
 
-    const editedGoal = await Goal.findOne({ goal: req.params.goalId })
+    try {
+      const editedGoal = await Goal.findOne({ goal: req.params.goalId })
 
-    editedGoal.description = req.body.description;
-    editedGoal.dueDate = req.body.dueDate;
-    editedGoal.status = req.body.status;
+      editedGoal.description = req.body.description;
+      editedGoal.dueDate = req.body.dueDate;
+      editedGoal.status = req.body.status;
 
-    editedGoal
-      .save()
-      .then(goal => res.json(goal))
+      await editedGoal.save();
+      res.json(editedGoal);
+
+    } catch {
+      res.status(404);
+      res.send({ error: "Goal doesn't exist!" });
+    }
   }
 );
 

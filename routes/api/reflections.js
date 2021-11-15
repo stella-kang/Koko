@@ -5,16 +5,23 @@ const passport = require('passport');
 const Reflection = require('../../models/Reflection');
 const validateReflection = require('../../validation/reflection');
 
-router.get('/users/:userId', (req, res) => {
-  Reflection.find({ user: req.params.userId })
-    .sort({ date: -1 })
-    .then(reflections => res.json(reflections))
-    .catch(err => res.status(404).json({ noreflectionsfound: 'No reflections found for this user'}));
+router.get('/users/:userId',
+  async (req, res) => {
+    try {
+      const reflections = await Reflection.find({ user: req.params.userId })
+        .sort({ createdAt: 1 })
+
+      res.json(reflections);
+
+    } catch {
+      res.status(404);
+      res.json({ error: "No reflections yet!" });
+    }
 });
 
 router.post('/users/:userId',
   passport.authenticate('jwt', { session: false }),
-  (req, res) => {
+  async (req, res) => {
     const { errors, isValid } = validateReflection(req.body);
 
     if (!isValid) {
@@ -29,9 +36,8 @@ router.post('/users/:userId',
       }
     );
 
-    newReflection
-      .save()
-      .then(reflection => res.json(reflection))
+    await newReflection.save();
+    res.json(newReflection);
   }
 );
 
@@ -39,12 +45,29 @@ router.patch('/:reflectionId',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
 
-    const editedReflection = await Reflection.findOne({ reflection: req.params.reflectionId })
+    try {
+      const editedReflection = await Reflection.findOne({ reflection: req.params.reflectionId })
 
-    editedReflection.entry = req.body.entry;
+      editedReflection.entry = req.body.entry;
 
-    editedReflection
-      .save()
+      await editedReflection.save();
+      res.json(editedReflection);
+
+    } catch {
+      res.status(404);
+      res.json({ error: "Reflection doesn't exist!" });
+    }
+  }
+);
+
+router.delete('/:reflectionId',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+
+    const deletedReflection = await Reflection.findOne({ reflection: req.params.reflectionId })
+
+    deletedReflection
+      .remove()
       .then(reflection => res.json(reflection))
   }
 );

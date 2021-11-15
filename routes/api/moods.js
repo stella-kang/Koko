@@ -7,7 +7,7 @@ const validateMood = require('../../validation/mood');
 
 router.post('/users/:userId',
   passport.authenticate('jwt', { session: false }),
-  (req, res) => {
+  async (req, res) => {
     const { errors, isValid } = validateMood(req.body);
 
     if (!isValid) {
@@ -21,9 +21,8 @@ router.post('/users/:userId',
       }
     );
 
-    newMood
-      .save()
-      .then(mood => res.json(mood))
+    await newMood.save();
+    res.json(newMood);
   }
 );
 
