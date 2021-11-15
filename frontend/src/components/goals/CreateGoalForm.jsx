@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createGoal } from '../../actions/goal_actions';
 
-const Goals = ({ username, goals, errors, addGoal }) => {
+const CreateGoalForm = ({ username, goals, errors, addGoal }) => {
   const [enteredTextGoal, setEnteredTextGoal] = useState('');
   const [enteredDateGoal, setEnteredDateGoal] = useState('');
 
@@ -45,7 +45,7 @@ const mSTP = (state) => {
   return {
     errors: state.errors.goals,
     username: state.session.username,
-    goals: state.entities.goals,
+    // goals: state.entities.goals,
   };
 };
 
@@ -53,4 +53,4 @@ const mDTP = (dispatch) => ({
   addGoal: (goal) => dispatch(createGoal(goal)),
 });
 
-export default connect(mSTP, mDTP)(Goals);
+export default connect(mSTP, mDTP)(CreateGoalForm);

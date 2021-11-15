@@ -1,7 +1,7 @@
 import { connect } from 'mongoose';
 import React, { useEffect } from 'react';
 import { requestGoals, deleteGoal } from '../../actions/goal_actions';
-import CreateGoalsForm from './CreateGoalsForm';
+import CreateGoalForm from './CreateGoalForm';
 import GoalItem from './GoalItem';
 
 export const GoalsIndex = ({ allGoals, requestGoals, deleteGoal }) => {
@@ -24,7 +24,7 @@ export const GoalsIndex = ({ allGoals, requestGoals, deleteGoal }) => {
 
   return (
     <div>
-      <CreateGoalsForm />
+      <CreateGoalForm />
       <ul>{listAllGoals}</ul>
     </div>
   );
