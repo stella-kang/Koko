@@ -1,8 +1,12 @@
 import { combineReducers } from "redux";
-import mood from './mood_reducer'
+import moods from './moods_reducer';
+import reflections from './reflections_reducer';
+import goals from './goals_reducer';
 
 const entitiesReducer = combineReducers({
-  mood
+  moods,
+  reflections,
+  goals
 })
 
 export default entitiesReducer;

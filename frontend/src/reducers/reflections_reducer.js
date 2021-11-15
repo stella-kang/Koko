@@ -3,7 +3,7 @@ import {
   RECEIVE_REFLECTION
  } from '../actions/reflections_actions';
 
-const ReflectionsReducer = (state = {}, action) => {
+const ReflectionReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_REFLECTIONS:
       return action.reflections;
@@ -14,4 +14,4 @@ const ReflectionsReducer = (state = {}, action) => {
   }
 };
 
-export default ReflectionsReducer
+export default ReflectionReducer
