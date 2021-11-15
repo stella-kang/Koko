@@ -45,6 +45,11 @@ router.post('/users/:userId',
 router.patch('/:reflectionId',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
+    const { errors, isValid } = validateReflection(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    };
 
     try {
       const editedReflection = await Reflection.findById(req.params.reflectionId)
@@ -66,7 +71,6 @@ router.delete('/:reflectionId',
   async (req, res) => {
     try {
       await Reflection.deleteOne({ _id: req.params.reflectionId });
-      res.status(204);
       res.json({ success: "Successfully deleted!" });
     } catch {
       res.status(404);

@@ -105,11 +105,49 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.get('/history/:date?', async (req, res) => {
+router.get('/:userId/history/:date', async (req, res) => {
+  const startQueryDate = new Date(req.params.date);
+  const endQueryDate = new Date(req.params.date);
 
-  const mood = await Mood.find()
-  const goal = await Goal.find().sort({ createdAt: 1 })
-  const reflection = await Reflection.find().sort({ createdAt: 1 })
+  endQueryDate.setDate(endQueryDate.getDate() + 1);
+
+  console.log(startQueryDate);
+  console.log(endQueryDate);
+
+  const mood = await Mood.find(
+    {
+      user: req.params.userId,
+      createdAt:
+        {
+          $gte: startQueryDate,
+          $lt: endQueryDate
+        }
+    }
+  )
+
+  const goal = await Goal.find(
+    {
+      user: req.params.userId,
+      createdAt:
+        {
+          $gte: startQueryDate,
+          $lt: endQueryDate
+        }
+      }
+  )
+  .sort({ createdAt: 1 })
+
+  const reflection = await Reflection.find(
+    {
+      user: req.params.userId,
+      createdAt:
+      {
+        $gte: startQueryDate,
+        $lt: endQueryDate
+      }
+    }
+  )
+  .sort({ createdAt: 1 })
 
   res.json(
     {
