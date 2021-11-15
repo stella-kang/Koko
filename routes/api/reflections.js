@@ -33,6 +33,20 @@ router.post('/users/:userId',
       .save()
       .then(reflection => res.json(reflection))
   }
-)
+);
+
+router.patch('/:reflectionId',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+
+    const editedReflection = await Reflection.findOne({ reflection: req.params.reflectionId })
+
+    editedReflection.entry = req.body.entry;
+
+    editedReflection
+      .save()
+      .then(reflection => res.json(reflection))
+  }
+);
 
 module.exports = router;

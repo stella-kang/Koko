@@ -25,6 +25,20 @@ router.post('/users/:userId',
       .save()
       .then(mood => res.json(mood))
   }
-)
+);
+
+router.patch('/:moodId',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+
+    const editedMood = await Mood.findOne({ mood: req.params.moodId })
+
+    editedMood.mood = req.body.mood;
+
+    editedMood
+      .save()
+      .then(mood => res.json(mood))
+  }
+);
 
 module.exports = router;
