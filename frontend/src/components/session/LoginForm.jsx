@@ -12,8 +12,7 @@ export const LoginForm = ({ errors, login }) => {
       email,
       password
     };
-    console.log(user);
-    // login(user);
+    login(user);
   }
 
   return (

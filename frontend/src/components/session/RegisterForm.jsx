@@ -16,8 +16,7 @@ export const RegisterForm = ({ errors, signup }) => {
       password,
       password2
     };
-    console.log(user);
-    // signup(user);
+    signup(user);
   }
 
   return (
