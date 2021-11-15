@@ -7,6 +7,7 @@ const validateGoal = require('../../validation/goal');
 
 router.get('/users/:userId',
   async (req, res) => {
+
     try {
       const goals = await Goal.find({ user: req.params.userId })
         .sort({ createdAt: 1 })
@@ -47,11 +48,11 @@ router.patch('/:goalId',
   async (req, res) => {
 
     try {
-      const editedGoal = await Goal.findOne({ goal: req.params.goalId })
+      const editedGoal = await Goal.findById(req.params.goalId)
 
-      editedGoal.description = req.body.description;
-      editedGoal.dueDate = req.body.dueDate;
-      editedGoal.status = req.body.status;
+      if (req.body.description) editedGoal.description = req.body.description;
+      if (req.body.dueDate) editedGoal.dueDate = req.body.dueDate;
+      if (req.body.status) editedGoal.status = req.body.status;
 
       await editedGoal.save();
       res.json(editedGoal);
@@ -59,6 +60,20 @@ router.patch('/:goalId',
     } catch {
       res.status(404);
       res.send({ error: "Goal doesn't exist!" });
+    }
+  }
+);
+
+router.delete('/:goalId',
+  passport.authenticate('jwt', { session: false }),
+  async (req, res) => {
+    try {
+      await Goal.deleteOne({ _id: req.params.goalId });
+      res.status(204);
+      res.json({ success: "Successfully deleted!" });
+    } catch {
+      res.status(404);
+      res.json({ error: "Goal doesn't exist!" });
     }
   }
 );

@@ -7,6 +7,7 @@ const validateReflection = require('../../validation/reflection');
 
 router.get('/users/:userId',
   async (req, res) => {
+
     try {
       const reflections = await Reflection.find({ user: req.params.userId })
         .sort({ createdAt: 1 })
@@ -46,9 +47,9 @@ router.patch('/:reflectionId',
   async (req, res) => {
 
     try {
-      const editedReflection = await Reflection.findOne({ reflection: req.params.reflectionId })
+      const editedReflection = await Reflection.findById(req.params.reflectionId)
 
-      editedReflection.entry = req.body.entry;
+      if (req.body.entry) editedReflection.entry = req.body.entry;
 
       await editedReflection.save();
       res.json(editedReflection);
@@ -63,12 +64,14 @@ router.patch('/:reflectionId',
 router.delete('/:reflectionId',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
-
-    const deletedReflection = await Reflection.findOne({ reflection: req.params.reflectionId })
-
-    deletedReflection
-      .remove()
-      .then(reflection => res.json(reflection))
+    try {
+      await Reflection.deleteOne({ _id: req.params.reflectionId });
+      res.status(204);
+      res.json({ success: "Successfully deleted!" });
+    } catch {
+      res.status(404);
+      res.json({ error: "Reflection doesn't exist!" });
+    }
   }
 );
 

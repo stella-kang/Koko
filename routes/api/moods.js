@@ -30,13 +30,17 @@ router.patch('/:moodId',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
 
-    const editedMood = await Mood.findOne({ mood: req.params.moodId })
+    try {
+      const editedMood = await Mood.findById(req.params.moodId)
+      if (req.body.mood) editedMood.mood = req.body.mood;
 
-    editedMood.mood = req.body.mood;
+      await editedMood.save();
+      res.json(editedMood);
 
-    editedMood
-      .save()
-      .then(mood => res.json(mood))
+    } catch {
+      res.status(404);
+      res.send({ error: "Mood doesn't exist!" });
+    }
   }
 );
 
