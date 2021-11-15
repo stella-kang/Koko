@@ -5,6 +5,9 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const keys = require('../../config/keys');
 const User = require('../../models/User');
+const Reflection = require('../../models/Reflection');
+const Goal = require('../../models/Goal');
+const Mood = require('../../models/Mood');
 
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
@@ -100,6 +103,17 @@ router.post('/login', (req, res) => {
       }
     });
   });
+});
+
+router.get(':userId/history/', (req, res) => {
+  Mood.find()
+    .then(mood => res.json(mood))
+  Goal.find()
+    .sort({ createdAt: 1 })
+    .then(goal => res.json(goal))
+  Reflection.find()
+    .sort({ createdAt: 1 })
+    .then(reflection => res.json(reflection))
 });
 
 module.exports = router;
