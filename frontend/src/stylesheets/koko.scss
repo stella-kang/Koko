@@ -53,9 +53,9 @@
     position: absolute;
     right: 80px;
     bottom: 0;
-    animation: body 2s infinite;
+    animation: body 3s infinite;
     transform-origin: bottom right;
-    border-radius: 100px 100px 0 0;
+    border-radius: 100px 100px 0 10px;
 
     &::before {
       position: absolute;
@@ -105,15 +105,30 @@
     background-color: $orange;
     height: 25px;
     width: 100px;
-    right: 250px;
+    right: 280px;
     bottom: 0;
     position: absolute;
     border-radius: 20px 0 0 20px;
+    animation: tail 10s infinite;
+    transform-origin: right;
   }
 }
 
 @keyframes body {
   50% {
-    transform: scale(0.85, 1);
+    transform: scale(1, 0.95);
   }
+}
+
+@keyframes tail {
+  10% { transform: rotate(0) }
+  20% { transform: rotate(20deg) }
+  30% { transform: rotate(-5deg) }
+  40% { transform: rotate(15deg) }
+  50% { transform: rotate(-2deg) }
+  60% { transform: rotate(10deg) }
+  70% { transform: rotate(-5deg) }
+  80% { transform: rotate(20deg) }
+  90% { transform: rotate(0) }
+  100% { transform: rotate(10) }
 }
