@@ -7,7 +7,7 @@ const validateMood = require('../../validation/mood');
 
 router.post('/users/:userId',
   passport.authenticate('jwt', { session: false }),
-  (req, res) => {
+  async (req, res) => {
     const { errors, isValid } = validateMood(req.body);
 
     if (!isValid) {
@@ -21,9 +21,8 @@ router.post('/users/:userId',
       }
     );
 
-    newMood
-      .save()
-      .then(mood => res.json(mood))
+    await newMood.save();
+    res.json(newMood);
   }
 );
 
@@ -31,13 +30,17 @@ router.patch('/:moodId',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
 
-    const editedMood = await Mood.findOne({ mood: req.params.moodId })
+    try {
+      const editedMood = await Mood.findById(req.params.moodId)
+      if (req.body.mood) editedMood.mood = req.body.mood;
 
-    editedMood.mood = req.body.mood;
+      await editedMood.save();
+      res.json(editedMood);
 
-    editedMood
-      .save()
-      .then(mood => res.json(mood))
+    } catch {
+      res.status(404);
+      res.send({ error: "Mood doesn't exist!" });
+    }
   }
 );
 
