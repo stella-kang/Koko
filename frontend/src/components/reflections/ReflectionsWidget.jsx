@@ -11,7 +11,7 @@ export const ReflectionsWidget = ({ currentUser, reflections, fetchReflections }
 
   return (
     <div>
-      {reflections.map(reflection => <div key={reflection.id}>{ reflection.entry }</div>)}
+      {reflections.map(reflection => <div key={reflection._id}>{ reflection.entry }</div>)}
     </div>
   )
 }
