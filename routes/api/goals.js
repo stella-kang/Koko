@@ -46,6 +46,11 @@ router.post('/users/:userId',
 router.patch('/:goalId',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
+    const { errors, isValid } = validateGoal(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    };
 
     try {
       const editedGoal = await Goal.findById(req.params.goalId)
@@ -59,7 +64,7 @@ router.patch('/:goalId',
 
     } catch {
       res.status(404);
-      res.send({ error: "Goal doesn't exist!" });
+      res.json({ error: "Goal doesn't exist!" });
     }
   }
 );
@@ -69,10 +74,9 @@ router.delete('/:goalId',
   async (req, res) => {
     try {
       await Goal.deleteOne({ _id: req.params.goalId });
-      res.status(204);
       res.json({ success: "Successfully deleted!" });
     } catch {
-      res.status(404);
+      res.status(404)
       res.json({ error: "Goal doesn't exist!" });
     }
   }
