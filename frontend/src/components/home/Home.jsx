@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ReflectionsWidget from '../reflections/ReflectionsWidget';
 
 export const Home = (props) => {
   return (
     <div>
       <h1>This is home</h1>
+
+      <ReflectionsWidget />
     </div>
   )
 }

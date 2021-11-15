@@ -1,17 +1,24 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect } from 'react';
+import Slider from 'react-slick';
+import { connect } from 'react-redux';
 import { fetchReflections } from '../../actions/reflections_actions';
 
-export const ReflectionsWidget = (props) => {
+export const ReflectionsWidget = ({ currentUser, reflections, fetchReflections }) => {
+
+  useEffect(() => {
+    fetchReflections(currentUser.id);
+  }, [fetchReflections, currentUser]);
+
   return (
     <div>
-
+      {reflections.map(reflection => <div key={reflection.id}>{ reflection.entry }</div>)}
     </div>
   )
 }
 
 const mapStateToProps = (state) => ({
-  reflections: state.entities.reflections
+  currentUser: state.session.user,
+  reflections: Object.values(state.entities.reflections)
 })
 
 const mapDispatchToProps = {
