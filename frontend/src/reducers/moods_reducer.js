@@ -2,7 +2,7 @@ import { RECEIVE_MOOD, CLEAR_MOOD } from "../actions/mood_actions";
 
 const _defaultMood = null;
 
-const moodReducer = (state = _defaultMood, action) => {
+const MoodsReducer = (state = _defaultMood, action) => {
   Object.freeze(state);
 
   switch(action.type) {
@@ -15,4 +15,4 @@ const moodReducer = (state = _defaultMood, action) => {
   }
 }
 
-export default moodReducer;
+export default MoodsReducer;
