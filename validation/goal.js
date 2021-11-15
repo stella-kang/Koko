@@ -15,7 +15,7 @@ module.exports = function validateGoal(data) {
     errors.description = 'Description field is required';
   }
 
-  if (typeof data.status !== 'boolean') {
+  if (!(data.status === 'TRUE' || data.status === 'FALSE')) {
     errors.status = 'Status must be either true/false';
   }
 
