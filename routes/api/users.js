@@ -105,15 +105,19 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.get(':userId/history/', (req, res) => {
-  Mood.find()
-    .then(mood => res.json(mood))
-  Goal.find()
-    .sort({ createdAt: 1 })
-    .then(goal => res.json(goal))
-  Reflection.find()
-    .sort({ createdAt: 1 })
-    .then(reflection => res.json(reflection))
+router.get('/history/:date?', async (req, res) => {
+
+  const mood = await Mood.find()
+  const goal = await Goal.find().sort({ createdAt: 1 })
+  const reflection = await Reflection.find().sort({ createdAt: 1 })
+
+  res.json(
+    {
+      mood,
+      goal,
+      reflection
+    }
+  )
 });
 
 module.exports = router;
