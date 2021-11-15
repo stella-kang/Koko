@@ -8,7 +8,7 @@ const EditGoalForm = ({ username, goal, errors, updateGoal, requestGoal }) => {
 
   useEffect(() => {
     requestGoal(goal.id);
-  }, [requestGoal]);
+  }, [requestGoal, goal.id]);
 
   const goalTextInputHandler = (e) => {
     setEnteredTextGoal(e.target.value);
