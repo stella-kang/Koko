@@ -6,6 +6,10 @@ module.exports = function validateReflection(data) {
 
   data.entry = validText(data.entry) ? data.entry : '';
 
+  if (!Validator.isLength(data.entry, { max: 250 })) {
+    errors.entry = 'Entry is too long';
+  }
+
   if (Validator.isEmpty(data.entry)) {
     errors.entry = 'Entry is required'
   }

@@ -10,6 +10,10 @@ const ReflectionSchema = new Schema(
     entry: {
       type: String,
       required: true
+    },
+    prompt: {
+      type: String,
+      required: false
     }
   }, {
     timestamps: true
