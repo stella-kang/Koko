@@ -1,0 +1,134 @@
+@import "./colors.scss";
+
+.koko-container {
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  position: relative
+}
+
+.koko-cat {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 0 80px 80px 0;
+  background-color: $orange;
+  top: 50%;
+  right: 20%;
+
+  .ear {
+    height: 20px;
+    width: 20px;
+    background-color: $orange;
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    border-top-left-radius: 10px;
+    box-shadow: 30px 0 $orange;
+  }
+
+  .eye, .eye:before {
+    position: absolute;
+    border: 1px solid $black;
+    height: 10px;
+    width: 15px;
+    border-radius: 15px 15px 0px 0px;
+    border-bottom: none;
+  }
+
+  .eye {
+    top: 30px;
+    left: 20px;
+  }
+
+  .eye:before {
+    content: "";
+    left: 40px;
+  }
+
+  .body {
+    background-color: $orange;
+    height: 150px;
+    width: 220px;
+    position: absolute;
+    right: 80px;
+    bottom: 0;
+    animation: body 3s infinite;
+    transform-origin: bottom right;
+    border-radius: 100px 100px 0 10px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      background-color: $cream;
+      height: 15px;
+      width: 50px;
+      border-radius: 10px;
+      bottom: 0;
+      right: 130px;
+      box-shadow: 90px 0 $cream;
+    }
+  }
+
+  .nose {
+    background-color: $cream;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    position: absolute;
+    top: 55px;
+    left: 35px;
+    box-shadow: 15px 0 $cream;
+
+    &::before {
+      content: "";
+      width: 15px;
+      height: 10px;
+      position: absolute;
+      background-color: $cream;
+      left: 5px;
+    }
+
+    &::after {
+      content: "";
+      width: 0;
+      height: 0;
+      border-top: 8px solid #F2D4D7;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      position: absolute;
+      left: 10px;
+    }
+  }
+
+  .tail {
+    background-color: $orange;
+    height: 25px;
+    width: 100px;
+    right: 280px;
+    bottom: 0;
+    position: absolute;
+    border-radius: 20px 0 0 20px;
+    animation: tail 10s infinite;
+    transform-origin: right;
+  }
+}
+
+@keyframes body {
+  50% {
+    transform: scale(1, 0.95);
+  }
+}
+
+@keyframes tail {
+  10% { transform: rotate(0) }
+  20% { transform: rotate(20deg) }
+  30% { transform: rotate(-5deg) }
+  40% { transform: rotate(15deg) }
+  50% { transform: rotate(-2deg) }
+  60% { transform: rotate(10deg) }
+  70% { transform: rotate(-5deg) }
+  80% { transform: rotate(20deg) }
+  90% { transform: rotate(0) }
+  100% { transform: rotate(10) }
+}
