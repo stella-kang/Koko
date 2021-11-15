@@ -14,6 +14,11 @@ const UserSchema = new Schema(
     password: {
       type: String,
       required: true,
+    },
+    buddyStatus: {
+      type: Number,
+      required: true,
+      default: 0
     }
   }, {
     timestamps: true
