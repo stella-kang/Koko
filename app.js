@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/api/users', users);
-app.use('/api/users/:userId/reflections', reflections)
+app.use('/api/reflections', reflections)
 
 const port = process.env.PORT || 5000;
 

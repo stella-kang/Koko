@@ -5,14 +5,14 @@ const passport = require('passport');
 const Reflection = require('../../models/Reflection');
 const validateReflectionInput = require('../../validation/reflection');
 
-router.get('/', (req, res) => {
-  Reflection.find()
-      .sort({ createdAt: 1 })
-      .then(reflections => res.json(reflections))
-      .catch(err => res.status(404).json({ noreflectionsfound: 'No reflections found' }));
-});
+// router.get('/', (req, res) => {
+//   Reflection.find()
+//       .sort({ createdAt: 1 })
+//       .then(reflections => res.json(reflections))
+//       .catch(err => res.status(404).json({ noreflectionsfound: 'No reflections found' }));
+// });
 
-router.post('/',
+router.post('/users/:userId',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateReflectionInput(req.body);
