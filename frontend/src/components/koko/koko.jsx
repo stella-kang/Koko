@@ -7,7 +7,9 @@ const Koko = (props) => {
       <div className="eye"></div>
       <div className="mouth"></div>
       <div className="nose"></div>
-      <div className="tail"></div>
+      <div className="tail">
+        <div className="tail-segment"></div>
+      </div>
       <div className="body"></div>
     </div>
   </div>
