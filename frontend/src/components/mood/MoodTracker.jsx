@@ -1,15 +1,13 @@
-import { connect } from 'react-redux';
 import React from 'react';
-import { receiveMood } from '../../actions/mood_actions';
+import { createMood, editMood } from '../../actions/mood_actions';
 
 const mSTP = (state, ownProps) => ({
   currentMood: state.entitites.mood,
-  currentUserId: state.session.currentUserId
+  currentUserId: state.session.currentUserId,
 })
 
 const mDTP = (dispatch, ownProps) => ({
-  addMood: (mood) => dispatch(addMood(mood)),
-  deleteMood: (moodId) => dispatch(deleteMood(moodId)),
+  createMood: (mood) => dispatch(createMood(mood)),
   editMood: (mood) => dispatch(editMood(mood))
 })
 
@@ -17,26 +15,37 @@ export default connect(mSTP, mDTP)(MoodTracker);
 
 const MoodTracker = (props) => {
   const [mood, setMood] = useState(null);
+  const [edit, setEdit] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    props.addMood({
-      mood: mood,
-      user_id: props.currentUserId
-    })
+    if (edit) {
+      props.editMood({
+        mood: mood,
+        user_id: props.currentUserId,
+        id: props.currentMood.id
+      })
+
+      setEdit(false);
+    } else {
+      props.createMood({
+        mood: mood,
+        user_id: props.currentUserId
+      })
+    }
   }
 
-  const handleDelete = (e) => {
-    props.deleteMood(props.mood.id);
+  const handleEdit = (e) => {
+    setEdit(true);
   }
 
   const clickSubmit = (e) => {
-    setMood(e.target.value)
+    setMood(e.target.value);
     document.getElementById("mood-form-button").click();
   }
 
-  if (props.currentMood) {
+  if (!props.currentMood || edit) {
     return <div className="mood-tracker">
       <div>How are you feeling today?</div>
 
@@ -63,7 +72,9 @@ const MoodTracker = (props) => {
     <div className="mood-display">
       <div>Today's Mood:</div>
       {props.currentMood.mood === 5 ? <div>&#128513;</div> : props.currentMood.mood === 4 ? <div>&#128522;</div> : props.currentMood.mood === 3 ? <div>&#128528;</div> : props.currentMood.mood === 2 ? < div >&#128533;</div> : <div>&#128542;</div>}
-      <button onClick={handleDelete}>Edit Mood</button>
+      <button onClick={handleEdit}>Edit Mood</button>
     </div>
   }
 }
+
+export default MoodTracker;
