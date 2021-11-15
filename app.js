@@ -5,9 +5,10 @@ const passport = require("passport");
 
 const db = require("./config/keys").mongoURI;
 
-const users = require("./routes/api/users");
-const reflections = require("./routes/api/reflections");
+const users = require('./routes/api/users');
+const reflections = require('./routes/api/reflections');
 const goals = require('./routes/api/goals');
+const moods = require('./routes/api/moods');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(bodyParser.json());
 app.use('/api/users', users);
 app.use('/api/reflections', reflections)
 app.use('/api/goals', goals)
+app.use('/api/moods', moods);
 
 const port = process.env.PORT || 5000;
 
