@@ -12,17 +12,17 @@ export const clearMood = () => ({
   type: CLEAR_MOOD
 })
 
-export const createMood = mood => {
+export const createMood = mood => dispatch => (
   MoodApiUtil.createMood(mood)
-    .then((savedMood) => dispatch(receiveMood(savedMood)));
-}
+    .then((savedMood) => dispatch(receiveMood(savedMood)))
+)
 
-export const editMood = mood => {
+export const editMood = mood => dispatch => (
   MoodApiUtil.editMood(mood)
-    .then((newMood) => dispatch(receiveMood(newMood)));
-}
+    .then((newMood) => dispatch(receiveMood(newMood)))
+)
 
-export const fetchMood = userId => {
+export const fetchMood = userId => dispatch => (
   MoodApiUtil.fetchMood(userId)
-    .then(mood => dispatch(receiveMood(mood)));
-}
+    .then(mood => dispatch(receiveMood(mood)))
+)
