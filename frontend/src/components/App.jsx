@@ -1,8 +1,11 @@
+import { Route, Switch } from 'react-router-dom';
+import LoginForm from './session/LoginForm';
+
 const App = () => {
   return (
-    <div className="App">
-      <h1>Hello world</h1>
-    </div>
+    <Switch>
+      <Route exact path='/login' component={LoginForm} />
+    </Switch>
   )
 }
 
