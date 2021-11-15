@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
 const Reflection = require('../../models/Reflection');
-const validateReflectionInput = require('../../validation/reflection');
+const validateReflection = require('../../validation/reflection');
 
 // router.get('/', (req, res) => {
 //   Reflection.find()
@@ -15,7 +15,7 @@ const validateReflectionInput = require('../../validation/reflection');
 router.post('/users/:userId',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    const { errors, isValid } = validateReflectionInput(req.body);
+    const { errors, isValid } = validateReflection(req.body);
 
     if (!isValid) {
       return res.status(400).json(errors);
