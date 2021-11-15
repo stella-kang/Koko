@@ -10,6 +10,7 @@ const Root = ({ store }) => {
       <HashRouter>
         <App />
       </HashRouter>
+      <Koko />
     </Provider>
   )
 }
