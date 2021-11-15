@@ -5,5 +5,9 @@ export const createMood = (mood) => {
 }
 
 export const editMood = (mood) => {
+  return axios.patch(`/api/moods/${mood.id}`, mood)
+}
 
+export const fetchMood = (userId) => {
+  return axios.get(`/api/moods/user/${userId}`)
 }

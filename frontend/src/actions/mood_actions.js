@@ -18,4 +18,11 @@ export const createMood = mood => {
 }
 
 export const editMood = mood => {
+  MoodApiUtil.editMood(mood)
+    .then((newMood) => dispatch(receiveMood(newMood)));
+}
+
+export const fetchMood = userId => {
+  MoodApiUtil.fetchMood(userId)
+    .then(mood => dispatch(receiveMood(mood)));
 }

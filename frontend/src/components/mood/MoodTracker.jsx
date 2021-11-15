@@ -7,6 +7,7 @@ const mSTP = (state, ownProps) => ({
 })
 
 const mDTP = (dispatch, ownProps) => ({
+  fetchMood: () => dispatch(fetchMood(state.session.currentUserId)),
   createMood: (mood) => dispatch(createMood(mood)),
   editMood: (mood) => dispatch(editMood(mood))
 })
@@ -16,6 +17,10 @@ export default connect(mSTP, mDTP)(MoodTracker);
 const MoodTracker = (props) => {
   const [mood, setMood] = useState(null);
   const [edit, setEdit] = useState(false);
+
+  useEffect(() => {
+    props.fetchMood();
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
