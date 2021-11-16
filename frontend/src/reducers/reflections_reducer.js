@@ -10,7 +10,10 @@ const ReflectionReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_REFLECTIONS:
-      return action.reflections.data;
+      for (let reflection of action.reflections) {
+        newState[reflection._id] = reflection;
+      }
+      return newState;
     case RECEIVE_REFLECTION:
       return Object.assign({}, oldState, { [action.reflection.data.id]: action.reflection.data })
     case REMOVE_REFLECTION:

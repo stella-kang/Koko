@@ -26,13 +26,12 @@ export const fetchMoods = userId => dispatch => (
 
 export const createMood = mood => dispatch => (
   MoodApiUtil.createMood(mood)
-    .then(mood => dispatch(receiveMood(mood)))
+    .then(payload => dispatch(receiveMood(payload.data)))
     .catch(err => console.log(err))
 )
 
 export const updateMood = mood => dispatch => (
   MoodApiUtil.updateMood(mood)
-    .then((mood) => dispatch(receiveMood(mood)))
+    .then((payload) => dispatch(receiveMood(payload.data)))
     .catch(err => console.log(err))
 )
-
