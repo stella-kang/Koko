@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchMoods, createMood, updateMood } from '../../actions/mood_actions';
+import { getTodaysMood } from '../../reducers/selectors';
 
 const mSTP = (state) => ({
-  currentMood: Object.values(state.entities.moods)[0],
+  currentMood: getTodaysMood(state),
   currentUserId: state.session.user.id,
 })
 

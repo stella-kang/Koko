@@ -8,11 +8,11 @@ const MoodsReducer = (oldState = {}, action) => {
     case RECEIVE_MOODS:
       newState = { ...oldState }
       for (let mood of action.moods) {
-        newState[mood.id] = mood
+        newState[mood._id] = mood
       }
       return newState;
     case RECEIVE_MOOD:
-      return Object.assign({}, oldState, { [action.mood.id]: action.mood })
+      return Object.assign({}, oldState, { [action.mood._id]: action.mood })
     case CLEAR_MOOD:
       return {};
     default:
