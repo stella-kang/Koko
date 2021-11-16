@@ -1,0 +1,84 @@
+.main-reflection-widget-container {
+  width: 60%;
+  // height: 300px;
+  height: 100%;
+  border-radius: 10px;
+  border: 2px solid $cream;
+  background-color: $blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+}
+
+.journal-carousel-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+  margin: 20px;
+  background-color: $cream;
+  border-radius: 5px;
+  height: 150px;
+  box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+}
+
+.reflection-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  // background-color: $darkblue;
+
+  .date-time {
+    padding: 5px;
+    color: $darkblue;
+    font-size: 24px;
+    // border-radius: 5px;
+    border-bottom: 2px solid transparent;
+
+    &:hover {
+      border-bottom: 2px solid $orange;
+    }
+  }
+}
+
+.edit-btn {
+  background: $orange;
+  padding: 7px 10px;
+  // margin: 5px 5px;
+  border-radius: 5px;
+  color: $cream;
+  cursor: pointer;
+  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+}
+
+.reflection-item-entry {
+  // border: 1px solid red;
+  padding: 0 px 5px;
+  overflow: scroll;
+  height: 100%;
+  overflow-wrap: break-word;
+
+  p {
+    overflow: scroll;
+    color: $darkblue;
+  }
+}
+
+.carousel-btns-container {
+  display: flex;
+  justify-content: space-evenly;
+
+  button {
+    margin: 10px 10px 20px 10px;
+    padding: 8px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    background: $orange;
+    border: 1px solid $darkblue;
+    color: $cream;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+  }
+}
