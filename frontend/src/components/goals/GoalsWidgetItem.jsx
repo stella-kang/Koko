@@ -4,7 +4,9 @@ const GoalsWidgetItem = ({goal, handleButtonClick, openEditForm}) => {
   return (
     <div key={goal._id}>
       <p>{goal.title}</p>
-      <section>{goal.description}</section>
+      <p>{goal.description}</p>
+      <p>{goal.dueDate ? (new Date(goal.dueDate).toDateString()) : ''}</p>
+
       <button onClick={handleButtonClick}>Done?</button>
       <button onClick={() => openEditForm(goal)}>Edit</button>
     </div>

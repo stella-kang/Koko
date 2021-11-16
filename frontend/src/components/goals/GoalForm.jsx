@@ -16,7 +16,7 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, deleteGoal }) => 
   const onSubmit = (data) => {
     const formGoal = {
       description: data.description,
-      date: data.date,
+      dueDate: data.date,
       userId: currentUser.id
     };
     if (goal) formGoal['id'] = goal._id;
