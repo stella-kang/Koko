@@ -4,6 +4,7 @@ import ReflectionsWidget from '../reflections/ReflectionsWidget';
 import CreateReflectionContainer from '../reflections/CreateReflectionContainer';
 import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
 import GoalsWidget from '../goals/GoalsWidget';
+import Koko from '../koko/koko';
 
 export const Home = (props) => {
   const [showCreateReflection, setShowCreateReflection] = useState(false);
@@ -34,6 +35,8 @@ export const Home = (props) => {
   return (
     <div>
       <h1>This is home</h1>
+
+      <Koko />
 
       { displayComponents() }
 
