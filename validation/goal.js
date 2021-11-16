@@ -15,10 +15,6 @@ module.exports = function validateGoal(data) {
     errors.description = 'Description field is required';
   }
 
-  if (!(data.status === 'TRUE' || data.status === 'FALSE')) {
-    errors.status = 'Status must be either true/false';
-  }
-
   if (!Validator.isDate(data.dueDate)) {
     errors.dueDate = 'Due date must be a valid date';
   }

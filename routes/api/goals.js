@@ -32,8 +32,8 @@ router.post('/',
       {
         description: req.body.description,
         dueDate: req.body.dueDate,
-        status: req.body.status,
-        user: req.user.id
+        status: req.body.status || 'false',
+        user: req.body.userId
       }
     );
 
