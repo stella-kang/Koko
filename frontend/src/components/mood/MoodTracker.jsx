@@ -33,10 +33,6 @@ const MoodTracker = ({
 
   useEffect(() => {
     if (changedMood) {
-<<<<<<< HEAD
-=======
-      console.log('submitting');
->>>>>>> 5f98bed (CSS changes to the mood tracker.)
       submitRef.current?.requestSubmit();
       setChangedMood(false);
     }
