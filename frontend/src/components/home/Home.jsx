@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import ReflectionsWidget from '../reflections/ReflectionsWidget';
 import CreateReflectionContainer from '../reflections/CreateReflectionContainer';
 import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
+import GoalsWidget from '../goals/GoalsWidget';
 
 export const Home = (props) => {
   const [showCreateReflection, setShowCreateReflection] = useState(false);
