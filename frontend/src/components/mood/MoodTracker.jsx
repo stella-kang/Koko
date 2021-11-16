@@ -55,7 +55,7 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
   }
 
   const clickSubmit = (e) => {
-    setMood(e.target.value);
+    setMood(e.currentTarget.value);
   }
 
   if (!currentMood || edit) {
@@ -63,20 +63,20 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
       <div>How are you feeling today?</div>
 
       <form onSubmit={handleSubmit} ref={submitRef}>
-        <label onClick={clickSubmit}>&#128542;
-          <input type="radio" name="mood" value="1"></input>
+        <label>&#128542;
+          <input type="radio" name="mood" value="1" onClick={clickSubmit}></input>
         </label>
-        <label onClick={clickSubmit}>&#128533;
-          <input type="radio" name="mood" value="2"></input>
+        <label>&#128533;
+          <input type="radio" name="mood" value="2" onClick={clickSubmit}></input>
         </label>
-        <label onClick={clickSubmit}>&#128528;
-          <input type="radio" name="mood" value="3"></input>
+        <label>&#128528;
+          <input type="radio" name="mood" value="3" onClick={clickSubmit}></input>
         </label>
-        <label onClick={clickSubmit}>&#128522;
-          <input type="radio" name="mood" value="4"></input>
+        <label>&#128522;
+          <input type="radio" name="mood" value="4" onClick={clickSubmit}></input>
         </label>
-        <label onClick={clickSubmit}>&#128513;
-          <input type="radio" name="mood" value="5"></input>
+        <label>&#128513;
+          <input type="radio" name="mood" value="5" onClick={clickSubmit}></input>
         </label>
         {edit ? <button type="button" onClick={cancelEdit}>Cancel</button> : null}
       </form>
