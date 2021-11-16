@@ -5,9 +5,16 @@ $orange: #ee6c4d;
 $black: #293241;
 $cream: #fff9e9;
 
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@100;300;400;700&display=swap');
+// LAYOUT
+@import './stylesheets/base/reset';
+@import './stylesheets/base/_typography';
 
-@import "./stylesheets//reset.scss";
-@import "./stylesheets/koko.scss";
-@import "./stylesheets/calendar.scss";
+// @import './stylesheets/koko.scss';
+// @import './stylesheets/calendar.scss';
+
+@import './stylesheets/layout/layout';
+
+// COMPONENTS
+@import './stylesheets/components/splash';
+@import './stylesheets/components/navbar';
+@import './stylesheets/components/reflections_widget';
