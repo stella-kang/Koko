@@ -1,21 +1,17 @@
 import axios from 'axios';
 
-export const fetchGoals = () => {
-  return axios.get('/api/goals');
+export const fetchGoals = (userId) => {
+  return axios.get(`/api/goals/users/${userId}`);
 };
-
-export const fetchGoal = (goalId) => {
-  return axios.get(`/api/goals/${goalId}`)
-}
 
 export const createGoal = (goal) => {
   return axios.post('/api/goals', goal);
 };
 
 export const updateGoal = (goal) => {
-  return axios.patch(`/api/goals/${goal.id}`)
-}
+  return axios.patch(`/api/goals/${goal.id}`, goal);
+};
 
 export const deleteGoal = (goalId) => {
-  return axios.delete(`/api/goals/${goalId}`)
-}
+  return axios.delete(`/api/goals/${goalId}`);
+};
