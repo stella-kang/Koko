@@ -1,19 +1,21 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const ReflectionForm = ({ closeForm, currentUser, processForm }) => {
+const ReflectionForm = ({ closeForm, reflection, currentUser, processForm }) => {
   const { register, formState: { errors }, handleSubmit } = useForm({
     reValidateMode: 'onSubmit',
-    shouldFocusError: false
+    shouldFocusError: false,
+    defaultValues: { entry: reflection ? reflection.entry : '' }
   });
 
   const onSubmit = (data) => {
-    const reflection = {
+    const formReflection = {
       user: currentUser.id,
       entry: data.entry
     }
+    if (reflection) formReflection['id'] = reflection._id
 
-    processForm(reflection)
+    processForm(formReflection)
       .then(() => closeForm());
   }
 

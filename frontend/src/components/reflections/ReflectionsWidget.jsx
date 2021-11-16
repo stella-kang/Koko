@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import { connect } from 'react-redux';
 import { fetchReflections } from '../../actions/reflections_actions';
+import ReflectionWidgetItem from './ReflectionWidgetItem';
 
-export const ReflectionsWidget = ({ showForm, currentUser, reflections, fetchReflections }) => {
+export const ReflectionsWidget = ({ openCreateForm, openEditForm, currentUser, reflections, fetchReflections }) => {
 
   useEffect(() => {
     fetchReflections(currentUser.id);
@@ -22,11 +23,11 @@ export const ReflectionsWidget = ({ showForm, currentUser, reflections, fetchRef
   return (
     <div>
       <Slider {...settings} ref={sliderRef}>
-        {reflections.map(reflection => <div className="journal-carousel-item" key={reflection._id}>{ reflection.entry }</div>)}
+        {reflections.map(reflection => <ReflectionWidgetItem key={reflection._id} reflection={reflection} openEditForm={openEditForm} />)}
       </Slider>
 
       <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
-      <button onClick={showForm}>Add a New Entry</button>
+      <button onClick={openCreateForm}>Add a New Entry</button>
       <button onClick={() => sliderRef.current.slickNext()}>Next</button>
     </div>
   )
