@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const passport = require('passport');
 const Reflection = require('../../models/Reflection');
 const validateReflection = require('../../validation/reflection');

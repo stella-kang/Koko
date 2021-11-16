@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const passport = require('passport');
 const Mood = require('../../models/Mood');
 const validateMood = require('../../validation/mood');
@@ -9,7 +8,7 @@ router.get('/users/:userId',
   async (req, res) => {
 
     try {
-      const moods = await Mood.find({ mood: req.params.userId })
+      const moods = await Mood.find({ user: req.params.userId })
 
       res.json(moods);
 
