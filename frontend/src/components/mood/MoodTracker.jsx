@@ -19,7 +19,7 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
 
   useEffect(() => {
     fetchMoods(currentUserId);
-  });
+  }, [currentUserId, fetchMoods]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -78,11 +78,13 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
       </form>
     </div>
   } else {
-    <div className="mood-display">
-      <div>Today's Mood:</div>
-      {currentMood.mood === 5 ? <div>&#128513;</div> : currentMood.mood === 4 ? <div>&#128522;</div> : currentMood.mood === 3 ? <div>&#128528;</div> : currentMood.mood === 2 ? < div >&#128533;</div> : <div>&#128542;</div>}
-      <button onClick={handleEdit}>Edit Mood</button>
-    </div>
+    return (
+      <div className="mood-display">
+        <div>Today's Mood:</div>
+        {currentMood.mood === 5 ? <div>&#128513;</div> : currentMood.mood === 4 ? <div>&#128522;</div> : currentMood.mood === 3 ? <div>&#128528;</div> : currentMood.mood === 2 ? < div >&#128533;</div> : <div>&#128542;</div>}
+        <button onClick={handleEdit}>Edit Mood</button>
+      </div>
+    )
   }
 }
 
