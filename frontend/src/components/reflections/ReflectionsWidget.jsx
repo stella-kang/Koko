@@ -15,7 +15,7 @@ export const ReflectionsWidget = ({ openCreateForm, openEditForm, currentUser, r
   const settings = {
     arrows: false,
     speed: 500,
-    infinite: false,
+    infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1
   };
