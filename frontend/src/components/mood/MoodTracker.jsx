@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { fetchMoods, createMood, updateMood } from '../../actions/mood_actions';
 import { getTodaysMood } from '../../reducers/selectors';
@@ -22,6 +22,12 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
     fetchMoods(currentUserId);
   }, [currentUserId, fetchMoods]);
 
+  const submitButton = useRef();
+
+  useEffect(() => {
+    submitButton.current?.click();
+  }, [mood])
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -40,17 +46,16 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
     }
   }
 
-  const handleEdit = (e) => {
+  const handleEdit = () => {
     setEdit(true);
   }
 
-  const cancelEdit = (e) => {
+  const cancelEdit = () => {
     setEdit(false);
   }
 
   const clickSubmit = (e) => {
     setMood(e.target.value);
-    document.getElementById("mood-form-button").click();
   }
 
   if (!currentMood || edit) {
@@ -73,8 +78,8 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
         <label onClick={clickSubmit}>&#128513;
           <input type="radio" name="mood" value="5"></input>
         </label>
-        <button id="mood-form-button"></button>
-        {edit ? <button onClick={cancelEdit}>Cancel</button> : null}
+        <button ref={submitButton}></button>
+        {edit ? <button type="button" onClick={cancelEdit}>Cancel</button> : null}
       </form>
     </div>
   } else {

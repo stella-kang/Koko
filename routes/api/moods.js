@@ -47,7 +47,6 @@ router.patch('/:moodId',
     try {
       const editedMood = await Mood.findById(req.params.moodId)
       if (req.body.mood) editedMood.mood = req.body.mood;
-
       await editedMood.save();
       res.json(editedMood);
 
