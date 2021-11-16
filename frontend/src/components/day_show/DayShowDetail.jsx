@@ -3,15 +3,15 @@ import React from 'react';
 // import { requestGoals } from '../../actions/goal_actions';
 // import { fetchMoods } from '../../util/mood_api_util';
 
-export const DayShowDetail = ({history}) => {
+export const DayShowDetail = ({dayShow}) => {
   return (
     <div>
       <h2>Mood</h2>
-      <div>{history.mood}</div>
+      <div>{dayShow.mood}</div>
       <h2>Goals</h2>
-      <div>{history.goals}</div>
+      <div>{dayShow.goals}</div>
       <h2>Journal Entries</h2>
-      <div>{history.journalEntries}</div>
+      <div>{dayShow.journalEntries}</div>
     </div>
   );
 };

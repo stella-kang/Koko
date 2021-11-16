@@ -1,5 +1,5 @@
 import axios from 'axios';
 
-export const fetchHistory = (userId, date) => {
+export const fetchDayShow = (userId, date) => {
   return axios.get(`/api/users/${userId}/history/${date}`)
 }
