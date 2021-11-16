@@ -22,10 +22,10 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
     fetchMoods(currentUserId);
   }, [currentUserId, fetchMoods]);
 
-  const submitButton = useRef();
+  const submitRef = useRef();
 
   useEffect(() => {
-    submitButton.current?.click();
+    submitRef.current?.requestSubmit();
   }, [mood])
 
   const handleSubmit = (e) => {
@@ -62,7 +62,7 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
     return <div className="mood-tracker">
       <div>How are you feeling today?</div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} ref={submitRef}>
         <label onClick={clickSubmit}>&#128542;
           <input type="radio" name="mood" value="1"></input>
         </label>
@@ -78,7 +78,6 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
         <label onClick={clickSubmit}>&#128513;
           <input type="radio" name="mood" value="5"></input>
         </label>
-        <button ref={submitButton}></button>
         {edit ? <button type="button" onClick={cancelEdit}>Cancel</button> : null}
       </form>
     </div>
