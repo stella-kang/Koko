@@ -53,7 +53,7 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal }) => {
             {...register('date')}
           />
         </label>
-        <button>Add Goal</button>
+        <button>{ goal ? "Update" : "Add"} Goal</button>
       </form>
     </div>
   );

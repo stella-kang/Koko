@@ -4,7 +4,7 @@ import ReflectionsWidget from '../reflections/ReflectionsWidget';
 import CreateReflectionContainer from '../reflections/CreateReflectionContainer';
 import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
 import CreateGoalContainer from '../goals/CreateGoalContainer';
-import EditGoalForm from '../goals/EditGoalForm';
+import EditGoalContainer from '../goals/EditGoalContainer';
 import GoalsWidget from '../goals/GoalsWidget';
 import MoodTracker from '../mood/MoodTracker';
 import Koko from '../koko/Koko';
@@ -35,7 +35,7 @@ export const Home = (props) => {
       )
     } else if (showEditGoal) {
       return (
-        <EditGoalForm closeForm={() => setShowCreateGoal(false)} goal={goalToEdit} />
+        <EditGoalContainer closeForm={() => setShowEditGoal(false)} goal={goalToEdit} />
       )
     } else {
       return (
