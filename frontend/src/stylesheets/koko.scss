@@ -120,7 +120,7 @@ body {
       height: 25px;
       right: 70px;
       background-color: $orange;
-      animation: tail-segment 4s infinite;
+      animation: tail-segment 10s infinite;
       transform-origin: right;
       border-radius: 20px 0 0 20px;
     }
@@ -147,8 +147,14 @@ body {
 }
 
 @keyframes tail-segment {
-  25% { transform: rotate(0)}
-  50% { transform: rotate(-10deg)}
-  75% { transform: rotate(10deg)}
-  100% { transform: rotate(0deg)}
+  10% { transform: rotate(0) }
+  20% { transform: rotate(20deg) }
+  30% { transform: rotate(-5deg) }
+  40% { transform: rotate(15deg) }
+  50% { transform: rotate(-2deg) }
+  60% { transform: rotate(10deg) }
+  70% { transform: rotate(-5deg) }
+  80% { transform: rotate(20deg) }
+  90% { transform: rotate(0) }
+  100% { transform: rotate(10) }
 }
