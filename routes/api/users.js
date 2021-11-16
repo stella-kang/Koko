@@ -16,7 +16,9 @@ router.get('/current', passport.authenticate('jwt', {session: false}), (req, res
   res.json({
     id: req.user.id,
     username: req.user.username,
-    email: req.user.email
+    email: req.user.email,
+    friendshipExp: req.user.friendshipExp,
+    friendshipLvl: req.user.friendshipLvl
   });
 })
 
@@ -45,7 +47,12 @@ router.post('/register', (req, res) => {
           newUser
             .save()
             .then((user) => {
-              const payload = { id: user.id, username: user.username };
+              const payload = {
+                id: user.id,
+                username: user.username,
+                friendshipExp: user.friendshipExp,
+                friendshipLvl: user.friendshipLvl
+              };
 
               jwt.sign(
                 payload,
@@ -84,7 +91,11 @@ router.post('/login', (req, res) => {
 
     bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        const payload = { id: user.id, username: user.username };
+        const payload = {
+          id: user.id,
+          username: user.username,
+          friendshipExp: user.friendshipExp,
+          friendshipLvl: user.friendshipLvl };
 
         jwt.sign(
           payload,
@@ -154,5 +165,35 @@ router.get('/:userId/history/:date', async (req, res) => {
     }
   )
 });
+
+router.patch('/:userId/friendship',
+  async (req, res) => {
+
+    try {
+      const user = await User.findById(req.params.userId)
+
+      const xpToLevel = user.friendshipLvl * 5;
+      user.friendshipExp += parseInt(req.body.exp);
+
+      if (user.friendshipExp >= xpToLevel) {
+        user.friendshipExp = user.friendshipExp - xpToLevel;
+        user.friendshipLvl += 1;
+      };
+
+      await user.save();
+      res.json({
+        id: user.id,
+        username: user.username,
+        email: user.email,
+        friendshipExp: user.friendshipExp,
+        friendshipLvl: user.friendshipLvl
+      });
+
+    } catch {
+      res.status(404);
+      res.send({ error: "No user found!" });
+    }
+  }
+);
 
 module.exports = router;
