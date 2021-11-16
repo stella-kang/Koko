@@ -8,6 +8,7 @@ export const GoalsWidget = ({
   updateGoal,
   currentUser
 }) => {
+
   useEffect(() => {
     requestGoals(currentUser.id);
   }, [requestGoals, currentUser]);

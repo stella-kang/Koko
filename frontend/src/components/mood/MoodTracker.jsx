@@ -16,6 +16,7 @@ const mDTP = {
 
 const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updateMood }) => {
   const [mood, setMood] = useState(currentMood?.mood);
+  const [changedMood, setChangedMood] = useState(false);
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
@@ -25,8 +26,12 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
   const submitRef = useRef();
 
   useEffect(() => {
-    submitRef.current?.requestSubmit();
-  }, [mood])
+    if (changedMood) {
+      console.log("submitting");
+      submitRef.current?.requestSubmit();
+      setChangedMood(false);
+    }
+  }, [mood, changedMood])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,7 +60,10 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
   }
 
   const clickSubmit = (e) => {
-    setMood(e.currentTarget.value);
+    if (currentMood.mood !== parseInt(e.currentTarget.value)) {
+      setChangedMood(true);
+      setMood(e.currentTarget.value);
+    }
   }
 
   if (!currentMood || edit) {

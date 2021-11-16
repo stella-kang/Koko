@@ -7,7 +7,9 @@ export const getSortedReflections = state => {
 export const getTodaysMood = state => {
   let todayString = new Date().toLocaleDateString();
   for (let mood of Object.values(state.entities.moods)) {
-    if (new Date(mood.createdAt).toLocaleDateString() === todayString) return mood;
+    if (new Date(mood.createdAt).toLocaleDateString() === todayString) {
+      return mood;
+    }
   }
   return null;
 }

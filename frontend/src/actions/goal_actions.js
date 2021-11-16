@@ -19,29 +19,25 @@ const removeGoal = (goalId) => ({
   goalId,
 });
 
-export const requestGoals = userId => (dispatch) => {
-  return GoalAPIUtil.fetchGoals(userId)
-    .then(payload => dispatch(receiveGoals(payload.data))
+export const requestGoals = userId => dispatch => (
+  GoalAPIUtil.fetchGoals(userId)
+    .then(payload => dispatch(receiveGoals(payload.data)))
     .catch(err => console.log(err))
-  );
-};
+);
 
-export const createGoal = (goal) => (dispatch) => {
-  return GoalAPIUtil.createGoal(goal)
-    .then(payload => dispatch(receiveGoal(payload.data))
+export const createGoal = (goal) => dispatch => (
+  GoalAPIUtil.createGoal(goal)
+    .then(payload => dispatch(receiveGoal(payload.data)))
     .catch(err => console.log(err))
-  );
-};
+);
 
-export const updateGoal = (goal) => (dispatch) => {
-  return GoalAPIUtil.updateGoal(goal)
-    .then(payload => dispatch(receiveGoal(payload.data))
+export const updateGoal = (goal) => dispatch => (
+  GoalAPIUtil.updateGoal(goal)
+    .then(payload => dispatch(receiveGoal(payload.data)))
     .catch(err => console.log(err))
-  );
-};
+);
 
-export const deleteGoal = (goalId) => (dispatch) => {
-  return GoalAPIUtil.deleteGoal(goalId)
-    .then(() => dispatch(removeGoal(goalId))
-  );
-};
+export const deleteGoal = (goalId) => dispatch => (
+  GoalAPIUtil.deleteGoal(goalId)
+    .then(() => dispatch(removeGoal(goalId)))
+);
