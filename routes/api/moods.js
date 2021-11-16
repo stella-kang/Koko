@@ -5,7 +5,22 @@ const passport = require('passport');
 const Mood = require('../../models/Mood');
 const validateMood = require('../../validation/mood');
 
-router.post('/users/:userId',
+router.get('/users/:userId',
+  async (req, res) => {
+
+    try {
+      const moods = await Mood.find({ mood: req.params.userId })
+
+      res.json(moods);
+
+    } catch {
+      res.status(404);
+      res.json({ errors: "No moods to display!" })
+    }
+  }
+)
+
+router.post('/',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
     const { errors, isValid } = validateMood(req.body);

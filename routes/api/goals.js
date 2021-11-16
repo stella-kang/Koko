@@ -16,11 +16,11 @@ router.get('/users/:userId',
 
     } catch {
       res.status(404);
-      res.json({ error: "No goals yet!" });
+      res.json({ error: "No goals to display!" });
     }
 });
 
-router.post('/users/:userId',
+router.post('/',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
     const { errors, isValid } = validateGoal(req.body);
@@ -72,9 +72,11 @@ router.patch('/:goalId',
 router.delete('/:goalId',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
+
     try {
       await Goal.deleteOne({ _id: req.params.goalId });
       res.json({ success: "Successfully deleted!" });
+
     } catch {
       res.status(404)
       res.json({ error: "Goal doesn't exist!" });
