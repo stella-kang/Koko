@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchDayShow } from '../../actions/day_show_actions';
 import Calendar from 'react-calendar';
-import DayShowDetail from './DayShowDetail';
+import DayShowDetailContainer from './DayShowDetailContainer';
 import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
 
 const mSTP = (state, ownProps) => ({
-  dayShow: state.entities.dayShow,
   currentUserId: state.session.user.id
 })
 
@@ -14,7 +13,7 @@ const mDTP = (dispatch, ownProps) => ({
   fetchDayShow: (userId, date) => dispatch(fetchDayShow(userId, date))
 })
 
-const DayShow = ({fetchDayShow, currentUserId, dayShow}) => {
+const DayShow = ({fetchDayShow, currentUserId, moods, goals, reflections}) => {
   const [calDate, setCalDate] = useState(new Date());
   const [reflectionToEdit, setReflectionToEdit] = useState(null);
   const [showEditReflection, setShowEditReflection] = useState(false);
@@ -28,7 +27,7 @@ const DayShow = ({fetchDayShow, currentUserId, dayShow}) => {
 
   useEffect(() => {
     fetchDayShow(currentUserId, fetchDate);
-  }, [fetchDayShow, dayShow, calDate, currentUserId])
+  }, [fetchDayShow, calDate, currentUserId])
 
   const onChange = (date) => {
     setCalDate(date);
@@ -41,7 +40,7 @@ const DayShow = ({fetchDayShow, currentUserId, dayShow}) => {
     </div>
   } else {
     return <div className="day-show">
-      <DayShowDetail openEditForm={openEditForm} dayShow={dayShow} />
+      <DayShowDetailContainer openEditForm={openEditForm} calDate={calDate} />
       <Calendar onChange={onChange} value={calDate} />
     </div>
   }

@@ -1,23 +1,20 @@
 import React from 'react';
 import MoodItem from "./MoodItem";
 import GoalItem from "./GoalItem";
-import JournalItem from './JournalItem';
+import ReflectionItem from './ReflectionItem';
 
-export const DayShowDetail = ({openEditForm, dayShow}) => {
-  if (Object.keys(dayShow).length === 0) {
-    return null;
-  } else {
+export const DayShowDetail = ({moods, goals, reflections, openEditForm}) => {
     return (
       <div className="day-details">
         <div className="day-details-mood">
           <h2>Mood:</h2>
-          <MoodItem mood={dayShow.mood[0]}/>
+          {/* <MoodItem mood={moods[0] ? moods[0] : }/> */}
         </div>
 
         <div className="day-details-goals">
           <h2>Goals:</h2>
           <div className="day-details-goals-list">
-            {dayShow.goal.map(goal => {
+            {goals.map(goal => {
               return <GoalItem goal={goal} key={goal.id}/>
             })}
           </div>
@@ -26,14 +23,13 @@ export const DayShowDetail = ({openEditForm, dayShow}) => {
         <div className="day-details-reflections">
           <h2>Journal Entries:</h2>
           <div className="day-details-reflections-list">
-            {dayShow.reflection.map(reflection => {
-              return <JournalItem openEditForm={openEditForm} journal={reflection} key={reflection.id}/>
+            {reflections.map(reflection => {
+              return <ReflectionItem openEditForm={openEditForm} reflection={reflection} key={reflection.id}/>
             })}
           </div>
         </div>
       </div>
     );
-  }
 };
 
 export default DayShowDetail;
