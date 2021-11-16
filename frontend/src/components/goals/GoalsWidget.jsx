@@ -37,6 +37,8 @@ const mapStateToProps = (state) => {
     (goal) => goal.status === false
   );
 
+  console.log(notCompletedGoalsArr)
+
   return {
     currentUser: state.session.user,
     notCompletedGoals: notCompletedGoalsArr,
