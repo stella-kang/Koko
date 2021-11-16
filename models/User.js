@@ -15,10 +15,15 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    buddyStatus: {
+    friendshipExp: {
       type: Number,
       required: true,
       default: 0
+    },
+    friendshipLvl: {
+      type: Number,
+      required: true,
+      default: 1
     }
   }, {
     timestamps: true
