@@ -8,7 +8,8 @@ export const GoalsWidget = ({
   requestGoals,
   updateGoal,
   openModal,
-  currentUser
+  currentUser,
+  openCreateForm
 }) => {
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export const GoalsWidget = ({
       <h2>Goals</h2>
       {notCompleted}
 
-      <button onClick={() => openModal({ type: "createGoal" })}>
+      <button onClick={openCreateForm}>
         Add a Goal
       </button>
     </div>

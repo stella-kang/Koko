@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createGoal } from '../../actions/goal_actions';
 
-const CreateGoalForm = ({ currentUser, errors, createGoal, closeModal }) => {
+const CreateGoalForm = ({ currentUser, errors, createGoal, closeForm }) => {
   const [enteredTextGoal, setEnteredTextGoal] = useState('');
   const [enteredDateGoal, setEnteredDateGoal] = useState('');
 
@@ -22,13 +22,13 @@ const CreateGoalForm = ({ currentUser, errors, createGoal, closeModal }) => {
       date: enteredDateGoal,
       userId: currentUser.id
     }).then(action => {
-      if (action.type ==="RECEIVE_GOAL") closeModal();
+      if (action.type ==="RECEIVE_GOAL") closeForm();
     })
   };
 
   return (
     <div>
-      <button onClick={() => closeModal()}>Close</button>
+      <button onClick={() => closeForm()}>Cancel</button>
       <h1>Hello, {currentUser.username}, do you have any goals to tell Koko?</h1>
       <form onSubmit={formSubmitHandler}>
         <label>
@@ -40,7 +40,6 @@ const CreateGoalForm = ({ currentUser, errors, createGoal, closeModal }) => {
           <input type='date' onChange={goalDateInputHandler} />
         </label>
         <button>Add Goal</button>
-        <button type="button">See All Goals</button>
       </form>
     </div>
   );
