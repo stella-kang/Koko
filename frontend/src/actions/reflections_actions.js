@@ -27,13 +27,13 @@ export const fetchReflections = userId => dispatch => (
 
 export const updateReflection = reflection => dispatch => (
   ReflectionApiUtil.updateReflection(reflection)
-    .then(reflection => dispatch(receiveReflection(reflection)))
+    .then(payload => dispatch(receiveReflection(payload.data)))
     .catch(err => console.log(err))
 );
 
 export const createReflection = reflection => dispatch => (
   ReflectionApiUtil.createReflection(reflection)
-    .then(reflection => dispatch(receiveReflection(reflection)))
+    .then(payload => dispatch(receiveReflection(payload.data)))
     .catch(err => console.log(err))
 );
 
