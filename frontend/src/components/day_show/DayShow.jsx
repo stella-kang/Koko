@@ -16,8 +16,10 @@ const mDTP = (dispatch, ownProps) => ({
 const DayShow = ({fetchDayShow, currentUserId, dayShow}) => {
   const [calDate, setCalDate] = useState(new Date());
 
+  let fetchDate = `${calDate.getFullYear()}-${calDate.getUTCMonth() + 1}-${calDate.getDate()}`;
+
   useEffect(() => {
-    fetchDayShow(currentUserId, new Date().toLocaleDateString().split('/')[0]);
+    fetchDayShow(currentUserId, fetchDate);
   }, [fetchDayShow, calDate, currentUserId])
 
   const onChange = (date) => {

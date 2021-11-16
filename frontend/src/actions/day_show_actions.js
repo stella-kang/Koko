@@ -14,5 +14,7 @@ export const clearDayShow = () => ({
 
 export const fetchDayShow = (userId, date) => dispatch => {
   return DayShowApiUtil.fetchDayShow(userId, date)
-    .then(payload => dispatch(receiveDayShow(payload.data)));
+    .then(payload => {
+      dispatch(receiveDayShow(payload.data))
+    });
 }

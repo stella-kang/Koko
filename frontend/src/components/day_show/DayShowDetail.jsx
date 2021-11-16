@@ -4,16 +4,28 @@ import React from 'react';
 // import { fetchMoods } from '../../util/mood_api_util';
 
 export const DayShowDetail = ({dayShow}) => {
-  return (
-    <div className="day-details">
-      <h2>Mood</h2>
-      <div>{dayShow.mood}</div>
-      <h2>Goals</h2>
-      <div>{dayShow.goals}</div>
-      <h2>Journal Entries</h2>
-      <div>{dayShow.journalEntries}</div>
-    </div>
-  );
+  if (Object.keys(dayShow).length === 0) {
+    return null;
+  } else {
+    return (
+      <div className="day-details">
+        <div className="day-details-mood">
+          <h2>Mood</h2>
+          <div>{dayShow.mood[0].mood}</div>
+        </div>
+
+        <div className="day-details-goals">
+          <h2>Goals</h2>
+          <div>{dayShow.goal[0] ? dayShow.goal[0].id : null}</div>
+        </div>
+
+        <div className="day-details-reflections">
+          <h2>Journal Entries</h2>
+          <div>{dayShow.reflection[0].entry}</div>
+        </div>
+      </div>
+    );
+  }
 };
 
 export default DayShowDetail;
