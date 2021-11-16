@@ -16,11 +16,11 @@ router.get('/users/:userId',
 
     } catch {
       res.status(404);
-      res.json({ error: "No reflections yet!" });
+      res.json({ error: "No reflections to display!" });
     }
 });
 
-router.post('/users/:userId',
+router.post('/',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
     const { errors, isValid } = validateReflection(req.body);
@@ -69,9 +69,11 @@ router.patch('/:reflectionId',
 router.delete('/:reflectionId',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
+
     try {
       await Reflection.deleteOne({ _id: req.params.reflectionId });
       res.json({ success: "Successfully deleted!" });
+
     } catch {
       res.status(404);
       res.json({ error: "Reflection doesn't exist!" });
