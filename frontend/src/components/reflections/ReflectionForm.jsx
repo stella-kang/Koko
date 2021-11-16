@@ -9,12 +9,13 @@ const ReflectionForm = ({ closeForm, reflection, currentUser, processForm }) => 
   });
 
   const onSubmit = (data) => {
-    const reflection = {
+    const formReflection = {
       user: currentUser.id,
       entry: data.entry
     }
+    if (reflection) formReflection['id'] = reflection._id
 
-    processForm(reflection)
+    processForm(formReflection)
       .then(() => closeForm());
   }
 

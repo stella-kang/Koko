@@ -23,7 +23,7 @@ export const ReflectionsWidget = ({ openCreateForm, openEditForm, currentUser, r
   return (
     <div>
       <Slider {...settings} ref={sliderRef}>
-        {reflections.map(reflection => <ReflectionWidgetItem key={reflection.id} reflection={reflection} openEditForm={openEditForm} />)}
+        {reflections.map(reflection => <ReflectionWidgetItem key={reflection._id} reflection={reflection} openEditForm={openEditForm} />)}
       </Slider>
 
       <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
