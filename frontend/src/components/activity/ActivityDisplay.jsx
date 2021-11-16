@@ -3,28 +3,33 @@ import { connect } from 'react-redux';
 import { requestGoals } from '../../actions/goal_actions';
 import { fetchMood } from '../../util/mood_api_util';
 
-export const ActivityDisplay = (props) => {
-
-  
-
+export const ActivityDisplay = ({
+  todaysGoal,
+  todaysMood,
+  todaysJournalEntry,
+}) => {
   return (
     <div>
       <h2>Completed Goals</h2>
-
+      <div>{todaysGoal}</div>
       <h2>Mood</h2>
-
+      <div>{todaysMood}</div>
       <h2>Journal Entry</h2>
+      <div>{todaysJournalEntry}</div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   // selector to return goals from today
-  let todaysGoalsArr = [];
+  // ?  should this be singular or plural?
+  let goalsArr = Object.values(state.entities.goals);
+  let journalsArr = Object.values(state.entities.journals);
+
   return {
-    todaysGoals: todaysGoalsArr,
+    todaysGoal: goalsArr[goalsArr.length - 1],
     todaysMood: state.entities.mood,
-    todaysJournalEntry: state.entities.journal,
+    todaysJournalEntry: journalsArr[journalsArr.length - 1],
   };
 };
 
@@ -33,3 +38,5 @@ const mapDispatchToProps = (dispatch) => ({
   fetchMood: (userId) => dispatch(fetchMood(userId)),
   // requestJournal: (journalId) => dispatch(requestJournal(journalId)),
 });
+
+export default connect(mapStateToProps, mapDispatchToProps)(ActivityDisplay);
