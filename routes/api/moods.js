@@ -25,7 +25,7 @@ router.post('/',
     const { errors, isValid } = validateMood(req.body);
 
     if (!isValid) {
-      return res.status(400).json.apply(errors);
+      return res.status(400).json(errors);
     };
 
     const newMood = new Mood(
