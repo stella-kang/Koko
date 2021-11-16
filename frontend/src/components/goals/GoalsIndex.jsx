@@ -1,4 +1,4 @@
-import { connect } from 'mongoose';
+import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import { requestGoals, deleteGoal } from '../../actions/goal_actions';
 import CreateGoalForm from './CreateGoalForm';

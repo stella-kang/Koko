@@ -1,4 +1,4 @@
-import { connect } from 'mongoose';
+import { connect } from 'react-redux';
 import { requestGoals, updateGoal } from '../../actions/goal_actions';
 import React, { useEffect } from 'react';
 
