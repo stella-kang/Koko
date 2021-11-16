@@ -13,6 +13,21 @@
   width: 90%;
 }
 
+.splash-side-content-one {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.splash-img-one {
+  width: 40%;
+  height: auto;
+  background-color: $lightblue;
+}
+
+.splash-side-content-one-text {
+  width: 40%;
+}
+
 .creator-main-container {
   width: 100%;
   background-color: $darkblue;
@@ -40,6 +55,14 @@
   background-color: $orange;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+
+  h5 {
+    color: white;
+  }
+
+  p {
+    color: white;
+  }
 }
 
 .creator-photo-container {
@@ -47,4 +70,5 @@
   height: 70px;
   border-radius: 50%;
   background-color: $lightblue;
+  box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 }

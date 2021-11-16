@@ -1,10 +1,12 @@
 import React from 'react';
 import Footer from '../footer/Footer';
+import Koko from '../koko/Koko';
 
 const Splash = () => {
   return (
     <div className='main-splash-container'>
       <div className='splash-main-contents'>
+        <Koko />
         <h3>
           Koko is your mental health accountability partner. Koko's goal is to
           facilitate healthier mental wellness by encouraging healthy habits
@@ -12,7 +14,19 @@ const Splash = () => {
           to set personal goals for themselves, creating a safe space of
           accountability towards a brighter and healthier future.
         </h3>
-        <div>Splash Image I</div>
+
+        <h3>Splash Image I</h3>
+        <div className='splash-side-content-one'>
+          <div className='splash-img-one'></div>
+          <div className='splash-side-content-one-text'>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque
+              dolorum culpa distinctio omnis aliquid rem consectetur quos
+              ducimus soluta voluptas deleniti totam, reiciendis vero molestias
+              voluptates saepe. Eligendi, suscipit similique! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur magni sed eaque, voluptatum aliquid placeat ad dolorum, fuga nostrum exercitationem quia quisquam ea molestiae voluptatibus quidem error animi ratione voluptatem!
+            </p>
+          </div>
+        </div>
         <div>
           <h3>Splash Media II && Splash Image</h3>
           <div>

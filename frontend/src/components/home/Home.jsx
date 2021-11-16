@@ -5,7 +5,7 @@ import CreateReflectionContainer from '../reflections/CreateReflectionContainer'
 import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
 import GoalsWidget from '../goals/GoalsWidget';
 import MoodTracker from '../mood/MoodTracker';
-import Koko from '../koko/koko';
+import Koko from '../koko/Koko';
 
 export const Home = (props) => {
   const [showCreateReflection, setShowCreateReflection] = useState(false);
