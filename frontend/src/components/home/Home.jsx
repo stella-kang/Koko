@@ -1,22 +1,33 @@
 import React, { useState } from 'react';
-import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ReflectionsWidget from '../reflections/ReflectionsWidget';
 import CreateReflectionContainer from '../reflections/CreateReflectionContainer';
+import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
 
 export const Home = (props) => {
   const [showCreateReflection, setShowCreateReflection] = useState(false);
+  const [showEditReflection, setShowEditReflection] = useState(false);
+  const [reflectionToEdit, setReflectionToEdit] = useState(null);
+
+  const openEditForm = (reflection) => {
+    setReflectionToEdit(reflection);
+    setShowEditReflection(true);
+  }
 
   const displayComponents = () => {
     if (showCreateReflection) {
       return (
         <CreateReflectionContainer closeForm={() => setShowCreateReflection(false)} />
       )
+    } else if (showEditReflection) {
+      return (
+        <UpdateReflectionContainer closeForm={() => setShowEditReflection(false)} reflection={reflectionToEdit} />
+      )
+    } else {
+      return (
+        <ReflectionsWidget openCreateForm={() => setShowCreateReflection(true)} openEditForm={openEditForm} />
+        )
     }
-
-    return (
-      <Route exact path='/home' render={() => <ReflectionsWidget showForm={() => setShowCreateReflection(true)} />} />
-    )
   }
 
   return (

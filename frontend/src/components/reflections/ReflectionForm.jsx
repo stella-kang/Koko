@@ -1,10 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const ReflectionForm = ({ closeForm, currentUser, processForm }) => {
+const ReflectionForm = ({ closeForm, reflection, currentUser, processForm }) => {
   const { register, formState: { errors }, handleSubmit } = useForm({
     reValidateMode: 'onSubmit',
-    shouldFocusError: false
+    shouldFocusError: false,
+    defaultValues: { entry: reflection ? reflection.entry : '' }
   });
 
   const onSubmit = (data) => {
