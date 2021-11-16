@@ -1,42 +1,41 @@
-import React, { useState } from 'react';
-import { createMood, editMood } from '../../actions/mood_actions';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchMoods, createMood, editMood } from '../../actions/mood_actions';
 
-const mSTP = (state, ownProps) => ({
+const mSTP = (state) => ({
   currentMood: state.entitites.mood,
   currentUserId: state.session.currentUserId,
 })
 
-const mDTP = (dispatch, ownProps) => ({
-  fetchMood: () => dispatch(fetchMood(state.session.currentUserId)),
-  createMood: (mood) => dispatch(createMood(mood)),
-  editMood: (mood) => dispatch(editMood(mood))
-})
+const mDTP = {
+  fetchMoods,
+  createMood,
+  editMood
+}
 
-export default connect(mSTP, mDTP)(MoodTracker);
-
-const MoodTracker = (props) => {
+const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, editMood }) => {
   const [mood, setMood] = useState(null);
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
-    props.fetchMood();
+    fetchMoods();
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (edit) {
-      props.editMood({
+      editMood({
         mood: mood,
-        user_id: props.currentUserId,
-        id: props.currentMood.id
+        user_id: currentUserId,
+        id: currentMood.id
       })
 
       setEdit(false);
     } else {
-      props.createMood({
+      createMood({
         mood: mood,
-        user_id: props.currentUserId
+        user_id: currentUserId
       })
     }
   }
@@ -54,7 +53,7 @@ const MoodTracker = (props) => {
     document.getElementById("mood-form-button").click();
   }
 
-  if (!props.currentMood || edit) {
+  if (!currentMood || edit) {
     return <div className="mood-tracker">
       <div>How are you feeling today?</div>
 
@@ -81,10 +80,10 @@ const MoodTracker = (props) => {
   } else {
     <div className="mood-display">
       <div>Today's Mood:</div>
-      {props.currentMood.mood === 5 ? <div>&#128513;</div> : props.currentMood.mood === 4 ? <div>&#128522;</div> : props.currentMood.mood === 3 ? <div>&#128528;</div> : props.currentMood.mood === 2 ? < div >&#128533;</div> : <div>&#128542;</div>}
+      {currentMood.mood === 5 ? <div>&#128513;</div> : currentMood.mood === 4 ? <div>&#128522;</div> : currentMood.mood === 3 ? <div>&#128528;</div> : currentMood.mood === 2 ? < div >&#128533;</div> : <div>&#128542;</div>}
       <button onClick={handleEdit}>Edit Mood</button>
     </div>
   }
 }
 
-export default MoodTracker;
+export default connect(mSTP, mDTP)(MoodTracker);
