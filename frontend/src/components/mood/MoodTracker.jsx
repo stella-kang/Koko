@@ -28,15 +28,14 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
     if (edit) {
       updateMood({
         mood: mood,
-        user_id: currentUserId,
-        id: currentMood.id
+        id: currentMood._id
       })
 
       setEdit(false);
     } else {
       createMood({
         mood: mood,
-        user_id: currentUserId
+        userId: currentUserId
       })
     }
   }

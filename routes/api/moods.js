@@ -31,7 +31,7 @@ router.post('/',
     const newMood = new Mood(
       {
         mood: req.body.mood,
-        user: req.user.id
+        user: req.body.userId
       }
     );
 
