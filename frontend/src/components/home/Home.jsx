@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ReflectionsWidget from '../reflections/ReflectionsWidget';
 import CreateReflectionContainer from '../reflections/CreateReflectionContainer';
 import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
-import CreateGoalForm from '../goals/CreateGoalForm';
+import CreateGoalContainer from '../goals/CreateGoalContainer';
 import EditGoalForm from '../goals/EditGoalForm';
 import GoalsWidget from '../goals/GoalsWidget';
 import MoodTracker from '../mood/MoodTracker';
@@ -31,7 +31,7 @@ export const Home = (props) => {
   const displayGoalsComponent = () => {
     if (showCreateGoal) {
       return (
-        <CreateGoalForm closeForm={() => setShowCreateGoal(false)} />
+        <CreateGoalContainer closeForm={() => setShowCreateGoal(false)} />
       )
     } else if (showEditGoal) {
       return (

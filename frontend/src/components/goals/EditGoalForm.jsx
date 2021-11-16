@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { createGoal } from '../../actions/goal_actions';
+import { updateGoal } from '../../actions/goal_actions';
 
-const EditGoalForm = ({ currentUser, errors, createGoal, closeForm }) => {
+const EditGoalForm = ({ currentUser, errors, updateGoal, closeForm, goal }) => {
   const [enteredTextGoal, setEnteredTextGoal] = useState('');
   const [enteredDateGoal, setEnteredDateGoal] = useState('');
 
@@ -17,7 +17,7 @@ const EditGoalForm = ({ currentUser, errors, createGoal, closeForm }) => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
-    createGoal({
+    updateGoal({
       description: enteredTextGoal,
       date: enteredDateGoal,
       userId: currentUser.id
@@ -53,7 +53,7 @@ const mSTP = (state) => {
 };
 
 const mDTP = (dispatch) => ({
-  createGoal: (goal) => dispatch(createGoal(goal)),
+  updateGoal: (goal) => dispatch(updateGoal(goal)),
 });
 
 export default connect(mSTP, mDTP)(EditGoalForm);
