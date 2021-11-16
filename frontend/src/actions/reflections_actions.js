@@ -2,6 +2,7 @@ import * as ReflectionApiUtil from '../util/reflections_api_util';
 
 export const RECEIVE_REFLECTIONS = "RECEIVE_REFLECTIONS";
 export const RECEIVE_REFLECTION = "RECEIVE_REFLECTION";
+export const REMOVE_REFLECTION = "REMOVE_REFLECTION";
 
 export const receiveReflections = reflections => ({
   type: RECEIVE_REFLECTIONS,
@@ -13,9 +14,14 @@ export const receiveReflection = reflection => ({
   reflection
 });
 
+export const removeReflection = (reflectionId) => ({
+  type: REMOVE_REFLECTION,
+  reflectionId
+})
+
 export const fetchReflections = userId => dispatch => (
   ReflectionApiUtil.fetchReflections(userId)
-    .then(reflections => dispatch(receiveReflections(reflections)))
+    .then(payload => dispatch(receiveReflections(payload.data)))
     .catch(err => console.log(err))
 );
 export const createReflection = reflect => dispatch => (
@@ -30,3 +36,7 @@ export const updateReflection = reflect => dispatch => (
     .catch(err => console.log(err))
 );
 
+export const deleteReflection = reflectionId => dispatch => {
+  return ReflectionApiUtil.deleteReflection(reflectionId)
+    .then(() => dispatch(removeReflection(reflectionId)))
+}
