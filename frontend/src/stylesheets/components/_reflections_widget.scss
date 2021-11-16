@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 }
 
 .journal-carousel-item {
@@ -18,7 +19,8 @@
   margin: 20px;
   background-color: $cream;
   border-radius: 5px;
-  height: 100%;
+  height: 150px;
+  box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 }
 
 .reflection-item-header {
@@ -47,12 +49,18 @@
   border-radius: 5px;
   color: $cream;
   cursor: pointer;
+  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 }
 
 .reflection-item-entry {
-  overflow-y: hidden;
+  // border: 1px solid red;
+  padding: 0 px 5px;
+  overflow: scroll;
+  height: 100%;
+  overflow-wrap: break-word;
 
   p {
+    overflow: scroll;
     color: $darkblue;
   }
 }
@@ -70,5 +78,6 @@
     border: 1px solid $darkblue;
     color: $cream;
     cursor: pointer;
+    box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
   }
 }
