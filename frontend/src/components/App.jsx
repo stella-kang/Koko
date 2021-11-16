@@ -7,6 +7,7 @@ import LoginForm from './session/LoginForm';
 import RegisterForm from './session/RegisterForm';
 import Home from './home/Home';
 import Footer from './footer/Footer';
+import DayShow from "./day_show/DayShow"
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <AuthRoute exact path='/login' component={LoginForm} />
         <AuthRoute exact path='/register' component={RegisterForm} />
         <ProtectedRoute path='/home' component={Home} />
+        <ProtectedRoute path='/day' component={DayShow} />
         <Redirect to='/' />
       </Switch>
       <Footer />
