@@ -27,7 +27,6 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
 
   useEffect(() => {
     if (changedMood) {
-      console.log("submitting");
       submitRef.current?.requestSubmit();
       setChangedMood(false);
     }

@@ -16,9 +16,9 @@ const GoalSchema = new Schema(
       required: false
     },
     status: {
-      type: String,
+      type: Boolean,
       required: true,
-      default: 'FALSE'
+      default: false
     }
   }, {
     timestamps: true

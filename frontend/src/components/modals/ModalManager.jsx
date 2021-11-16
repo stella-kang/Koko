@@ -3,9 +3,18 @@ import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group';
 import { withRouter } from 'react-router-dom';
 import { closeModal }  from '../../actions/modal_actions';
+import CreateGoalFormModal from '../goals/CreateGoalFormModal';
 
 export const ModalManager = ({ modal, closeModal }) => {
   let component;
+
+  switch (modal.type) {
+    case "createGoal":
+      component = <CreateGoalFormModal closeModal={() => closeModal(modal)}/>
+      break;
+    default:
+      component = null;
+  }
 
   const handleClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -16,7 +25,7 @@ export const ModalManager = ({ modal, closeModal }) => {
   return (
     <CSSTransition
       in={modal.action === "open"}
-      timeout={300}
+      timeout={0}
       mountOnEnter
       unmountOnExit
       classNames="modals">

@@ -24,6 +24,8 @@ router.post('/',
   async (req, res) => {
     const { errors, isValid } = validateGoal(req.body);
 
+    console.log(errors);
+
     if (!isValid) {
       return res.status(400).json(errors);
     };
@@ -32,8 +34,8 @@ router.post('/',
       {
         description: req.body.description,
         dueDate: req.body.dueDate,
-        status: req.body.status,
-        user: req.user.id
+        status: req.body.status || 'false',
+        user: req.body.userId
       }
     );
 

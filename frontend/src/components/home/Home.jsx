@@ -30,7 +30,7 @@ export const Home = (props) => {
       return (
         <>
           <MoodTracker />
-          {/* <GoalsWidget /> */}
+          <GoalsWidget />
           <ReflectionsWidget openCreateForm={() => setShowCreateReflection(true)} openEditForm={openEditForm} />
         </>
       )
