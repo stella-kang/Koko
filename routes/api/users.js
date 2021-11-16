@@ -111,9 +111,6 @@ router.get('/:userId/history/:date', async (req, res) => {
 
   endQueryDate.setDate(endQueryDate.getDate() + 1);
 
-  console.log(startQueryDate);
-  console.log(endQueryDate);
-
   const mood = await Mood.find(
     {
       user: req.params.userId,
