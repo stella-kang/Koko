@@ -1,17 +1,20 @@
 import { RECEIVE_MOODS, RECEIVE_MOOD, CLEAR_MOOD } from "../actions/mood_actions";
 
-const _defaultMood = null;
-
-const MoodsReducer = (oldState = _defaultMood, action) => {
+const MoodsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
+  let newState;
 
   switch(action.type) {
     case RECEIVE_MOODS:
-      return action.moods;
+      newState = { ...oldState }
+      for (let mood of action.moods) {
+        newState[mood._id] = mood
+      }
+      return newState;
     case RECEIVE_MOOD:
-      return Object.assign({}, oldState, { [action.mood.data.id]: action.mood.data })
+      return Object.assign({}, oldState, { [action.mood._id]: action.mood })
     case CLEAR_MOOD:
-      return null;
+      return {};
     default:
       return oldState;
   }

@@ -1,90 +1,95 @@
-import React, { useState } from 'react';
-import { createMood, editMood } from '../../actions/mood_actions';
+import React, { useState, useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
+import { fetchMoods, createMood, updateMood } from '../../actions/mood_actions';
+import { getTodaysMood } from '../../reducers/selectors';
 
-const mSTP = (state, ownProps) => ({
-  currentMood: state.entitites.mood,
-  currentUserId: state.session.currentUserId,
+const mSTP = (state) => ({
+  currentMood: getTodaysMood(state),
+  currentUserId: state.session.user.id,
 })
 
-const mDTP = (dispatch, ownProps) => ({
-  fetchMood: () => dispatch(fetchMood(state.session.currentUserId)),
-  createMood: (mood) => dispatch(createMood(mood)),
-  editMood: (mood) => dispatch(editMood(mood))
-})
+const mDTP = {
+  fetchMoods,
+  createMood,
+  updateMood
+}
 
-export default connect(mSTP, mDTP)(MoodTracker);
-
-const MoodTracker = (props) => {
-  const [mood, setMood] = useState(null);
+const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updateMood }) => {
+  const [mood, setMood] = useState(currentMood?.mood);
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
-    props.fetchMood();
-  });
+    fetchMoods(currentUserId);
+  }, [currentUserId, fetchMoods]);
+
+  const submitRef = useRef();
+
+  useEffect(() => {
+    submitRef.current?.requestSubmit();
+  }, [mood])
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (edit) {
-      props.editMood({
+      updateMood({
         mood: mood,
-        user_id: props.currentUserId,
-        id: props.currentMood.id
+        id: currentMood._id
       })
 
       setEdit(false);
     } else {
-      props.createMood({
+      createMood({
         mood: mood,
-        user_id: props.currentUserId
+        userId: currentUserId
       })
     }
   }
 
-  const handleEdit = (e) => {
+  const handleEdit = () => {
     setEdit(true);
   }
 
-  const cancelEdit = (e) => {
+  const cancelEdit = () => {
     setEdit(false);
   }
 
   const clickSubmit = (e) => {
-    setMood(e.target.value);
-    document.getElementById("mood-form-button").click();
+    setMood(e.currentTarget.value);
   }
 
-  if (!props.currentMood || edit) {
+  if (!currentMood || edit) {
     return <div className="mood-tracker">
       <div>How are you feeling today?</div>
 
-      <form onSubmit={handleSubmit}>
-        <label onClick={clickSubmit}>&#128542;
-          <input type="radio" name="mood" value="1"></input>
+      <form onSubmit={handleSubmit} ref={submitRef}>
+        <label>&#128542;
+          <input type="radio" name="mood" value="1" onClick={clickSubmit} defaultChecked={currentMood?.mood === 1}></input>
         </label>
-        <label onClick={clickSubmit}>&#128533;
-          <input type="radio" name="mood" value="2"></input>
+        <label>&#128533;
+          <input type="radio" name="mood" value="2" onClick={clickSubmit} defaultChecked={currentMood?.mood === 2}></input>
         </label>
-        <label onClick={clickSubmit}>&#128528;
-          <input type="radio" name="mood" value="3"></input>
+        <label>&#128528;
+          <input type="radio" name="mood" value="3" onClick={clickSubmit} defaultChecked={currentMood?.mood === 3}></input>
         </label>
-        <label onClick={clickSubmit}>&#128522;
-          <input type="radio" name="mood" value="4"></input>
+        <label>&#128522;
+          <input type="radio" name="mood" value="4" onClick={clickSubmit} defaultChecked={currentMood?.mood === 4}></input>
         </label>
-        <label onClick={clickSubmit}>&#128513;
-          <input type="radio" name="mood" value="5"></input>
+        <label>&#128513;
+          <input type="radio" name="mood" value="5" onClick={clickSubmit} defaultChecked={currentMood?.mood === 5}></input>
         </label>
-        <button id="mood-form-button"></button>
-        {edit ? <button onClick={cancelEdit}>Cancel</button> : null}
+        {edit ? <button type="button" onClick={cancelEdit}>Cancel</button> : null}
       </form>
     </div>
   } else {
-    <div className="mood-display">
-      <div>Today's Mood:</div>
-      {props.currentMood.mood === 5 ? <div>&#128513;</div> : props.currentMood.mood === 4 ? <div>&#128522;</div> : props.currentMood.mood === 3 ? <div>&#128528;</div> : props.currentMood.mood === 2 ? < div >&#128533;</div> : <div>&#128542;</div>}
-      <button onClick={handleEdit}>Edit Mood</button>
-    </div>
+    return (
+      <div className="mood-display">
+        <div>Today's Mood:</div>
+        {currentMood.mood === 5 ? <div>&#128513;</div> : currentMood.mood === 4 ? <div>&#128522;</div> : currentMood.mood === 3 ? <div>&#128528;</div> : currentMood.mood === 2 ? < div >&#128533;</div> : <div>&#128542;</div>}
+        <button onClick={handleEdit}>Edit Mood</button>
+      </div>
+    )
   }
 }
 
-export default MoodTracker;
+export default connect(mSTP, mDTP)(MoodTracker);

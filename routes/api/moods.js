@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const passport = require('passport');
 const Mood = require('../../models/Mood');
 const validateMood = require('../../validation/mood');
@@ -9,7 +8,7 @@ router.get('/users/:userId',
   async (req, res) => {
 
     try {
-      const moods = await Mood.find({ mood: req.params.userId })
+      const moods = await Mood.find({ user: req.params.userId })
 
       res.json(moods);
 
@@ -32,7 +31,7 @@ router.post('/',
     const newMood = new Mood(
       {
         mood: req.body.mood,
-        user: req.user.id
+        user: req.body.userId
       }
     );
 
@@ -48,7 +47,6 @@ router.patch('/:moodId',
     try {
       const editedMood = await Mood.findById(req.params.moodId)
       if (req.body.mood) editedMood.mood = req.body.mood;
-
       await editedMood.save();
       res.json(editedMood);
 

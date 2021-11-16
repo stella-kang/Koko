@@ -4,6 +4,7 @@ import ReflectionsWidget from '../reflections/ReflectionsWidget';
 import CreateReflectionContainer from '../reflections/CreateReflectionContainer';
 import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
 import GoalsWidget from '../goals/GoalsWidget';
+import MoodTracker from '../mood/MoodTracker';
 import Koko from '../koko/koko';
 
 export const Home = (props) => {
@@ -27,8 +28,11 @@ export const Home = (props) => {
       )
     } else {
       return (
-        <ReflectionsWidget openCreateForm={() => setShowCreateReflection(true)} openEditForm={openEditForm} />
-        )
+        <>
+          <MoodTracker />
+          <ReflectionsWidget openCreateForm={() => setShowCreateReflection(true)} openEditForm={openEditForm} />
+        </>
+      )
     }
   }
 
