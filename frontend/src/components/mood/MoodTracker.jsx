@@ -60,8 +60,10 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
   }
 
   const clickSubmit = (e) => {
-    setMood(e.currentTarget.value);
-    setChangedMood(true);
+    if (currentMood.mood !== parseInt(e.currentTarget.value)) {
+      setChangedMood(true);
+      setMood(e.currentTarget.value);
+    }
   }
 
   if (!currentMood || edit) {
