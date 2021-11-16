@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReflectionsWidget from '../reflections/ReflectionsWidget';
+import GoalsWidget from '../goals/GoalsWidget';
 
 export const Home = (props) => {
   return (

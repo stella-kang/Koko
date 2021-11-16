@@ -6,6 +6,7 @@ import Splash from './splash/Splash';
 import LoginForm from './session/LoginForm';
 import RegisterForm from './session/RegisterForm';
 import Home from './home/Home';
+import Footer from './footer/Footer';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <ProtectedRoute path='/home' component={Home} />
         <Redirect to='/' />
       </Switch>
+      <Footer />
     </>
   )
 }
