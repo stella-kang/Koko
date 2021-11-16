@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const GoalForm = ({ currentUser, processForm, closeForm, goal }) => {
+const GoalForm = ({ currentUser, processForm, closeForm, goal, deleteGoal }) => {
 
   const {
     register,
@@ -25,6 +25,11 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal }) => {
       if (action.type ==="RECEIVE_GOAL") closeForm();
     })
   };
+
+  const handleDelete = () => {
+    deleteGoal(goal._id)
+      .then(() => closeForm());
+  }
 
   const headerPhrase = goal ? "it's okay to adjust your goals!" : "do you have any goals to tell Koko?"
 
@@ -56,6 +61,7 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal }) => {
           />
         </label>
         <button>{ goal ? "Update" : "Add"} Goal</button>
+        { goal ? <button type="button" onClick={handleDelete}>Delete</button> : null}
       </form>
     </div>
   );
