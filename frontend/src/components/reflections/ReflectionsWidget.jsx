@@ -41,10 +41,11 @@ export const ReflectionsWidget = ({
           />
         ))}
       </Slider>
-
-      <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
-      <button onClick={openCreateForm}>Add a New Entry</button>
-      <button onClick={() => sliderRef.current.slickNext()}>Next</button>
+      <div className='carousel-btns-container'>
+        <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
+        <button onClick={openCreateForm}>Add a New Entry</button>
+        <button onClick={() => sliderRef.current.slickNext()}>Next</button>
+      </div>
     </div>
   );
 };
