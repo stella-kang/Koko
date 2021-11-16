@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchMoods, createMood, editMood } from '../../actions/mood_actions';
+import { fetchMoods, createMood, updateMood } from '../../actions/mood_actions';
 
 const mSTP = (state) => ({
-  currentMood: state.entitites.mood,
-  currentUserId: state.session.currentUserId,
+  currentMood: Object.values(state.entities.moods)[0],
+  currentUserId: state.session.user.id,
 })
 
 const mDTP = {
   fetchMoods,
   createMood,
-  editMood
+  updateMood
 }
 
-const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, editMood }) => {
+const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updateMood }) => {
   const [mood, setMood] = useState(null);
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
-    fetchMoods();
+    fetchMoods(currentUserId);
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (edit) {
-      editMood({
+      updateMood({
         mood: mood,
         user_id: currentUserId,
         id: currentMood.id
