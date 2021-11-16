@@ -15,20 +15,20 @@ export const getTodaysMood = state => {
 }
 
 export const getShowDetailMoods = (state, calDate) => {
-  if (!state.entities.moods) return {};
+  debugger
   const moods = Object.values(state.entities.moods);
-  const currMoods = moods.filter(mood => mood.created_at.toLocaleString() === calDate.toLocalString());
+  const currMoods = moods.filter(mood => mood.createdAt.toLocaleString() === calDate);
   return currMoods;
 }
 
 export const getShowDetailReflections = (state, calDate) => {
   const reflections = Object.values(state.entities.reflections);
-  const currReflections = reflections.filter(reflection => reflection.created_at.toLocaleString() === calDate.toLocalString());
+  const currReflections = reflections.filter(reflection => reflection.createdAt.toLocaleString() === calDate);
   return currReflections;
 }
 
 export const getShowDetailGoals = (state, calDate) => {
   const goals = Object.values(state.entities.goals);
-  const currGoals = goals.filter(goal => goal.created_at.toLocaleString() === calDate.toLocalString());
+  const currGoals = goals.filter(goal => goal.createdAt.toLocaleString() === calDate);
   return currGoals;
 }

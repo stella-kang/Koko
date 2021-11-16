@@ -7,7 +7,7 @@ export const fetchDayShow = (userId, date) => dispatch => {
   return DayShowApiUtil.fetchDayShow(userId, date)
     .then(payload => {
       dispatch(receiveReflections(payload.data.reflection))
-      dispatch(receiveGoals(payload.data.goals))
+      dispatch(receiveGoals(payload.data.goal))
       dispatch(receiveMoods(payload.data.mood))
     });
 }

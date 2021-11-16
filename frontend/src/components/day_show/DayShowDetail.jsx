@@ -8,7 +8,7 @@ export const DayShowDetail = ({moods, goals, reflections, openEditForm}) => {
       <div className="day-details">
         <div className="day-details-mood">
           <h2>Mood:</h2>
-          {/* <MoodItem mood={moods[0] ? moods[0] : }/> */}
+          {moods.length === 0 ? <div>Mood not recorded.</div> : <MoodItem mood={moods[0]} />}
         </div>
 
         <div className="day-details-goals">
