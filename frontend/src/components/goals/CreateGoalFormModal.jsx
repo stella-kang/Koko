@@ -18,9 +18,10 @@ const CreateGoalForm = ({ currentUser, errors, addGoal, closeModal }) => {
     e.preventDefault();
 
     addGoal({
-      goal: enteredTextGoal,
+      description: enteredTextGoal,
       date: enteredDateGoal,
-    });
+      userId: currentUser.id
+    }).then(() => closeModal());
   };
 
   return (

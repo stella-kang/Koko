@@ -24,6 +24,8 @@ router.post('/',
   async (req, res) => {
     const { errors, isValid } = validateGoal(req.body);
 
+    console.log(errors);
+
     if (!isValid) {
       return res.status(400).json(errors);
     };
