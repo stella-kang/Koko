@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import { connect } from 'react-redux';
 import { fetchReflections } from '../../actions/reflections_actions';
 import ReflectionWidgetItem from './ReflectionWidgetItem';
+import { getSortedReflections } from '../../reducers/selectors';
 
 export const ReflectionsWidget = ({ openCreateForm, openEditForm, currentUser, reflections, fetchReflections }) => {
 
@@ -15,7 +16,7 @@ export const ReflectionsWidget = ({ openCreateForm, openEditForm, currentUser, r
   const settings = {
     arrows: false,
     speed: 500,
-    infinite: false,
+    infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1
   };
@@ -35,7 +36,7 @@ export const ReflectionsWidget = ({ openCreateForm, openEditForm, currentUser, r
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.user,
-  reflections: Object.values(state.entities.reflections)
+  reflections: getSortedReflections(state)
 })
 
 const mapDispatchToProps = {
