@@ -11,7 +11,7 @@ import DayShow from "./day_show/DayShow"
 
 const App = () => {
   return (
-    <>
+    <main>
       <NavBar />
       <ModalManager />
       <Switch>
@@ -22,9 +22,8 @@ const App = () => {
         <ProtectedRoute path='/day' component={DayShow} />
         <Redirect to='/' />
       </Switch>
-      <Footer />
-    </>
-  )
-}
+    </main>
+  );
+};
 
-export default App
+export default App;
