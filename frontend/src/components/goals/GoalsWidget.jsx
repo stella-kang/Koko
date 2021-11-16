@@ -6,10 +6,11 @@ export const GoalsWidget = ({
   notCompletedGoals,
   requestGoals,
   updateGoal,
+  currentUser
 }) => {
   useEffect(() => {
-    requestGoals();
-  }, [requestGoals]);
+    requestGoals(currentUser.id);
+  }, [requestGoals, currentUser]);
 
   const handleButtonClick = (goal) => {
     const newGoal = { ...goal };
@@ -36,13 +37,14 @@ const mapStateToProps = (state) => {
   );
 
   return {
+    currentUser: state.session.user,
     notCompletedGoals: notCompletedGoalsArr,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestGoals: () => dispatch(requestGoals()),
+    requestGoals: (userId) => dispatch(requestGoals(userId)),
     updateGoal: (goal) => dispatch(updateGoal(goal)),
   };
 };
