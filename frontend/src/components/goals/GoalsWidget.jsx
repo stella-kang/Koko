@@ -21,9 +21,9 @@ export const GoalsWidget = ({
 
   let notCompleted = notCompletedGoals.map((goal) => {
     return (
-      <div>
+      <div key={goal._id}>
         <p>{goal.title}</p>
-        <section>{goal.body}</section>
+        <section>{goal.description}</section>
         <button onClick={() => handleButtonClick(goal)}>Done?</button>
       </div>
     );
