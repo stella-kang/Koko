@@ -5,4 +5,9 @@ $orange: #ee6c4d;
 $black: #293241;
 $cream: #fff9e9;
 
-@import "./stylesheets/koko.scss"
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:wght@100;300;400;700&display=swap');
+
+@import "./stylesheets//reset.scss";
+@import "./stylesheets/koko.scss";
+@import "./stylesheets/calendar.scss";
