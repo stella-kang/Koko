@@ -1,7 +1,8 @@
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { requestGoals, updateGoal } from '../../actions/goal_actions';
 import { openModal } from '../../actions/modal_actions';
-import React, { useEffect } from 'react';
+import GoalsWidgetItem from './GoalsWidgetItem';
 
 export const GoalsWidget = ({
   notCompletedGoals,
@@ -22,15 +23,7 @@ export const GoalsWidget = ({
     updateGoal(newGoal);
   };
 
-  let notCompleted = notCompletedGoals.map((goal) => {
-    return (
-      <div key={goal._id}>
-        <p>{goal.title}</p>
-        <section>{goal.description}</section>
-        <button onClick={() => handleButtonClick(goal)}>Done?</button>
-      </div>
-    );
-  });
+  const notCompleted = notCompletedGoals.map((goal) => <GoalsWidgetItem key={goal._id} goal={goal} handleButtonClick={() => handleButtonClick(goal)} />);
 
   return (
     <div>

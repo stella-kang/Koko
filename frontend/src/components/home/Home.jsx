@@ -4,7 +4,6 @@ import ReflectionsWidget from '../reflections/ReflectionsWidget';
 import CreateReflectionContainer from '../reflections/CreateReflectionContainer';
 import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
 import CreateGoalForm from '../goals/CreateGoalForm';
-// import EditGoalForm from '../goals/EditGoalForm';
 import GoalsWidget from '../goals/GoalsWidget';
 import MoodTracker from '../mood/MoodTracker';
 import Koko from '../koko/Koko';
@@ -15,8 +14,6 @@ export const Home = (props) => {
   const [reflectionToEdit, setReflectionToEdit] = useState(null);
 
   const [showCreateGoal, setShowCreateGoal] = useState(false);
-  // const [showEditGoal, setShowEditGoal] = useState(false);
-  const [goalToEdit, setGoalToEdit] = useState(null);
 
   const openEditGoalForm = (reflection) => {
     setReflectionToEdit(reflection);
