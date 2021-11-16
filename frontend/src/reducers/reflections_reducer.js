@@ -1,6 +1,7 @@
 import {
   RECEIVE_REFLECTIONS,
-  RECEIVE_REFLECTION
+  RECEIVE_REFLECTION,
+  REMOVE_REFLECTION
 } from '../actions/reflections_actions';
 
 const ReflectionReducer = (oldState = {}, action) => {
@@ -12,6 +13,9 @@ const ReflectionReducer = (oldState = {}, action) => {
       return action.reflections.data;
     case RECEIVE_REFLECTION:
       return Object.assign({}, oldState, { [action.reflection.data.id]: action.reflection.data })
+    case REMOVE_REFLECTION:
+      delete newState[action.goalId]
+      return newState;
     default:
       return oldState;
   }

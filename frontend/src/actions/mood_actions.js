@@ -14,7 +14,7 @@ const receiveMood = (mood) => ({
   mood
 });
 
-const clearMood = () => ({
+export const clearMood = () => ({
   type: CLEAR_MOOD
 });
 
