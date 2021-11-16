@@ -15,7 +15,7 @@ const mDTP = {
 }
 
 const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updateMood }) => {
-  const [mood, setMood] = useState(null);
+  const [mood, setMood] = useState(currentMood?.mood);
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
@@ -64,19 +64,19 @@ const MoodTracker = ({ currentMood, currentUserId, fetchMoods, createMood, updat
 
       <form onSubmit={handleSubmit} ref={submitRef}>
         <label>&#128542;
-          <input type="radio" name="mood" value="1" onClick={clickSubmit}></input>
+          <input type="radio" name="mood" value="1" onClick={clickSubmit} defaultChecked={currentMood?.mood === 1}></input>
         </label>
         <label>&#128533;
-          <input type="radio" name="mood" value="2" onClick={clickSubmit}></input>
+          <input type="radio" name="mood" value="2" onClick={clickSubmit} defaultChecked={currentMood?.mood === 2}></input>
         </label>
         <label>&#128528;
-          <input type="radio" name="mood" value="3" onClick={clickSubmit}></input>
+          <input type="radio" name="mood" value="3" onClick={clickSubmit} defaultChecked={currentMood?.mood === 3}></input>
         </label>
         <label>&#128522;
-          <input type="radio" name="mood" value="4" onClick={clickSubmit}></input>
+          <input type="radio" name="mood" value="4" onClick={clickSubmit} defaultChecked={currentMood?.mood === 4}></input>
         </label>
         <label>&#128513;
-          <input type="radio" name="mood" value="5" onClick={clickSubmit}></input>
+          <input type="radio" name="mood" value="5" onClick={clickSubmit} defaultChecked={currentMood?.mood === 5}></input>
         </label>
         {edit ? <button type="button" onClick={cancelEdit}>Cancel</button> : null}
       </form>
