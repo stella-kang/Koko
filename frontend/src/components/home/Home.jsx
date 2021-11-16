@@ -4,6 +4,7 @@ import ReflectionsWidget from '../reflections/ReflectionsWidget';
 import CreateReflectionContainer from '../reflections/CreateReflectionContainer';
 import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
 import CreateGoalForm from '../goals/CreateGoalForm';
+import EditGoalForm from '../goals/EditGoalForm';
 import GoalsWidget from '../goals/GoalsWidget';
 import MoodTracker from '../mood/MoodTracker';
 import Koko from '../koko/Koko';
@@ -14,8 +15,15 @@ export const Home = (props) => {
   const [reflectionToEdit, setReflectionToEdit] = useState(null);
 
   const [showCreateGoal, setShowCreateGoal] = useState(false);
+  const [showEditGoal, setShowEditGoal] = useState(false);
+  const [goalToEdit, setGoalToEdit] = useState(null);
 
-  const openEditGoalForm = (reflection) => {
+  const openEditGoalForm = (goal) => {
+    setGoalToEdit(goal);
+    setShowEditGoal(true);
+  }
+
+  const openEditReflectionForm = (reflection) => {
     setReflectionToEdit(reflection);
     setShowEditReflection(true);
   }
@@ -25,9 +33,13 @@ export const Home = (props) => {
       return (
         <CreateGoalForm closeForm={() => setShowCreateGoal(false)} />
       )
+    } else if (showEditGoal) {
+      return (
+        <EditGoalForm closeForm={() => setShowCreateGoal(false)} goal={goalToEdit} />
+      )
     } else {
       return (
-        <GoalsWidget openCreateForm={() => setShowCreateGoal(true)} />
+        <GoalsWidget openCreateForm={() => setShowCreateGoal(true)} openEditForm={openEditGoalForm} />
       )
     }
    }
@@ -46,7 +58,7 @@ export const Home = (props) => {
         <>
           <MoodTracker />
           { displayGoalsComponent() }
-          <ReflectionsWidget openCreateForm={() => setShowCreateReflection(true)} openEditForm={openEditGoalForm} />
+          <ReflectionsWidget openCreateForm={() => setShowCreateReflection(true)} openEditForm={openEditReflectionForm} />
         </>
       )
     }

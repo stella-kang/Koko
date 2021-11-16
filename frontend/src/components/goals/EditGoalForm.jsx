@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { updateGoal, requestGoal } from '../../actions/goal_actions';
+import { createGoal } from '../../actions/goal_actions';
 
-const EditGoalForm = ({ username, goal, errors, updateGoal, requestGoal }) => {
+const EditGoalForm = ({ currentUser, errors, createGoal, closeForm }) => {
   const [enteredTextGoal, setEnteredTextGoal] = useState('');
   const [enteredDateGoal, setEnteredDateGoal] = useState('');
-
-  useEffect(() => {
-    requestGoal(goal.id);
-  }, [requestGoal, goal.id]);
 
   const goalTextInputHandler = (e) => {
     setEnteredTextGoal(e.target.value);
@@ -21,26 +17,29 @@ const EditGoalForm = ({ username, goal, errors, updateGoal, requestGoal }) => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
 
-    updateGoal({
-      goal: enteredTextGoal,
+    createGoal({
+      description: enteredTextGoal,
       date: enteredDateGoal,
-    });
+      userId: currentUser.id
+    }).then(action => {
+      if (action.type ==="RECEIVE_GOAL") closeForm();
+    })
   };
 
-  if (!goal) return null;
   return (
     <div>
-      <h1>Edit this goal</h1>
+      <button onClick={() => closeForm()}>Cancel</button>
+      <h1>Hello, {currentUser.username}, do you have any goals to tell Koko?</h1>
       <form onSubmit={formSubmitHandler}>
         <label>
-          Current Goal
+          Current Goal { errors.description }
           <input type='text' onChange={goalTextInputHandler} />
         </label>
         <label>
           When do you envision to complete it?
           <input type='date' onChange={goalDateInputHandler} />
         </label>
-        <button>Edit Goal</button>
+        <button>Add Goal</button>
       </form>
     </div>
   );
@@ -49,14 +48,12 @@ const EditGoalForm = ({ username, goal, errors, updateGoal, requestGoal }) => {
 const mSTP = (state) => {
   return {
     errors: state.errors.goals,
-    username: state.session.username,
-    goal: state.entities.goal,
+    currentUser: state.session.user,
   };
 };
 
 const mDTP = (dispatch) => ({
-  editGoal: (goal) => dispatch(updateGoal(goal)),
-  requestGoal: (goalId) => dispatch(requestGoal(goalId)),
+  createGoal: (goal) => dispatch(createGoal(goal)),
 });
 
 export default connect(mSTP, mDTP)(EditGoalForm);

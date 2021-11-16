@@ -8,9 +8,9 @@ export const GoalsWidget = ({
   notCompletedGoals,
   requestGoals,
   updateGoal,
-  openModal,
   currentUser,
-  openCreateForm
+  openCreateForm,
+  openEditForm
 }) => {
 
   useEffect(() => {
@@ -23,11 +23,13 @@ export const GoalsWidget = ({
     updateGoal(newGoal);
   };
 
-  const notCompleted = notCompletedGoals.map((goal) => <GoalsWidgetItem key={goal._id} goal={goal} handleButtonClick={() => handleButtonClick(goal)} />);
+  const notCompleted = notCompletedGoals.map((goal) =>
+    <GoalsWidgetItem key={goal._id} goal={goal} handleButtonClick={() => handleButtonClick(goal)} openEditForm={openEditForm} />
+  );
 
   return (
     <div>
-      <h2>Goals</h2>
+      <h2>Ongoing Goals</h2>
       {notCompleted}
 
       <button onClick={openCreateForm}>
