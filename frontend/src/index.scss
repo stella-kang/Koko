@@ -9,8 +9,6 @@ $cream: #fff9e9;
 @import './stylesheets/base/reset';
 @import './stylesheets/base/_typography';
 
-// @import './stylesheets/koko.scss';
-// @import './stylesheets/calendar.scss';
 
 @import './stylesheets/layout/layout';
 
@@ -20,3 +18,6 @@ $cream: #fff9e9;
 @import './stylesheets/components/reflections_widget';
 @import './stylesheets/components/reflections_form';
 @import './stylesheets/components/mood_tracker_widget';
+@import './stylesheets/components/koko.scss';
+@import './stylesheets/components/calendar.scss';
+@import "./stylesheets/pages/day_show.scss"

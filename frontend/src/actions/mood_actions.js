@@ -4,7 +4,7 @@ export const RECEIVE_MOODS = "RECEIVE_MOODS"
 export const RECEIVE_MOOD = "RECEIVE_MOOD"
 export const CLEAR_MOOD = "CLEAR_MOOD"
 
-const receiveMoods = (moods) => ({
+export const receiveMoods = (moods) => ({
   type: RECEIVE_MOODS,
   moods
 });

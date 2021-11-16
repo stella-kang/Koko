@@ -4,7 +4,7 @@ export const RECEIVE_GOALS = 'RECEIVE_GOALS';
 export const RECEIVE_GOAL = 'RECEIVE_GOAL';
 export const REMOVE_GOAL = 'REMOVE_GOAL';
 
-const receiveGoals = (goals) => ({
+export const receiveGoals = (goals) => ({
   type: RECEIVE_GOALS,
   goals,
 });

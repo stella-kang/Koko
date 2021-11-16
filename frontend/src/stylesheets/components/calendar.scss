@@ -1,0 +1,116 @@
+@import 'react-calendar/dist/Calendar.css';
+
+
+.react-calendar {
+  background-color: $cream;
+  border-radius: 20px;
+  width: 65%;
+  color: $black;
+  border: none;
+  padding: 20px;
+  height: 80vh;
+  box-shadow: 0px 0px 12px 8px rgba(49, 49, 49, 0.3);
+
+  button:hover {
+    border-radius: 10px;
+  }
+}
+
+.react-calendar__navigation {
+  display: flex;
+  align-items: center;
+  button {
+    font-family: 'Fredoka One', cursive;
+    font-size: 40px;
+  }
+}
+
+.react-calendar__navigation__label {
+  pointer-events: none;
+}
+
+.react-calendar__navigation {
+  button:enabled:hover, button:enabled:focus {
+    color: $orange;
+    background-color: transparent;
+  }
+}
+
+.react-calendar__viewContainer {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.react-calendar__viewContainer {
+  height: 90%;
+
+  .react-calendar__month-view {
+    height: 100%;
+
+    > div {
+      height: 100%;
+      align-content: space-between;
+
+      > div {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.react-calendar__month-view__days {
+  height: 15%;
+
+  button {
+    font-size: 25px;
+    font-family: 'Fredoka One', cursive;
+  }
+}
+
+.react-calendar__tile {
+  height: 100%;
+}
+
+element.style {
+    flex-basis: 14.2857%;
+    max-width: 14.2857%;
+    overflow: hidden;
+}
+.react-calendar__month-view__days button {
+    font-size: 25px;
+    font-family: "Fredoka One", cursive;
+}
+.react-calendar button {
+    margin: 0;
+    border: 0;
+    outline: none;
+}
+
+.react-calendar__tile--now {
+  background-color: $blue;
+  border-radius: 10px;
+}
+
+.react-calendar__tile--now:enabled:hover {
+    background-color: #e6e6e6;
+    border-radius: 10px;
+}
+
+.react-calendar__tile--now:enabled:focus {
+  background-color: $blue;
+  border-radius: 10px;
+}
+
+.react-calendar__tile--active, .react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
+  background-color: $orange;
+  border-radius: 10px;
+}
+
+.react-calendar__navigation__next2-button, .react-calendar__navigation__prev2-button {
+  display: none;
+}
