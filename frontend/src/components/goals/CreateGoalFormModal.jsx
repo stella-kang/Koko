@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { createGoal } from '../../actions/goal_actions';
 
-const CreateGoalForm = ({ username, goals, errors, addGoal }) => {
+const CreateGoalForm = ({ currentUser, errors, addGoal, closeModal }) => {
   const [enteredTextGoal, setEnteredTextGoal] = useState('');
   const [enteredDateGoal, setEnteredDateGoal] = useState('');
 
@@ -25,7 +25,8 @@ const CreateGoalForm = ({ username, goals, errors, addGoal }) => {
 
   return (
     <div>
-      <h1>Hello, {username}, do you have any goals to tell Koko?</h1>
+      <button onClick={() => closeModal()}>Close</button>
+      <h1>Hello, {currentUser.username}, do you have any goals to tell Koko?</h1>
       <form onSubmit={formSubmitHandler}>
         <label>
           Current Goal
@@ -44,8 +45,7 @@ const CreateGoalForm = ({ username, goals, errors, addGoal }) => {
 const mSTP = (state) => {
   return {
     errors: state.errors.goals,
-    username: state.session.username,
-    // goals: state.entities.goals,
+    currentUser: state.session.user,
   };
 };
 

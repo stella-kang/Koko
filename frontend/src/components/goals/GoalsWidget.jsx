@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import { requestGoals, updateGoal } from '../../actions/goal_actions';
+import { openModal } from '../../actions/modal_actions';
 import React, { useEffect } from 'react';
 
 export const GoalsWidget = ({
   notCompletedGoals,
   requestGoals,
   updateGoal,
+  openModal,
   currentUser
 }) => {
 
@@ -29,7 +31,16 @@ export const GoalsWidget = ({
     );
   });
 
-  return <div>{notCompleted}</div>;
+  return (
+    <div>
+      <h2>Goals</h2>
+      {notCompleted}
+
+      <button onClick={() => openModal({ type: "createGoal" })}>
+        Add a Goal
+      </button>
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {
@@ -37,19 +48,23 @@ const mapStateToProps = (state) => {
     (goal) => goal.status === false
   );
 
-  console.log(notCompletedGoalsArr)
-
   return {
     currentUser: state.session.user,
     notCompletedGoals: notCompletedGoalsArr,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    requestGoals: (userId) => dispatch(requestGoals(userId)),
-    updateGoal: (goal) => dispatch(updateGoal(goal)),
-  };
-};
+const mapDispatchToProps = {
+  requestGoals,
+  updateGoal,
+  openModal
+}
+
+// (dispatch) => {
+//   return {
+//     requestGoals: (userId) => dispatch(requestGoals(userId)),
+//     updateGoal: (goal) => dispatch(updateGoal(goal)),
+//   };
+// };
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoalsWidget);
