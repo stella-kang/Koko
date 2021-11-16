@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ReflectionsWidget from '../reflections/ReflectionsWidget';
 
@@ -7,7 +8,7 @@ export const Home = (props) => {
     <div>
       <h1>This is home</h1>
 
-      <ReflectionsWidget />
+      <Route path='/home' component={ReflectionsWidget} />
     </div>
   )
 }
