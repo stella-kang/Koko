@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createMood, editMood } from '../../actions/mood_actions';
 
 const mSTP = (state, ownProps) => ({
@@ -45,6 +45,10 @@ const MoodTracker = (props) => {
     setEdit(true);
   }
 
+  const cancelEdit = (e) => {
+    setEdit(false);
+  }
+
   const clickSubmit = (e) => {
     setMood(e.target.value);
     document.getElementById("mood-form-button").click();
@@ -71,6 +75,7 @@ const MoodTracker = (props) => {
           <input type="radio" name="mood" value="5"></input>
         </label>
         <button id="mood-form-button"></button>
+        {edit ? <button onClick={cancelEdit}>Cancel</button> : null}
       </form>
     </div>
   } else {
