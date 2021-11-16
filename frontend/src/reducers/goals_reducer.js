@@ -10,7 +10,10 @@ const GoalsReducer = (oldState = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_GOALS:
-      return action.goals;
+      for (let goal of action.goals) {
+        newState[goal._id] = goal;
+      }
+      return newState;
     case RECEIVE_GOAL:
       newState[action.goal.id] = action.goal;
       return newState;
