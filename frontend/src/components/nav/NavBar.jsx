@@ -19,7 +19,7 @@ export const NavBar = ({ loggedIn, logout }) => {
     } else {
       return (
         <div>
-          <Link to={'/signup'}>Signup</Link>
+          <Link to={'/register'}>Signup</Link>
           <Link to={'/login'}>Login</Link>
         </div>
       )
