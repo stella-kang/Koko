@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  createReflection
+  processForm: createReflection
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReflectionForm)

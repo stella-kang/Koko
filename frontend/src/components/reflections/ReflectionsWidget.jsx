@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { connect } from 'react-redux';
 import { fetchReflections } from '../../actions/reflections_actions';
 
-export const ReflectionsWidget = ({ currentUser, reflections, fetchReflections }) => {
+export const ReflectionsWidget = ({ showForm, currentUser, reflections, fetchReflections }) => {
 
   useEffect(() => {
     fetchReflections(currentUser.id);
@@ -26,6 +26,7 @@ export const ReflectionsWidget = ({ currentUser, reflections, fetchReflections }
       </Slider>
 
       <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
+      <button onClick={showForm}>Add a New Entry</button>
       <button onClick={() => sliderRef.current.slickNext()}>Next</button>
     </div>
   )

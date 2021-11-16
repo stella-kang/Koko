@@ -30,6 +30,7 @@ const ReflectionForm = ({ closeForm, currentUser, processForm }) => {
           />
 
           <button>Save Reflection</button>
+          <button type="button" onClick={closeForm}>Cancel</button>
         </div>
       </form>
     </div>
