@@ -3,10 +3,13 @@
 
 .react-calendar {
   background-color: $cream;
-  border-radius: 10px;
-  width: 50%;
+  border-radius: 20px;
+  width: 65%;
   color: $black;
   border: none;
+  padding: 20px;
+  height: 80vh;
+  box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 
   button:hover {
     border-radius: 10px;
@@ -16,7 +19,7 @@
 .react-calendar__navigation {
   button {
     font-family: 'Fredoka One', cursive;
-    font-size: 20px;
+    font-size: 40px;
   }
 }
 
@@ -25,14 +28,57 @@
   font-size: 20px;
 }
 
+.react-calendar__month-view__weekdays__weekday {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
 .react-calendar__month-view__days {
   button {
-    font-size: 15px;
+    font-size: 25px;
     font-family: 'Fredoka One', cursive;
   }
 }
 
-.react-calendar__tile--active {
-  background-color: $darkblue;
+.react-calendar__tile {
+  height: 12.5vh;
+}
+
+element.style {
+    flex-basis: 14.2857%;
+    max-width: 14.2857%;
+    overflow: hidden;
+}
+.react-calendar__month-view__days button {
+    font-size: 25px;
+    font-family: "Fredoka One", cursive;
+}
+.react-calendar button {
+    margin: 0;
+    border: 0;
+    outline: none;
+}
+
+.react-calendar__tile {
+    height: 12.5vh;
+}
+
+.react-calendar__tile--now {
+  background-color: $blue;
+  border-radius: 10px;
+}
+
+.react-calendar__tile--now:enabled:hover {
+    background-color: #e6e6e6;
+    border-radius: 10px;
+}
+
+.react-calendar__tile--now:enabled:focus {
+  background-color: $blue;
+  border-radius: 10px;
+}
+
+.react-calendar__tile--active, .react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
+  background-color: $orange;
   border-radius: 10px;
 }

@@ -24,7 +24,7 @@ const DayShow = ({fetchDayShow, currentUserId, dayShow}) => {
     setCalDate(date);
   }
 
-  return <div className="day-show-calendar">
+  return <div className="day-show">
     <DayShowDetail dayShow={dayShow}/>
     <Calendar onChange={onChange} value={calDate}/>
   </div>

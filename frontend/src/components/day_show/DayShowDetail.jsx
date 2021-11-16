@@ -5,7 +5,7 @@ import React from 'react';
 
 export const DayShowDetail = ({dayShow}) => {
   return (
-    <div>
+    <div className="day-details">
       <h2>Mood</h2>
       <div>{dayShow.mood}</div>
       <h2>Goals</h2>
