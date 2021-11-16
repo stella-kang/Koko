@@ -52,3 +52,9 @@ export const logout = () => dispatch => {
   ApiUtil.setAuthToken(false);
   dispatch(logoutUser());
 }
+
+export const updateExp = userId => dispatch => (
+  ApiUtil.updateExp(userId)
+    .then(payload => dispatch(receiveCurrentUser(payload.data)))
+);
+
