@@ -1,6 +1,6 @@
 const ReflectionWidgetItem = ({ reflection, openEditForm }) => {
 
-  const date = new Date(reflection.createdAt);
+  const date = new Date(reflection.updatedAt);
 
   return (
     <div className="journal-carousel-item">
