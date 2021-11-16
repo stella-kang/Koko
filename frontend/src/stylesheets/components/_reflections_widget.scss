@@ -32,12 +32,13 @@
 
   .date-time {
     padding: 5px;
-    color: $blue;
+    color: $darkblue;
     font-size: 24px;
     // border-radius: 5px;
+    border-bottom: 2px solid transparent;
 
     &:hover {
-      border-bottom: 2px solid $darkblue;
+      border-bottom: 2px solid $orange;
     }
   }
 }
