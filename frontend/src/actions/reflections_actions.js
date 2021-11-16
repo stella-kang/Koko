@@ -24,14 +24,15 @@ export const fetchReflections = userId => dispatch => (
     .then(payload => dispatch(receiveReflections(payload.data)))
     .catch(err => console.log(err))
 );
-export const createReflection = reflect => dispatch => (
-  ReflectionApiUtil.createReflection(reflect)
+
+export const updateReflection = reflection => dispatch => (
+  ApiUtil.updateReflection(reflection)
     .then(reflection => dispatch(receiveReflection(reflection)))
     .catch(err => console.log(err))
 );
 
-export const updateReflection = reflect => dispatch => (
-  ReflectionApiUtil.updateReflection(reflect)
+export const createReflection = reflection => dispatch => (
+  ApiUtil.createReflection(reflection)
     .then(reflection => dispatch(receiveReflection(reflection)))
     .catch(err => console.log(err))
 );
