@@ -16,6 +16,10 @@ export const login = userData => {
   return axios.post('/api/users/login', userData);
 };
 
+export const fetchCurrentUser = () => {
+  return axios.get(`/api/users/current`)
+};
+
 export const updateExp = userId => {
   return axios.get(`/api/users/${userId}/friendship`)
-}
+};

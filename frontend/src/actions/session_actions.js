@@ -53,6 +53,11 @@ export const logout = () => dispatch => {
   dispatch(logoutUser());
 }
 
+export const fetchCurrentUser = () => dispatch => (
+  ApiUtil.fetchCurrentUser()
+    .then(payload => dispatch(receiveCurrentUser(payload.data)))
+);
+
 export const updateExp = userId => dispatch => (
   ApiUtil.updateExp(userId)
     .then(payload => dispatch(receiveCurrentUser(payload.data)))
