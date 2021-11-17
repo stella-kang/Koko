@@ -20,7 +20,13 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, deleteGoal }) => 
       dueDate: data.date,
       userId: currentUser.id
     };
-    if (goal) formGoal['id'] = goal._id;
+    if (goal) formGoal['_id'] = goal._id;
+
+    if (formGoal.dueDate) {
+      const date = new Date(formGoal.dueDate);
+      const timezoneOffset = date.getTimezoneOffset() * 60000;
+      formGoal.dueDate = new Date(date.getTime() + timezoneOffset);
+    }
 
     processForm(formGoal).then(action => {
       if (action.type ==="RECEIVE_GOAL") closeForm();
