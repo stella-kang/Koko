@@ -51,7 +51,8 @@ const ReflectionShowForm = ({
       });
   };
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    // e.preventDefault();
     deleteReflection(reflection._id)
       .then(() => closeForm());
   }
@@ -73,7 +74,7 @@ const ReflectionShowForm = ({
     </div>
   )
 
-  const button = !reflection ? (
+  const buttons = !reflection ? (
     <button>
       Save Reflection
     </button>
@@ -82,13 +83,19 @@ const ReflectionShowForm = ({
       <button>
         Save Changes
       </button>
-      <button type="button" onClick={() => setEditMode(false)}>
+      <button type="button" onClick={(e) => {
+        e.preventDefault();
+        setEditMode(false)
+      }}>
         Cancel Edit
       </button>
     </>
   ) : (
     <>
-      <button type='button' onClick={() => setEditMode(true)}>
+      <button type='button' onClick={(e) => {
+        e.preventDefault();
+        setEditMode(true)
+      }}>
         Edit Entry
       </button>
       <button type='button' onClick={handleDelete}>
@@ -103,7 +110,7 @@ const ReflectionShowForm = ({
         <label htmlFor='email'>Daily Reflection {errors.entry}</label>
         { content }
 
-        { button }
+        { buttons }
         <button type='button' onClick={closeForm}>
           Back
         </button>

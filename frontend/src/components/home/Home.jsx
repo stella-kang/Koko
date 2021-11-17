@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import ReflectionsWidget from '../reflections/ReflectionsWidget';
+import { Link } from 'react-router-dom';
+import AllReflectionsContainer from '../reflections/AllReflectionsContainer';
 import ReflectionShowForm from '../reflections/ReflectionShowForm';
 import CreateGoalContainer from '../goals/CreateGoalContainer';
 import EditGoalContainer from '../goals/EditGoalContainer';
-import GoalsWidget from '../goals/GoalsWidget';
+import OngoingGoalsContainer from '../goals/OngoingGoalsContainer';
 import MoodTracker from '../mood/MoodTracker';
 import Koko from '../koko/Koko';
 
@@ -37,7 +38,7 @@ export const Home = (props) => {
       )
     } else {
       return (
-        <GoalsWidget openCreateForm={() => setShowCreateGoal(true)} openEditForm={openEditGoalForm} />
+        <OngoingGoalsContainer openCreateForm={() => setShowCreateGoal(true)} openEditForm={openEditGoalForm} />
       )
     }
    }
@@ -52,7 +53,7 @@ export const Home = (props) => {
         <>
           <MoodTracker />
           { displayGoalsComponent() }
-          <ReflectionsWidget openReflectionShow={openReflectionShow} />
+          <AllReflectionsContainer openReflectionShow={openReflectionShow} />
         </>
       )
     }
@@ -61,6 +62,7 @@ export const Home = (props) => {
   return (
     <div>
       <h1>This is home</h1>
+      <Link to='/day'>See History</Link>
 
       <Koko />
 

@@ -5,7 +5,7 @@ export const getSortedReflections = state => {
 }
 
 export const getTodaysMood = state => {
-  let todayString = new Date().toLocaleDateString();
+  const todayString = new Date().toLocaleDateString();
   for (let mood of Object.values(state.entities.moods)) {
     if (new Date(mood.createdAt).toLocaleDateString() === todayString) {
       return mood;
@@ -14,21 +14,26 @@ export const getTodaysMood = state => {
   return null;
 }
 
-export const getShowDetailMoods = (state, calDate) => {
-  debugger
-  const moods = Object.values(state.entities.moods);
-  const currMoods = moods.filter(mood => mood.createdAt.toLocaleString() === calDate);
-  return currMoods;
+export const getShowDetailMood = (state, calDate) => {
+  const currDate = calDate.toLocaleDateString();
+  for (let mood of Object.values(state.entities.moods)) {
+    if (new Date(mood.createdAt).toLocaleDateString() === currDate) {
+      return mood;
+    }
+  }
+  return null;
 }
 
 export const getShowDetailReflections = (state, calDate) => {
+  const currDate = calDate.toLocaleDateString();
   const reflections = Object.values(state.entities.reflections);
-  const currReflections = reflections.filter(reflection => reflection.createdAt.toLocaleString() === calDate);
+  const currReflections = reflections.filter(reflection => new Date(reflection.createdAt).toLocaleDateString() === currDate);
   return currReflections;
 }
 
 export const getShowDetailGoals = (state, calDate) => {
+  const currDate = calDate.toLocaleDateString();
   const goals = Object.values(state.entities.goals);
-  const currGoals = goals.filter(goal => goal.createdAt.toLocaleString() === calDate);
+  const currGoals = goals.filter(goal => new Date(goal.createdAt).toLocaleDateString() === currDate);
   return currGoals;
 }

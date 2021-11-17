@@ -15,32 +15,34 @@ const mDTP = (dispatch, ownProps) => ({
 
 const DayShow = ({fetchDayShow, currentUserId, moods, goals, reflections}) => {
   const [calDate, setCalDate] = useState(new Date());
-  const [reflectionToEdit, setReflectionToEdit] = useState(null);
-  const [showEditReflection, setShowEditReflection] = useState(false);
+  const [showReflection, setShowReflection] = useState(false);
+  const [reflectionId, setReflectionId] = useState();
 
   let fetchDate = `${calDate.getFullYear()}-${calDate.getUTCMonth() + 1}-${calDate.getDate()}`;
 
-  const openEditForm = (reflection) => {
-    setReflectionToEdit(reflection);
-    setShowEditReflection(true);
+  const openReflectionShow = (reflectionId) => {
+    setReflectionId(reflectionId);
+    setShowReflection(true);
   }
 
   useEffect(() => {
     fetchDayShow(currentUserId, fetchDate);
-  }, [fetchDayShow, calDate, currentUserId])
+  }, [fetchDayShow, fetchDate, currentUserId])
 
   const onChange = (date) => {
     setCalDate(date);
   }
 
-  if (showEditReflection) {
+  const isToday = calDate.toLocaleDateString() === new Date().toLocaleDateString();
+
+  if (showReflection) {
     return <div className="day-show">
-      <ReflectionShowForm reflection={reflectionToEdit} closeForm={() => setShowEditReflection(false)}/>
+      <ReflectionShowForm closeForm={() => setShowReflection(false)} reflectionId={reflectionId} openReflectionShow={openReflectionShow} />
       <Calendar onChange={onChange} value={calDate} />
     </div>
   } else {
     return <div className="day-show">
-      <DayShowDetailContainer openEditForm={openEditForm} calDate={calDate} />
+      <DayShowDetailContainer isToday={isToday} openReflectionShow={openReflectionShow} calDate={calDate} />
       <Calendar onChange={onChange} value={calDate} />
     </div>
   }
