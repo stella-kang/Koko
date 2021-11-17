@@ -10,10 +10,11 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   signup,
-  clearSessionErrors,
-};
+  clearSessionErrors
+}
 
 export const RegisterFormModal = ({
+  history,
   errors,
   signup,
   closeModal,
@@ -38,8 +39,14 @@ export const RegisterFormModal = ({
       password,
       password2,
     };
-    signup(user);
-  };
+    signup(user)
+      .then((action) => {
+        if (action.type ==="RECEIVE_CURRENT_USER") {
+          closeModal();
+          history.push('/home');
+        }
+      })
+  }
 
   return (
     <div className='modal'>
