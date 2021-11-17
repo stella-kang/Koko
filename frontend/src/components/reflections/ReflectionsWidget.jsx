@@ -19,16 +19,13 @@ const ReflectionsWidget = ({
 
   const sliderRef = useRef();
 
-  useEffect(() => {
-    sliderRef.current?.slickGoTo(reflections.length-1);
-  }, [reflections.length])
-
   const settings = {
     arrows: false,
     speed: 500,
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
+    initialSlide: -3
   };
 
   return (
