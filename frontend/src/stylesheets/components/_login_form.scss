@@ -1,0 +1,23 @@
+.main-login-form-container {
+  display: flex;
+  flex-direction: column;
+
+  form {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-family: $bubblefont;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+}
+
+.close-btn-container {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
