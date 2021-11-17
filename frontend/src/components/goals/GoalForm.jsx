@@ -72,7 +72,9 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, openModal }) => {
           />
           </label>
           <label>
+            <div>
             When do you envision to complete it? <span id="optional">optional</span>
+            </div>
             <input type='date'
               {...register('date')}
             />

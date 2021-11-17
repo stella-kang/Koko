@@ -177,7 +177,7 @@
 .goal-form-buttons {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 
   button {
     background-color: $cream;
@@ -210,5 +210,6 @@
   width: 100%;
   font-size: 15px;
   font-style: italic;
+  height: 15px;
 }
 
