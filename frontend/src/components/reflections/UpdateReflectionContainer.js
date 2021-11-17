@@ -3,8 +3,9 @@ import ReflectionForm from './ReflectionForm';
 import { updateReflection } from '../../actions/reflections_actions';
 
 
-const mapStateToProps = (state) => ({
-  currentUser: state.session.user
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.session.user,
+  reflection: state.entities.reflections[ownProps.reflectionId]
 })
 
 const mapDispatchToProps = {

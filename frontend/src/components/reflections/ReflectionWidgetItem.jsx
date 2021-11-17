@@ -1,6 +1,6 @@
 import { FaEdit } from 'react-icons/fa';
 
-const ReflectionWidgetItem = ({ reflection, openEditForm }) => {
+const ReflectionWidgetItem = ({ reflection, openReflectionShow }) => {
   const date = new Date(reflection.updatedAt);
 
   return (
@@ -12,7 +12,7 @@ const ReflectionWidgetItem = ({ reflection, openEditForm }) => {
             .toLocaleTimeString()
             .slice(-2)}`}
         </div>
-        <div className='edit-btn' onClick={() => openEditForm(reflection)}>
+        <div className='edit-btn' onClick={() => openReflectionShow(reflection._id)}>
           <FaEdit />
         </div>
       </div>

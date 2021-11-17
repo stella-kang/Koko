@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { connect } from 'react-redux'
+import { createReflection, updateReflection } from '../../actions/reflections_actions';
+
+const mapStateToProps = (state, ownProps) => ({
+  currentUser: state.session.user,
+  reflection: state.entities.reflections[ownProps.reflectionId]
+})
+
+const mapDispatchToProps = {
+  createReflection,
+  updateReflection
+}
 
 const ReflectionForm = ({
   closeForm,
-  reflection,
+  openReflectionShow,
   currentUser,
-  processForm,
+  reflection,
+  createReflection,
+  updateReflection,
 }) => {
   const {
     register,
@@ -20,6 +34,7 @@ const ReflectionForm = ({
   const [editMode, setEditMode] = useState(false);
 
   console.log(editMode);
+  console.log(reflection);
 
   const onSubmit = (data) => {
     const formReflection = {
@@ -28,7 +43,13 @@ const ReflectionForm = ({
     };
     if (reflection) formReflection['id'] = reflection._id;
 
-    processForm(formReflection).then(() => closeForm());
+    const processForm = editMode ? updateReflection : createReflection;
+
+    processForm(formReflection)
+      .then((action) => {
+        setEditMode(false);
+        openReflectionShow(action.reflection._id);
+      });
   };
 
   const content = (!reflection || editMode) ? (
@@ -82,4 +103,4 @@ const ReflectionForm = ({
   );
 };
 
-export default ReflectionForm;
+export default connect(mapStateToProps, mapDispatchToProps)(ReflectionForm)
