@@ -28,6 +28,10 @@ nav {
     box-sizing: border-box;
     text-decoration: none;
 
+    &:focus-visible {
+      outline: none;
+    }
+
     &:hover {
       background-color: $orange;
     }
