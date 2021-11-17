@@ -7,6 +7,7 @@ import EditGoalContainer from '../goals/EditGoalContainer';
 import OngoingGoalsContainer from '../goals/OngoingGoalsContainer';
 import MoodTracker from '../mood/MoodTracker';
 import KokoCard from '../koko/KokoCard';
+import StatsWidget from '../stats/StatsWidget';
 
 export const Home = (props) => {
   const [showReflection, setShowReflection] = useState(false);
@@ -51,6 +52,7 @@ export const Home = (props) => {
       return (
         <div className="home-widgets">
           <MoodTracker />
+          <StatsWidget />
           <div className="home-bottom-row">
             { displayGoalsComponent() }
             <AllReflectionsContainer openReflectionShow={openReflectionShow} />

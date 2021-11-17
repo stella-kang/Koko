@@ -28,6 +28,7 @@ const ReflectionShowForm = ({
     register,
     formState: { errors },
     handleSubmit,
+    setValue,
   } = useForm({
     reValidateMode: 'onSubmit',
     shouldFocusError: false,
@@ -98,7 +99,8 @@ const ReflectionShowForm = ({
     <>
       <button type='button' onClick={(e) => {
         e.preventDefault();
-        setEditMode(true)
+        setValue("entry", reflection.entry);
+        setEditMode(true);
       }}>
         Edit Entry
       </button>
@@ -121,7 +123,7 @@ const ReflectionShowForm = ({
               .slice(-2)}`}</span>
           </div> : <span className="reflection-form-header">Add A New Reflection</span>
         }
-        <label htmlFor='email'>{errors.entry}</label>
+        <label htmlFor='reflection-input'>{errors.entry?.message}</label>
         { content }
 
         <div className="reflection-form-buttons">

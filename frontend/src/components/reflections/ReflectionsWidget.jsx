@@ -25,6 +25,7 @@ const ReflectionsWidget = ({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
+    initialSlide: -3
   };
 
   return (

@@ -9,7 +9,7 @@ export const createGoal = (goal) => {
 };
 
 export const updateGoal = (goal) => {
-  return axios.patch(`/api/goals/${goal._id}`, goal);
+  return axios.patch(`/api/goals/${goal.id}`, goal);
 };
 
 export const deleteGoal = (goalId) => {
