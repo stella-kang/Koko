@@ -47,6 +47,7 @@
   align-items: center;
   width: 100%;
   // overflow: scroll;
+  overflow-wrap: break-word;
   background-color: $cream;
   border-radius: 20px;
 
@@ -61,8 +62,8 @@
 }
 
 .goal-widget-desc {
-  overflow: scroll;
-  word-break: break-all;
+  // overflow: scroll;
+  // word-break: break-all;
   text-align: center;
   margin: 0;
 }

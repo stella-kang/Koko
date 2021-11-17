@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import ReflectionWidgetItem from './ReflectionWidgetItem';
+import { VscTriangleLeft, VscTriangleRight} from 'react-icons/vsc';
 
 export const ReflectionsWidget = ({
   type,
@@ -41,12 +42,16 @@ export const ReflectionsWidget = ({
         ))}
       </Slider>
       <div className='carousel-btns-container'>
-        <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
+        <button className="carousel-button" onClick={() => sliderRef.current.slickPrev()}>
+          <VscTriangleLeft />
+        </button>
 
         { (isToday || type==="All") &&
           <button onClick={() => openReflectionShow(null)}>Add a New Entry</button>
         }
-        <button onClick={() => sliderRef.current.slickNext()}>Next</button>
+        <button className="carousel-button" onClick={() => sliderRef.current.slickNext()}>
+          <VscTriangleRight />
+        </button>
       </div>
     </div>
   );
