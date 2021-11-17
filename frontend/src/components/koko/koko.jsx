@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import KokoFriendship from './KokoFriendship';
 
 const Koko = (props) => {
   return <div className="koko-container">
@@ -12,6 +13,7 @@ const Koko = (props) => {
       </div>
       <div className="body"></div>
     </div>
+    <KokoFriendship />
   </div>
 }
 
