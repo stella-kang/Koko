@@ -63,7 +63,7 @@ export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
           </div>
         </div>
 
-        <button>Login</button>
+        <button className="login-btn">Login</button>
       </form>
     </div>
   );

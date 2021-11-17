@@ -1,19 +1,48 @@
 .main-login-form-container {
   display: flex;
   flex-direction: column;
+  background-color: $blue;
+  width: 50%;
+  padding: 30px;
+  border-radius: 20px;
 
   form {
     width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     h3 {
       font-family: $bubblefont;
-      font-size: 18px;
+      font-size: 24px;
       text-align: center;
     }
   }
+}
+
+.login-content {
+  label {
+    font-family: $bubblefont;
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  div {
+    padding: 10px;
+    margin: 20px;
+  }
+}
+
+.login-btn {
+  width: 30%;
+  padding: 10px;
+  font-family: $bubblefont;
+  font-size: 20px;
+  color: $beige;
+  background-color: $orange;
+  border: none;
+  border-radius: 20px;
 }
 
 .close-btn-container {
