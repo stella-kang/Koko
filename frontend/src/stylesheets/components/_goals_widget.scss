@@ -10,7 +10,7 @@
   background-color: $blue;
 
   h2 {
-    color: white;
+    color: $cream;
     font-size: 35px;
     font-family: 'Fredoka One', cursive;
     margin: 0;
@@ -109,3 +109,106 @@
     background-color: $darkorange;
   }
 }
+
+.goal-form-container {
+  width: 35%;
+  border-radius: 30px;
+  height: 65vh;
+  padding: 20px;
+  box-sizing: border-box;
+
+  h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 38px;
+    margin: 0;
+    margin-bottom: 20px;
+    color: $darkblue;
+
+    #current-user-name {
+      color: $cream;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-family: 'Fredoka One', cursive;
+      color: $cream;
+      display: flex;
+      font-size: 30px;
+      flex-direction: column;
+    }
+
+    input {
+      border: none;
+      // height: 40px;
+      background-color: $cream;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px;
+      border-radius: 30px;
+      padding: 15px;
+      box-sizing: border-box;
+      outline: none;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type=date] {
+      width: 60%;
+    }
+  }
+}
+
+.goal-form-cancel {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  color: $cream;
+  font-size: 30px;
+
+  &:hover {
+    color: $orange;
+  }
+}
+
+.goal-form-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  button {
+    background-color: $cream;
+    border: none;
+    color: $darkblue;
+    border-radius: 20px;
+    border-radius: 20px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: $beige;
+    }
+  }
+}
+
+#optional {
+  font-size: 15px;
+  font-style: italic;
+}
+
+.goal-inputs {
+  height: 36vh;
+}
+
+.goal-errors {
+  color: $orange;
+  width: 100%;
+  font-size: 15px;
+  font-style: italic;
+}
+

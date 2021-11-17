@@ -8,7 +8,7 @@ const ReflectionWidgetItem = ({ reflection, openReflectionShow }) => {
       <div className='reflection-item-header'>
         <div className='date-time' onClick={() => openReflectionShow(reflection._id)}>
           <p>{date.toLocaleDateString().slice(0, 5)}{' '}</p>
-          <p>{`${date.getHours()}: ${date.getMinutes()} ${date
+          <p>{`${date.getHours()}:${date.getMinutes()} ${date
             .toLocaleTimeString()
             .slice(-2)}`}</p>
         </div>
