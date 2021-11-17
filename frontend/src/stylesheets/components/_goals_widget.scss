@@ -1,0 +1,110 @@
+.goals-widget-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  height: 65vh;
+  // border: 2px solid $cream;
+  border-radius: 30px;
+  background-color: $blue;
+
+  h2 {
+    color: white;
+    font-size: 35px;
+    font-family: 'Fredoka One', cursive;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.goals-widget-list {
+  width: 100%;
+  height: 78%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.goals-widget-item {
+  // background-color: $cream;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  background-color: $cream;
+  border-radius: 20px;
+  // height: auto;
+  margin: 15px;
+  // border: 1px solid red;
+}
+
+.goals-widget-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  // overflow: scroll;
+  background-color: $cream;
+  border-radius: 20px;
+
+  .goal-due-date {
+    font-family: 'Fredoka One', cursive;
+    margin: 10px 0 10px;
+  }
+}
+
+.goal-widget-desc-wrapper {
+  width: 90%;
+}
+
+.goal-widget-desc {
+  overflow: scroll;
+  word-break: break-all;
+  text-align: center;
+  margin: 0;
+}
+
+.goals-widget-btns {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px 0;
+  box-sizing: border-box;
+
+  button {
+    // padding: 5px 15px;
+    // border-radius: 5px;
+    // border: 1px solid $black;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: $orange;
+    cursor: pointer;
+
+    &:hover {
+      color: $darkorange
+    }
+  }
+}
+
+.add-goal-button {
+  margin-top: 10px;
+  border: none;
+  background-color: $orange;
+  color: $cream;
+  // width: 120px;
+  // height: 30px;
+  border-radius: 20px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+
+  &:hover {
+    background-color: $darkorange;
+  }
+}

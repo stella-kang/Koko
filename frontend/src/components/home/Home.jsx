@@ -50,24 +50,24 @@ export const Home = (props) => {
       )
     } else {
       return (
-        <>
+        <div className="home-widgets">
           <MoodTracker />
-          { displayGoalsComponent() }
-          <AllReflectionsContainer openReflectionShow={openReflectionShow} />
-        </>
+          <div className="home-bottom-row">
+            { displayGoalsComponent() }
+            <AllReflectionsContainer openReflectionShow={openReflectionShow} />
+          </div>
+        </div>
       )
     }
   }
 
   return (
-    <div>
-      <h1>This is home</h1>
+    <div className="home">
       <Link to='/day'>See History</Link>
 
       <Koko />
 
-      { displayComponents() }
-
+        {displayComponents()}
     </div>
   )
 }

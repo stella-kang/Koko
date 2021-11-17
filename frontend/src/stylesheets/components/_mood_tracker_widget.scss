@@ -3,19 +3,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $blue;
-  margin: 20px;
-  border-radius: 10px;
-  border: 3px solid $cream;
+  background-color: $beige;
+  // margin: 20px;
+  border-radius: 20px;
+  // border: 3px solid $cream;
   // border: 1px solid red;
-  width: 20%;
-  height: auto;
   box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 
   h3 {
+    font-family: 'Fredoka One', cursive;
     color: $darkblue;
-    font-size: 22px;
+    font-size: 50px;
     text-align: center;
+    margin: 0;
+  }
+
+  div:first-child{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 
   button {
@@ -23,38 +29,79 @@
     background-color: $orange;
     color: $cream;
     font-size: 18px;
-    border: 1px solid $darkblue;
-    border-radius: 5px;
+    border: none;
+    // border: 1px solid $darkblue;
+    border-radius: 20px;
     margin: 10px;
     cursor: pointer;
-    box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+
+    &:hover {
+      background-color: $darkorange;
+    }
   }
 }
 
 .mood-display {
-  margin: 10px;
-  padding: 10px;
+  padding: 10px 30px 40px 30px;
   border-radius: 5px;
-  background-color: $cream;
+  // background-color: $cream;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 60px;
+  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+
+  .moods {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.mood-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 80%;
-  box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+  padding: 0 30px 30px 30px;
+  box-sizing: border-box;
+
+  h3 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
 
   form {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    label,
-    input {
+    label{
+      font-size: 40px;
       cursor: pointer;
+      padding: 0 15px 0;
+    }
+
+    input {
+      display: none;
     }
   }
 
-  .moods {
+  #cancel-button {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-left: 30px;
   }
+}
+
+.goal-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background-color: $blue;
+
 }

@@ -27,12 +27,15 @@ export const GoalsWidget = ({
   );
 
   return (
-    <div>
+    <div className="goals-widget-container">
       <h2>{type === "Ongoing" ? "Ongoing" : ""} Goals</h2>
-      {notCompleted}
+
+      <div className="goals-widget-list">
+        {notCompleted}
+      </div>
 
       { (isToday || type==="Ongoing") &&
-        <button onClick={openCreateForm}>
+        <button className="add-goal-button" onClick={openCreateForm}>
           Add a Goal
         </button>
       }

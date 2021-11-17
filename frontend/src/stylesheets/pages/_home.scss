@@ -1,0 +1,20 @@
+.home {
+  display: flex;
+  margin: 0 20px 0;
+}
+
+.home-widgets {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+
+  .mood-tracker {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+}
+
+.home-bottom-row {
+  display: flex;
+  justify-content: space-between;
+}
