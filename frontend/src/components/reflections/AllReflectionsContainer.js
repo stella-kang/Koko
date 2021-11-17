@@ -4,6 +4,7 @@ import { getSortedReflections } from '../../reducers/selectors';
 import ReflectionsWidget from './ReflectionsWidget';
 
 const mapStateToProps = (state) => ({
+  type: "All",
   currentUser: state.session.user,
   reflections: getSortedReflections(state),
 });

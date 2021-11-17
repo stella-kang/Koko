@@ -3,6 +3,8 @@ import Slider from 'react-slick';
 import ReflectionWidgetItem from './ReflectionWidgetItem';
 
 export const ReflectionsWidget = ({
+  type,
+  isToday,
   openReflectionShow,
   currentUser,
   reflections,
@@ -39,7 +41,10 @@ export const ReflectionsWidget = ({
       </Slider>
       <div className='carousel-btns-container'>
         <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
-        <button onClick={() => openReflectionShow(null)}>Add a New Entry</button>
+
+        { (isToday || type==="Ongoing") &&
+          <button onClick={() => openReflectionShow(null)}>Add a New Entry</button>
+        }
         <button onClick={() => sliderRef.current.slickNext()}>Next</button>
       </div>
     </div>

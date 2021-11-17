@@ -56,7 +56,7 @@ export const DayShowDetail = ({ isToday, openReflectionShow, mood, goals, reflec
           })}
         </div> */}
 
-        <DayReflectionsContainer reflections={reflections} openReflectionShow={openReflectionShow} />
+        <DayReflectionsContainer isToday={isToday} reflections={reflections} openReflectionShow={openReflectionShow} />
       </div>
     </div>
   );

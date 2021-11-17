@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import ReflectionsWidget from '../reflections/ReflectionsWidget';
 
 const mapStateToProps = (state) => ({
+  type: "Day",
   currentUser: state.session.user
 });
 
