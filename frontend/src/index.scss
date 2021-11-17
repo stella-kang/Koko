@@ -5,13 +5,14 @@ $orange: #ee6c4d;
 $black: #293241;
 $cream: #fff9e9;
 $beige: #f7e7ce;
-$darkorange: #CC5500;
+$darkorange: #cc5500;
 $lightorange: #FFD580;
+
+$bubblefont: 'Fredoka One', cursive;
 
 // LAYOUT
 @import './stylesheets/base/reset';
 @import './stylesheets/base/_typography';
-
 
 @import './stylesheets/layout/layout';
 
@@ -24,6 +25,8 @@ $lightorange: #FFD580;
 @import './stylesheets/components/koko.scss';
 @import './stylesheets/components/calendar.scss';
 @import './stylesheets/components/modal.scss';
-@import "./stylesheets/pages/day_show.scss";
-@import "./stylesheets/components/goals_widget.scss";
-@import "./stylesheets/pages/home.scss";
+@import './stylesheets/pages/day_show.scss';
+@import './stylesheets/components/goals_widget.scss';
+@import './stylesheets/pages/home.scss';
+@import './stylesheets/components/register_form';
+@import './stylesheets//components/login_form'
