@@ -20,7 +20,7 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, deleteGoal }) => 
       dueDate: data.date,
       userId: currentUser.id
     };
-    if (goal) formGoal['id'] = goal._id;
+    if (goal) formGoal['_id'] = goal._id;
 
     processForm(formGoal).then(action => {
       if (action.type ==="RECEIVE_GOAL") closeForm();
