@@ -37,13 +37,13 @@ const DayShow = ({fetchDayShow, currentUserId, moods, goals, reflections}) => {
 
   if (showReflection) {
     return <div className="day-show">
-      <ReflectionShowForm closeForm={() => setShowReflection(false)} reflectionId={reflectionId} openReflectionShow={openReflectionShow} />
       <Calendar onChange={onChange} value={calDate} />
+      <ReflectionShowForm closeForm={() => setShowReflection(false)} reflectionId={reflectionId} openReflectionShow={openReflectionShow} />
     </div>
   } else {
     return <div className="day-show">
-      <DayShowDetailContainer isToday={isToday} openReflectionShow={openReflectionShow} calDate={calDate} />
       <Calendar onChange={onChange} value={calDate} />
+      <DayShowDetailContainer isToday={isToday} openReflectionShow={openReflectionShow} calDate={calDate} />
     </div>
   }
 }

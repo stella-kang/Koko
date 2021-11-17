@@ -4,11 +4,11 @@
 .react-calendar {
   background-color: $cream;
   border-radius: 20px;
-  width: 65%;
+  width: 450px;
   color: $black;
   border: none;
   padding: 20px;
-  height: 85vh;
+  height: 88vh;
   // box-shadow: 0px 0px 12px 8px rgba(49, 49, 49, 0.3);
 
   button:hover {
@@ -42,7 +42,7 @@
 }
 
 .react-calendar__month-view__weekdays__weekday {
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 10px;
 }
 
