@@ -1,12 +1,15 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { deleteReflection } from '../../actions/reflections_actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { deleteReflection } from '../../actions/reflections_actions';
+import { useListenForModalClose } from '../../util/custom_hooks';
 
 const mapDispatchToProps = {
   deleteReflection
 }
 
 const DeleteReflectionModal = ({ reflection, closeForm, closeModal, deleteReflection }) => {
+
+  useListenForModalClose(closeModal);
 
   const handleDelete = () => {
     deleteReflection(reflection._id)

@@ -1,12 +1,15 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { deleteGoal } from '../../actions/goal_actions'
+import React from 'react';
+import { connect } from 'react-redux';
+import { deleteGoal } from '../../actions/goal_actions';
+import { useListenForModalClose } from '../../util/custom_hooks';
 
 const mapDispatchToProps = {
   deleteGoal
 }
 
 const DeleteGoalModal = ({ goal, closeForm, closeModal, deleteGoal }) => {
+
+  useListenForModalClose(closeModal);
 
   const handleDelete = () => {
     deleteGoal(goal._id)

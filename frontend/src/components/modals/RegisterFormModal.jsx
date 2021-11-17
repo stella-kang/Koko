@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { signup, clearSessionErrors } from '../../actions/session_actions';
+import { useListenForModalClose } from '../../util/custom_hooks';
 
 const mapStateToProps = (state) => ({
   errors: state.errors.session
@@ -12,6 +13,9 @@ const mapDispatchToProps = {
 }
 
 export const RegisterFormModal = ({ errors, signup, closeModal, clearSessionErrors }) => {
+
+  useListenForModalClose(closeModal);
+
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
