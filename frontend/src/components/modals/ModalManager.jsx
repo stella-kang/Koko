@@ -4,13 +4,17 @@ import { CSSTransition } from 'react-transition-group';
 import { withRouter } from 'react-router-dom';
 import { closeModal }  from '../../actions/modal_actions';
 import RegisterFormModal from '../session/RegisterFormModal';
+import LoginFormModal from '../session/LoginFormModal';
 
-export const ModalManager = ({ modal, closeModal }) => {
+export const ModalManager = ({ modal, closeModal, history }) => {
   let component;
 
   switch (modal.type) {
     case "register":
-      component = <RegisterFormModal closeModal={() => closeModal(modal)} />;
+      component = <RegisterFormModal history={history} closeModal={() => closeModal(modal)} />;
+      break;
+    case "login":
+      component = <LoginFormModal history={history} closeModal={() => closeModal(modal)} />;
       break;
     default:
       component = null;

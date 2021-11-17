@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 
-export const LoginForm = ({ errors, login }) => {
+const mapStateToProps = (state) => ({
+  errors: state.errors.session
+})
+
+const mapDispatchToProps = {
+  login
+}
+
+export const LoginForm = ({ postLogin, errors, login }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,7 +20,10 @@ export const LoginForm = ({ errors, login }) => {
       email,
       password
     };
-    login(user);
+    login(user)
+      .then(() => {
+        if (postLogin) postLogin();
+      })
   }
 
   return (
@@ -41,14 +52,6 @@ export const LoginForm = ({ errors, login }) => {
       </form>
     </div>
   )
-}
-
-const mapStateToProps = (state) => ({
-  errors: state.errors.session
-})
-
-const mapDispatchToProps = {
-  login
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

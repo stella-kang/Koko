@@ -34,7 +34,11 @@ export const NavBar = ({ loggedIn, logout, openModal }) => {
           })}>
             Register
           </button>
-          <Link to={'/login'}>Login</Link>
+          <button onClick={() => openModal({
+            type: "login"
+          })}>
+            Login
+          </button>
         </div>
       );
     }
