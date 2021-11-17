@@ -34,11 +34,11 @@ const DeleteGoalModal = ({ goal, closeForm, closeModal, deleteGoal }) => {
           </p>
         </div>
         <div className='delete-reflections-btns-container'>
-          <button className='delete-btn' onClick={handleDelete}>
-            Delete
-          </button>
           <button className='cancel-btn' onClick={() => closeModal()}>
             Cancel
+          </button>
+          <button className='delete-btn' onClick={handleDelete}>
+            Delete
           </button>
         </div>
       </div>

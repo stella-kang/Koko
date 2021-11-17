@@ -38,11 +38,11 @@ const DeleteReflectionModal = ({
         </div>
 
         <div className='delete-reflections-btns-container'>
-          <button className='delete-btn' onClick={handleDelete}>
-            Delete
-          </button>
           <button className='cancel-btn' onClick={() => closeModal()}>
             Cancel
+          </button>
+          <button className='delete-btn' onClick={handleDelete}>
+            Delete
           </button>
         </div>
       </div>
