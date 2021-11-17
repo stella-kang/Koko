@@ -33,6 +33,8 @@ const DayShow = ({fetchDayShow, currentUserId, moods, goals, reflections}) => {
     setCalDate(date);
   }
 
+  const isToday = calDate.toLocaleDateString() === new Date().toLocaleDateString();
+
   if (showEditReflection) {
     return <div className="day-show">
       <ReflectionShowForm reflection={reflectionToEdit} closeForm={() => setShowEditReflection(false)}/>
@@ -40,7 +42,7 @@ const DayShow = ({fetchDayShow, currentUserId, moods, goals, reflections}) => {
     </div>
   } else {
     return <div className="day-show">
-      <DayShowDetailContainer openEditForm={openEditForm} calDate={calDate} />
+      <DayShowDetailContainer isToday={isToday} openEditForm={openEditForm} calDate={calDate} />
       <Calendar onChange={onChange} value={calDate} />
     </div>
   }

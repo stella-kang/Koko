@@ -6,7 +6,7 @@ import DayGoalsContainer from './DayGoalsContainer';
 import CreateGoalContainer from '../goals/CreateGoalContainer';
 import EditGoalContainer from '../goals/EditGoalContainer';
 
-export const DayShowDetail = ({mood, goals, reflections, openEditForm}) => {
+export const DayShowDetail = ({isToday, mood, goals, reflections, openEditForm}) => {
   const [showCreateGoal, setShowCreateGoal] = useState(false);
   const [showEditGoal, setShowEditGoal] = useState(false);
   const [goalToEdit, setGoalToEdit] = useState(null);
@@ -27,7 +27,7 @@ export const DayShowDetail = ({mood, goals, reflections, openEditForm}) => {
       )
     } else {
       return (
-        <DayGoalsContainer goals={goals} openCreateForm={() => setShowCreateGoal(true)} openEditForm={openEditGoalForm} />
+        <DayGoalsContainer isToday={isToday} goals={goals} openCreateForm={() => setShowCreateGoal(true)} openEditForm={openEditGoalForm} />
       )
     }
    }

@@ -3,6 +3,7 @@ import GoalsWidgetItem from './GoalsWidgetItem';
 
 export const GoalsWidget = ({
   type,
+  isToday,
   goals,
   requestGoals,
   updateGoal,
@@ -30,9 +31,11 @@ export const GoalsWidget = ({
       <h2>{type === "Ongoing" ? "Ongoing" : ""} Goals</h2>
       {notCompleted}
 
-      <button onClick={openCreateForm}>
-        Add a Goal
-      </button>
+      { (isToday || type==="Ongoing") &&
+        <button onClick={openCreateForm}>
+          Add a Goal
+        </button>
+      }
     </div>
   );
 };
