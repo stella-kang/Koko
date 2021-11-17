@@ -11,7 +11,8 @@ const GoalsWidget = ({
   currentUser,
   openCreateForm,
   openEditForm,
-  location
+  location,
+  updateExp
 }) => {
 
   useEffect(() => {
@@ -23,7 +24,10 @@ const GoalsWidget = ({
 
     newGoal.status = !goal.status;
     newGoal.id = goal._id;
-    updateGoal(newGoal);
+    updateGoal(newGoal)
+      .then(() => {
+        if (newGoal.status) updateExp(currentUser.id, 1);
+      })
   };
 
   const notCompleted = goals.map((goal) =>

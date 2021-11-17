@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { requestGoals, updateGoal } from '../../actions/goal_actions';
+import { updateExp } from '../../actions/session_actions';
 import GoalsWidget from './GoalsWidget';
 
 const mapStateToProps = (state) => {
@@ -16,7 +17,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   requestGoals,
-  updateGoal
+  updateGoal,
+  updateExp
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoalsWidget);
