@@ -1,9 +1,17 @@
+.login-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
 .main-login-form-container {
   display: flex;
   flex-direction: column;
-  background-color: $blue;
-  width: 50%;
-  padding: 30px;
+  // background-color: $blue;
+  background-color: $beige;
+  // width: 100%;
+  padding: 0px 30px 30px 30px;
   border-radius: 20px;
 
   form {
@@ -14,23 +22,27 @@
     align-items: center;
 
     h3 {
+      width: 100%;
       font-family: $bubblefont;
-      font-size: 24px;
+      font-size: 40px;
+      color: orange;
+      margin-top: 20px;
+      margin-bottom: 10px;
       text-align: center;
     }
   }
 }
 
 .login-content {
-  label {
-    font-family: $bubblefont;
-    font-size: 18px;
-    padding: 15px;
-  }
+  .login-content-item {
+    // border: 1px solid red;
+    padding: 20px;
 
-  div {
-    padding: 10px;
-    margin: 20px;
+    label {
+      font-family: $bubblefont;
+      font-size: 24px;
+      color: $darkblue;
+    }
   }
 }
 
@@ -40,13 +52,20 @@
   font-family: $bubblefont;
   font-size: 20px;
   color: $beige;
-  background-color: $orange;
+  background-color: orange;
   border: none;
   border-radius: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $orange;
+    transition: 0.35s ease-in;
+  }
 }
 
 .close-btn-container {
-  width: 90%;
+  // background-color: white;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
 }

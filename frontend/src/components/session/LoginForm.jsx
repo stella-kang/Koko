@@ -33,10 +33,13 @@ export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
   return (
     <div className='main-login-form-container'>
       <form onSubmit={handleSubmit}>
-        <h3>Welcome back to Koko</h3>
+        <h3>Welcome back</h3>
         <div className='login-content'>
-          <div>
-            <label htmlFor='email'>Email {errors.email}</label>
+          <div className='login-content-item'>
+            <label htmlFor='email'>Email</label>
+            <div className='registration-errors'>
+              {errors.email && <span>{errors.email}</span>}
+            </div>
             <div className='input-box-container'>
               <input
                 type='text'
@@ -49,8 +52,11 @@ export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
             </div>
           </div>
 
-          <div>
-            <label htmlFor='password'>Password {errors.password}</label>
+          <div className='login-content-item'>
+            <label htmlFor='password'>Password</label>
+            <div className='registration-errors'>
+              {errors.password && <span>{errors.password}</span>}
+            </div>
             <div className='input-box-container'>
               <input
                 type='password'
@@ -63,7 +69,7 @@ export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
           </div>
         </div>
 
-        <button className="login-btn">Login</button>
+        <button className='login-btn'>Login</button>
       </form>
     </div>
   );
