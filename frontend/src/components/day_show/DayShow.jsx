@@ -27,7 +27,7 @@ const DayShow = ({fetchDayShow, currentUserId, moods, goals, reflections}) => {
 
   useEffect(() => {
     fetchDayShow(currentUserId, fetchDate);
-  }, [fetchDayShow, calDate, currentUserId])
+  }, [fetchDayShow, fetchDate, currentUserId])
 
   const onChange = (date) => {
     setCalDate(date);

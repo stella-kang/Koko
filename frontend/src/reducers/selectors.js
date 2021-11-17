@@ -5,7 +5,7 @@ export const getSortedReflections = state => {
 }
 
 export const getTodaysMood = state => {
-  let todayString = new Date().toLocaleDateString();
+  const todayString = new Date().toLocaleDateString();
   for (let mood of Object.values(state.entities.moods)) {
     if (new Date(mood.createdAt).toLocaleDateString() === todayString) {
       return mood;
@@ -14,11 +14,14 @@ export const getTodaysMood = state => {
   return null;
 }
 
-export const getShowDetailMoods = (state, calDate) => {
-  debugger
-  const moods = Object.values(state.entities.moods);
-  const currMoods = moods.filter(mood => mood.createdAt.toLocaleString() === calDate);
-  return currMoods;
+export const getShowDetailMood = (state, calDate) => {
+  const currDate = calDate.toLocaleDateString();
+  for (let mood of Object.values(state.entities.moods)) {
+    if (new Date(mood.createdAt).toLocaleDateString() === currDate) {
+      return mood;
+    }
+  }
+  return null;
 }
 
 export const getShowDetailReflections = (state, calDate) => {

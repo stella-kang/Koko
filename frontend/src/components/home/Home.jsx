@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import ReflectionsWidget from '../reflections/ReflectionsWidget';
 import ReflectionShowForm from '../reflections/ReflectionShowForm';
 import CreateGoalContainer from '../goals/CreateGoalContainer';
@@ -61,6 +62,7 @@ export const Home = (props) => {
   return (
     <div>
       <h1>This is home</h1>
+      <Link to='/day'>See History</Link>
 
       <Koko />
 

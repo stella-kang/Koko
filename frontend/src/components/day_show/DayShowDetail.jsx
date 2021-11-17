@@ -3,12 +3,12 @@ import MoodItem from "./MoodItem";
 import GoalItem from "./GoalItem";
 import ReflectionItem from './ReflectionItem';
 
-export const DayShowDetail = ({moods, goals, reflections, openEditForm}) => {
+export const DayShowDetail = ({mood, goals, reflections, openEditForm}) => {
     return (
       <div className="day-details">
         <div className="day-details-mood">
           <h2>Mood:</h2>
-          {moods.length === 0 ? <div>Mood not recorded.</div> : <MoodItem mood={moods[0]} />}
+          {mood ? <MoodItem mood={mood} /> : <div>Mood not recorded.</div> }
         </div>
 
         <div className="day-details-goals">
@@ -33,4 +33,3 @@ export const DayShowDetail = ({moods, goals, reflections, openEditForm}) => {
 };
 
 export default DayShowDetail;
-
