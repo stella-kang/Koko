@@ -4,6 +4,7 @@ import jwt_decode from 'jwt-decode';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_LOGOUT = "RECEIVE_USER_LOGOUT";
+export const CLEAR_SESSION_ERRORS = "CLEAR_SESSION_ERRORS";
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
@@ -18,6 +19,10 @@ export const receiveSessionErrors = errors => ({
 export const logoutUser = () => ({
   type: RECEIVE_USER_LOGOUT
 });
+
+export const clearSessionErrors = () => ({
+  type: CLEAR_SESSION_ERRORS
+})
 
 export const signup = user => dispatch => (
   ApiUtil.signup(user)
@@ -62,4 +67,3 @@ export const updateExp = (userId, exp) => dispatch => (
   ApiUtil.updateExp(userId, exp)
     .then(payload => dispatch(receiveCurrentUser(payload.data)))
 );
-

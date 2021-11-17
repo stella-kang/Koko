@@ -1,18 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
+import { login, clearSessionErrors } from '../../actions/session_actions';
 
 const mapStateToProps = (state) => ({
   errors: state.errors.session
 })
 
 const mapDispatchToProps = {
-  login
+  login,
+  clearSessionErrors
 }
 
-export const LoginForm = ({ postLogin, errors, login }) => {
+export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    return () => clearSessionErrors();
+  }, [clearSessionErrors])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,8 +26,8 @@ export const LoginForm = ({ postLogin, errors, login }) => {
       password
     };
     login(user)
-      .then(() => {
-        if (postLogin) postLogin();
+      .then((action) => {
+        if (action.type ==="RECEIVE_CURRENT_USER" && postLogin) postLogin();
       })
   }
 
