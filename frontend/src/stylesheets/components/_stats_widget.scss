@@ -1,39 +1,102 @@
+.stats-widget-container {
+  background-color: $lightorange;
+  border-radius: 20px;
+  padding: 20px;
+  width: 48%;
+  margin-bottom: 20px;
+
+  h5 {
+    font-family: $bubblefont;
+    font-size: 20px;
+    margin: 0;
+    color: $black;
+  }
+}
+
 .mood-garden {
   display: flex;
   align-items: flex-end;
-
-  width: 400px;
-  height: 70px;
-  overflow: auto visible;
-  // margin: -30px;
-  // padding-top: 30px;
+  margin: 10px 0 10px;
+  width: 100%;
+  overflow-x: auto;
 }
 
-.mood-square {
-  min-height: 20px;
-  height: 20px;
-  min-width: 20px;
-  border-radius: 5px;
-  margin: 0px 2px;
-  position: relative;
+.mood-garden-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  &:hover .mood-date {
-    display: block;
+  .mood-square {
+    height: 40px;
+    width: 40px;
+    border-radius: 5px;
+    margin: 0px 2px;
+    // position: relative;
+
+    // &:hover .mood-date {
+    //   display: block;
+    // }
+    // &:hover:after {
+    //   content: "test";
+    //   position: absolute;
+    //   left: -30px;
+    //   top: -30px;
+    //   z-index: 99999;
+    //   background: $cream;
+    // }
   }
-  // &:hover:after {
-  //   content: "test";
-  //   position: absolute;
-  //   left: -30px;
-  //   top: -30px;
-  //   z-index: 99999;
-  //   background: $cream;
-  // }
+
+  .mood-date {
+    // position: absolute;
+    // display: none;
+    // left: -30px;
+    // top: -30px;
+    color: $black;
+    font-family: $bubblefont;
+    font-size: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
 }
 
-.mood-date {
-  position: absolute;
-  display: none;
-  left: -30px;
-  top: -30px;
-  background: $cream;
+.stat-counters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-tracker {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  font-size: 15px;
+
+  p {
+    margin: 0;
+  }
+
+  .stat-icon {
+    font-size: 35px;
+    color: $darkblue;
+  }
+
+  div {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: $darkblue;
+    color: $cream;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    p:first-child {
+      font-weight: 600;
+    }
+
+    p:last-child {
+      font-style: italic;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
 }
