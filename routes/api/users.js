@@ -12,13 +12,15 @@ const Mood = require('../../models/Mood');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
-router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
-  res.json({
-    id: req.user.id,
-    username: req.user.username,
-    email: req.user.email,
-    friendshipExp: req.user.friendshipExp,
-    friendshipLvl: req.user.friendshipLvl
+router.get('/current',
+  passport.authenticate('jwt', {session: false}),
+  (req, res) => {
+    res.json({
+      id: req.user.id,
+      username: req.user.username,
+      email: req.user.email,
+      friendshipExp: req.user.friendshipExp,
+      friendshipLvl: req.user.friendshipLvl
   });
 })
 
