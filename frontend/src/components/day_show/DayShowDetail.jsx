@@ -1,7 +1,8 @@
 import React from 'react';
 import MoodItem from "./MoodItem";
-import GoalItem from "./GoalItem";
 import ReflectionItem from './ReflectionItem';
+
+import DayGoalsContainer from './DayGoalsContainer';
 
 export const DayShowDetail = ({mood, goals, reflections, openEditForm}) => {
     return (
@@ -12,12 +13,13 @@ export const DayShowDetail = ({mood, goals, reflections, openEditForm}) => {
         </div>
 
         <div className="day-details-goals">
-          <h2>Goals:</h2>
-          <div className="day-details-goals-list">
+          {/* <div className="day-details-goals-list">
             {goals.map(goal => {
               return <GoalItem goal={goal} key={goal.id}/>
             })}
-          </div>
+          </div> */}
+
+          <DayGoalsContainer goals={goals} />
         </div>
 
         <div className="day-details-reflections">

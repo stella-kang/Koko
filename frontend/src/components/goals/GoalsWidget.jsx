@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { requestGoals, updateGoal } from '../../actions/goal_actions';
-import { openModal } from '../../actions/modal_actions';
 import GoalsWidgetItem from './GoalsWidgetItem';
 
 export const GoalsWidget = ({
-  notCompletedGoals,
+  type,
+  goals,
   requestGoals,
   updateGoal,
   currentUser,
@@ -23,13 +21,13 @@ export const GoalsWidget = ({
     updateGoal(newGoal);
   };
 
-  const notCompleted = notCompletedGoals.map((goal) =>
+  const notCompleted = goals.map((goal) =>
     <GoalsWidgetItem key={goal._id} goal={goal} handleButtonClick={() => handleButtonClick(goal)} openEditForm={openEditForm} />
   );
 
   return (
     <div>
-      <h2>Ongoing Goals</h2>
+      <h2>{type === "Ongoing" ? "Ongoing" : ""} Goals</h2>
       {notCompleted}
 
       <button onClick={openCreateForm}>
@@ -39,28 +37,4 @@ export const GoalsWidget = ({
   );
 };
 
-const mapStateToProps = (state) => {
-  let notCompletedGoalsArr = Object.values(state.entities.goals).filter(
-    (goal) => goal.status === false
-  );
-
-  return {
-    currentUser: state.session.user,
-    notCompletedGoals: notCompletedGoalsArr,
-  };
-};
-
-const mapDispatchToProps = {
-  requestGoals,
-  updateGoal,
-  openModal
-}
-
-// (dispatch) => {
-//   return {
-//     requestGoals: (userId) => dispatch(requestGoals(userId)),
-//     updateGoal: (goal) => dispatch(updateGoal(goal)),
-//   };
-// };
-
-export default connect(mapStateToProps, mapDispatchToProps)(GoalsWidget);
+export default GoalsWidget;

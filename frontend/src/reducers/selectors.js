@@ -31,7 +31,8 @@ export const getShowDetailReflections = (state, calDate) => {
 }
 
 export const getShowDetailGoals = (state, calDate) => {
+  const currDate = calDate.toLocaleDateString();
   const goals = Object.values(state.entities.goals);
-  const currGoals = goals.filter(goal => goal.createdAt.toLocaleString() === calDate);
+  const currGoals = goals.filter(goal => new Date(goal.createdAt).toLocaleDateString() === currDate);
   return currGoals;
 }

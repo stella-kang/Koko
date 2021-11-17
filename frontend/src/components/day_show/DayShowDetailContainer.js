@@ -7,6 +7,7 @@ const mSTP = (state, ownProps) => {
   // const allGoals = Object.values(state.entities.goals);
   // const allReflections = Object.values(state.entities.reflections);
 
+  console.log(ownProps);
   return {
     // moods: allMoods.length !== 0 ? getShowDetailMoods(state, ownProps.calDate) : [] ,
     // goals: allGoals.length !== 0 ? getShowDetailGoals(state, ownProps.calDate) : [] ,
