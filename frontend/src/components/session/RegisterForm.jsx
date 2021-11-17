@@ -37,7 +37,7 @@ export const RegisterFormModal = ({
     };
     signup(user)
       .then((action) => {
-        if (action.type ==="RECEIVE_CURRENT_USER") postRegister();
+        if (action.type ==="RECEIVE_CURRENT_USER" && postRegister) postRegister();
       })
   }
 

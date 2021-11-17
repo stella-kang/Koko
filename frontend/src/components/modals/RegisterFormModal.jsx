@@ -5,7 +5,7 @@ import { MdCancelPresentation } from 'react-icons/md';
 const LoginFormModal = ({ closeModal, history }) => {
   useListenForModalClose(closeModal);
 
-  const postLogin = () => {
+  const postRegister = () => {
     closeModal();
     history.push('/home');
   };
@@ -18,7 +18,7 @@ const LoginFormModal = ({ closeModal, history }) => {
         </button>
       </div>
 
-      <RegisterForm postLogin={postLogin} />
+      <RegisterForm postRegister={postRegister} />
     </div>
   );
 };
