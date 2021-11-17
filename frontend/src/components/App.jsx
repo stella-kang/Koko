@@ -4,7 +4,7 @@ import NavBar from './nav/NavBar';
 import ModalManager from './modals/ModalManager';
 import Splash from './splash/Splash';
 import LoginForm from './session/LoginForm';
-import RegisterForm from './session/RegisterForm';
+// import RegisterForm from './session/RegisterForm';
 import Home from './home/Home';
 import DayShow from "./day_show/DayShow"
 
@@ -16,7 +16,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={Splash} />
         <AuthRoute exact path='/login' component={LoginForm} />
-        <AuthRoute exact path='/register' component={RegisterForm} />
+        {/* <AuthRoute exact path='/register' component={RegisterForm} /> */}
         <ProtectedRoute path='/home' component={Home} />
         <ProtectedRoute path='/day' component={DayShow} />
         <Redirect to='/' />

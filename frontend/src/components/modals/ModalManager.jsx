@@ -3,11 +3,15 @@ import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group';
 import { withRouter } from 'react-router-dom';
 import { closeModal }  from '../../actions/modal_actions';
+import RegisterFormModal from '../session/RegisterFormModal';
 
 export const ModalManager = ({ modal, closeModal }) => {
   let component;
 
   switch (modal.type) {
+    case "register":
+      component = <RegisterFormModal closeModal={() => closeModal(modal)} />;
+      break;
     default:
       component = null;
   }

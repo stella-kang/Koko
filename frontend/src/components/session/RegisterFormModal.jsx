@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
 
-export const RegisterForm = ({ errors, signup }) => {
+const mapStateToProps = (state) => ({
+  errors: state.errors.session
+})
+
+const mapDispatchToProps = {
+  signup
+}
+
+export const RegisterFormModal = ({ errors, signup, closeModal }) => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -20,7 +28,10 @@ export const RegisterForm = ({ errors, signup }) => {
   }
 
   return (
-    <div>
+    <div className="modal">
+
+      <button onClick={closeModal}>Close</button>
+
       <form onSubmit={handleSubmit}>
 
         <div>
@@ -65,12 +76,4 @@ export const RegisterForm = ({ errors, signup }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  errors: state.errors.session
-})
-
-const mapDispatchToProps = {
-  signup
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm)
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterFormModal)
