@@ -5,7 +5,7 @@ import CreateGoalContainer from '../goals/CreateGoalContainer';
 import EditGoalContainer from '../goals/EditGoalContainer';
 import DayReflectionsContainer from './DayReflectionsContainer';
 
-export const DayShowDetail = ({isToday, mood, goals, reflections, openEditForm}) => {
+export const DayShowDetail = ({ isToday, openReflectionShow, mood, goals, reflections }) => {
   const [showCreateGoal, setShowCreateGoal] = useState(false);
   const [showEditGoal, setShowEditGoal] = useState(false);
   const [goalToEdit, setGoalToEdit] = useState(null);
@@ -48,7 +48,7 @@ export const DayShowDetail = ({isToday, mood, goals, reflections, openEditForm})
         { displayGoalsComponent() }
       </div>
 
-      <div className="day-details-reflections" style={{width: '600px'}}>
+      <div className="day-details-reflections">
         <h2>Journal Entries:</h2>
         {/* <div className="day-details-reflections-list">
           {reflections.map(reflection => {
@@ -56,7 +56,7 @@ export const DayShowDetail = ({isToday, mood, goals, reflections, openEditForm})
           })}
         </div> */}
 
-        <DayReflectionsContainer reflections={reflections} />
+        <DayReflectionsContainer reflections={reflections} openReflectionShow={openReflectionShow} />
       </div>
     </div>
   );
