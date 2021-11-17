@@ -1,15 +1,17 @@
 import React, { useEffect, useRef } from 'react';
+import { withRouter } from 'react-router-dom';
 import Slider from 'react-slick';
 import ReflectionWidgetItem from './ReflectionWidgetItem';
 import { VscTriangleLeft, VscTriangleRight} from 'react-icons/vsc';
 
-export const ReflectionsWidget = ({
+const ReflectionsWidget = ({
   type,
   isToday,
   openReflectionShow,
   currentUser,
   reflections,
   fetchReflections,
+  location
 }) => {
   useEffect(() => {
     fetchReflections(currentUser.id);
@@ -26,7 +28,7 @@ export const ReflectionsWidget = ({
   };
 
   return (
-    <div className='main-reflection-widget-container'>
+    <div className={`main-reflection-widget-container ${location.pathname.includes("day") ? 'day-show-reflections' : null}`}>
       <h3>Journal Entries</h3>
       <Slider
         {...settings}
@@ -57,4 +59,4 @@ export const ReflectionsWidget = ({
   );
 };
 
-export default ReflectionsWidget
+export default withRouter(ReflectionsWidget);
