@@ -1,0 +1,41 @@
+.goals-widget-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: auto;
+  border: 2px solid $cream;
+  border-radius: 10px;
+  background-color: $blue;
+
+  h2 {
+    color: $cream;
+  }
+}
+
+.goals-widget-item {
+  // background-color: $cream;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  width: 80%;
+  height: auto;
+  margin: 15px;
+  // border: 1px solid red;
+}
+
+.goals-widget-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: scroll;
+  background-color: $cream;
+  border-radius: 5px;
+}
+
+.goals-widget-btns {
+ width: 80%;
+ height: auto;
+}

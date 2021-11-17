@@ -4,6 +4,7 @@ $lightblue: #e0fbcb;
 $orange: #ee6c4d;
 $black: #293241;
 $cream: #fff9e9;
+$beige: #f7e7ce;
 
 // LAYOUT
 @import './stylesheets/base/reset';
@@ -20,4 +21,6 @@ $cream: #fff9e9;
 @import './stylesheets/components/mood_tracker_widget';
 @import './stylesheets/components/koko.scss';
 @import './stylesheets/components/calendar.scss';
-@import "./stylesheets/pages/day_show.scss"
+@import "./stylesheets/pages/day_show.scss";
+@import "./stylesheets/components/goals_widget.scss";
+@import "./stylesheets/pages/home.scss";

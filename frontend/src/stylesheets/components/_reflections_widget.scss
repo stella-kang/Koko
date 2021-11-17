@@ -57,11 +57,11 @@
   // border: 1px solid red;
   padding: 0 px 5px;
   overflow: scroll;
-  height: 100%;
   overflow-wrap: break-word;
+  height: 100%;
 
   p {
-    overflow: scroll;
+    // overflow: scroll;
     color: $darkblue;
   }
 }

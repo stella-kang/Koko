@@ -27,7 +27,7 @@ export const NavBar = ({ loggedIn, logout }) => {
 
   return (
     <header>
-      <h1>KOKO</h1>
+      <h1 id="logo">KOKO</h1>
       <nav>{getLinks()}</nav>
     </header>
   );

@@ -40,20 +40,10 @@ footer {
 
 header {
   display: flex;
-  background-color: white;
   align-items: flex-start;
   width: 100%;
   position: sticky;
   top: 0;
-
-  h1 {
-    font-size: 100px;
-    font-family: 'Fredoka One', cursive;
-    margin: 0;
-    color: orange;
-    text-shadow: 2px 2px $orange;
-    margin-left: 40%;
-  }
 }
 
 main {

@@ -22,13 +22,18 @@ export const GoalsWidget = ({
     updateGoal(newGoal);
   };
 
-  const notCompleted = goals.map((goal) =>
-    <GoalsWidgetItem key={goal._id} goal={goal} handleButtonClick={() => handleButtonClick(goal)} openEditForm={openEditForm} />
+  const notCompleted = notCompletedGoals.map((goal) =>
+    <GoalsWidgetItem
+      key={goal._id}
+      // className="goals-widget-item"
+      goal={goal}
+      handleButtonClick={() => handleButtonClick(goal)} openEditForm={openEditForm}
+    />
   );
 
   return (
-    <div>
-      <h2>{type === "Ongoing" ? "Ongoing" : ""} Goals</h2>
+    <div className="goals-widget-container">
+      <h2>Ongoing Goals</h2>
       {notCompleted}
 
       { (isToday || type==="Ongoing") &&
