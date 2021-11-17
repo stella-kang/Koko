@@ -1,8 +1,9 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { ImCancelCircle } from 'react-icons/im';
+import { withRouter } from 'react-router-dom';
 
-const GoalForm = ({ currentUser, processForm, closeForm, goal, openModal }) => {
+const GoalForm = ({ currentUser, processForm, closeForm, goal, openModal, location }) => {
 
   const {
     register,
@@ -46,13 +47,13 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, openModal }) => {
   const headerPhrase = goal ? "it's okay to adjust your goals!" : "Do you have any goals to tell Koko?"
 
   return (
-    <div className="goal-form-container">
+    <div className={`goal-form-container ${location.pathname.includes("day") ? 'day-show-goal-form' : null}`}>
       <div className="goal-form-cancel" onClick={() => closeForm()}>
         <ImCancelCircle />
         {/* <button >Cancel</button> */}
       </div>
 
-      <h1>Hi, <span id="current-user-name">{currentUser.username}</span>! {headerPhrase}</h1>
+      {location.pathname.includes("day") ? null : <h1>Hi, <span id="current-user-name">{currentUser.username}</span>! {headerPhrase}</h1>}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="goal-inputs">
           <label>
@@ -83,11 +84,11 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, openModal }) => {
 
         <div className="goal-form-buttons">
           <button className="goal-form-submit">{ goal ? "Update" : "Add"} Goal</button>
-          { goal ? <button type="button" onClick={handleDelete}>Delete</button> : null}
+          { goal ? <button id="goal-form-delete-button" type="button" onClick={handleDelete}>Delete</button> : null}
         </div>
       </form>
     </div>
   );
 };
 
-export default GoalForm
+export default withRouter(GoalForm);
