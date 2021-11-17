@@ -30,13 +30,23 @@
       width: 75%;
 
       .koko-heart-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: $orange;
         width: 36px;
         height: 36px;
         border: solid 4px $orange;
         border-radius: 50%;
+        box-sizing: border-box;
         margin-right: -10px;
+        padding-top: 2px;
         z-index: 1;
+
+        img {
+          width: 22px;
+          height: 22px;
+        }
       }
 
       .koko-current-exp-bar {
