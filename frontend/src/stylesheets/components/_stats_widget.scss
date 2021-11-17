@@ -7,4 +7,17 @@
   width: 20px;
   border-radius: 5px;
   margin: 0px 2px;
+  position: relative;
+
+  &:hover .mood-date {
+    display: block;
+  }
+}
+
+.mood-date {
+  position: absolute;
+  display: none;
+  left: -30px;
+  top: -30px;
+  background: $cream;
 }

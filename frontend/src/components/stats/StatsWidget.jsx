@@ -24,6 +24,9 @@ const StatsWidget = ({
     <div key={mood._id} className="mood-square"
       style={{backgroundColor: colors[mood.mood-1]}}
     >
+      <div className="mood-date">
+        {new Date(mood.createdAt).toLocaleDateString()}
+      </div>
     </div>
   ))
 
