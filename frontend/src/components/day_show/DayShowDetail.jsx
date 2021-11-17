@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import MoodItem from "./MoodItem";
-import ReflectionItem from './ReflectionItem';
-
 import DayGoalsContainer from './DayGoalsContainer';
 import CreateGoalContainer from '../goals/CreateGoalContainer';
 import EditGoalContainer from '../goals/EditGoalContainer';
+import DayReflectionsContainer from './DayReflectionsContainer';
 
 export const DayShowDetail = ({isToday, mood, goals, reflections, openEditForm}) => {
   const [showCreateGoal, setShowCreateGoal] = useState(false);
@@ -49,13 +48,15 @@ export const DayShowDetail = ({isToday, mood, goals, reflections, openEditForm})
         { displayGoalsComponent() }
       </div>
 
-      <div className="day-details-reflections">
+      <div className="day-details-reflections" style={{width: '600px'}}>
         <h2>Journal Entries:</h2>
-        <div className="day-details-reflections-list">
+        {/* <div className="day-details-reflections-list">
           {reflections.map(reflection => {
             return <ReflectionItem openEditForm={openEditForm} reflection={reflection} key={reflection.id}/>
           })}
-        </div>
+        </div> */}
+
+        <DayReflectionsContainer reflections={reflections} />
       </div>
     </div>
   );

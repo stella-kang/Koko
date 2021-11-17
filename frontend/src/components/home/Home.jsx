@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ReflectionsWidget from '../reflections/ReflectionsWidget';
+import AllReflectionsContainer from '../reflections/AllReflectionsContainer';
 import ReflectionShowForm from '../reflections/ReflectionShowForm';
 import CreateGoalContainer from '../goals/CreateGoalContainer';
 import EditGoalContainer from '../goals/EditGoalContainer';
@@ -53,7 +53,7 @@ export const Home = (props) => {
         <>
           <MoodTracker />
           { displayGoalsComponent() }
-          <ReflectionsWidget openReflectionShow={openReflectionShow} />
+          <AllReflectionsContainer openReflectionShow={openReflectionShow} />
         </>
       )
     }

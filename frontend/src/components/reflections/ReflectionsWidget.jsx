@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
-import { connect } from 'react-redux';
-import { fetchReflections } from '../../actions/reflections_actions';
 import ReflectionWidgetItem from './ReflectionWidgetItem';
-import { getSortedReflections } from '../../reducers/selectors';
 
 export const ReflectionsWidget = ({
   openReflectionShow,
@@ -49,13 +46,4 @@ export const ReflectionsWidget = ({
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.session.user,
-  reflections: getSortedReflections(state),
-});
-
-const mapDispatchToProps = {
-  fetchReflections,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ReflectionsWidget);
+export default ReflectionsWidget

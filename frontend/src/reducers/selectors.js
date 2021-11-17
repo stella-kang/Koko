@@ -25,8 +25,9 @@ export const getShowDetailMood = (state, calDate) => {
 }
 
 export const getShowDetailReflections = (state, calDate) => {
+  const currDate = calDate.toLocaleDateString();
   const reflections = Object.values(state.entities.reflections);
-  const currReflections = reflections.filter(reflection => reflection.createdAt.toLocaleString() === calDate);
+  const currReflections = reflections.filter(reflection => new Date(reflection.createdAt).toLocaleDateString() === currDate);
   return currReflections;
 }
 
