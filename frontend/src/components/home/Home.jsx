@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import AllReflectionsContainer from '../reflections/AllReflectionsContainer';
 import ReflectionShowForm from '../reflections/ReflectionShowForm';
 import CreateGoalContainer from '../goals/CreateGoalContainer';
 import EditGoalContainer from '../goals/EditGoalContainer';
 import OngoingGoalsContainer from '../goals/OngoingGoalsContainer';
 import MoodTracker from '../mood/MoodTracker';
-import Koko from '../koko/Koko';
+import KokoCard from '../koko/KokoCard';
 
 export const Home = (props) => {
   const [showReflection, setShowReflection] = useState(false);
@@ -63,11 +62,9 @@ export const Home = (props) => {
 
   return (
     <div className="home">
-      <Link to='/day'>See History</Link>
+      <KokoCard />
 
-      <Koko />
-
-        {displayComponents()}
+      {displayComponents()}
     </div>
   )
 }
