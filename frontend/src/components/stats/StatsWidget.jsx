@@ -8,8 +8,8 @@ const mSTP = (state) => {
   return {
     currentUser: state.session.user,
     allMoods: Object.values(state.entities.moods),
-    numReflections: state.entities.reflections.values.length,
-    numGoals: state.entities.goals.values.length,
+    numReflections: Object.values(state.entities.reflections).length,
+    numGoals: Object.values(state.entities.goals).length,
   };
 };
 
@@ -32,22 +32,22 @@ export const StatsWidget = ({
 }) => {
   useEffect(() => {
     fetchMoods(currentUser.id);
-  }, [fetchMoods, currentUser, allMoods]);
+  }, []);
 
   useEffect(() => {
     fetchReflections(currentUser.id);
-  }, [fetchReflections, currentUser, numReflections]);
+  }, []);
 
   useEffect(() => {
     requestGoals(currentUser.id);
-  }, [requestGoals, currentUser, numGoals]);
+  }, []);
 
   return (
     <div>
       <div className='moods-garden'>
         <p>Total number of mood squares is: {allMoods.length}</p>
       </div>
-
+      
       <div className='journal-tracker'>
         <p>Total number of journal entries: {numReflections}</p>
       </div>
