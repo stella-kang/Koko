@@ -1,37 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MoodItem from "./MoodItem";
 import ReflectionItem from './ReflectionItem';
 
 import DayGoalsContainer from './DayGoalsContainer';
+import CreateGoalContainer from '../goals/CreateGoalContainer';
+import EditGoalContainer from '../goals/EditGoalContainer';
 
 export const DayShowDetail = ({mood, goals, reflections, openEditForm}) => {
-    return (
-      <div className="day-details">
-        <div className="day-details-mood">
-          <h2>Mood:</h2>
-          {mood ? <MoodItem mood={mood} /> : <div>Mood not recorded.</div> }
-        </div>
+  const [showCreateGoal, setShowCreateGoal] = useState(false);
+  const [showEditGoal, setShowEditGoal] = useState(false);
+  const [goalToEdit, setGoalToEdit] = useState(null);
 
-        <div className="day-details-goals">
-          {/* <div className="day-details-goals-list">
-            {goals.map(goal => {
-              return <GoalItem goal={goal} key={goal.id}/>
-            })}
-          </div> */}
+  const openEditGoalForm = (goal) => {
+    setGoalToEdit(goal);
+    setShowEditGoal(true);
+  }
 
-          <DayGoalsContainer goals={goals} />
-        </div>
+  const displayGoalsComponent = () => {
+    if (showCreateGoal) {
+      return (
+        <CreateGoalContainer closeForm={() => setShowCreateGoal(false)} />
+      )
+    } else if (showEditGoal) {
+      return (
+        <EditGoalContainer closeForm={() => setShowEditGoal(false)} goal={goalToEdit} />
+      )
+    } else {
+      return (
+        <DayGoalsContainer goals={goals} openCreateForm={() => setShowCreateGoal(true)} openEditForm={openEditGoalForm} />
+      )
+    }
+   }
 
-        <div className="day-details-reflections">
-          <h2>Journal Entries:</h2>
-          <div className="day-details-reflections-list">
-            {reflections.map(reflection => {
-              return <ReflectionItem openEditForm={openEditForm} reflection={reflection} key={reflection.id}/>
-            })}
-          </div>
+  return (
+    <div className="day-details">
+      <div className="day-details-mood">
+        <h2>Mood:</h2>
+        {mood ? <MoodItem mood={mood} /> : <div>Mood not recorded.</div> }
+      </div>
+
+      <div className="day-details-goals">
+        {/* <div className="day-details-goals-list">
+          {goals.map(goal => {
+            return <GoalItem goal={goal} key={goal.id}/>
+          })}
+        </div> */}
+
+        { displayGoalsComponent() }
+      </div>
+
+      <div className="day-details-reflections">
+        <h2>Journal Entries:</h2>
+        <div className="day-details-reflections-list">
+          {reflections.map(reflection => {
+            return <ReflectionItem openEditForm={openEditForm} reflection={reflection} key={reflection.id}/>
+          })}
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 export default DayShowDetail;
