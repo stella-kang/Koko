@@ -13,7 +13,7 @@ const mapDispatchToProps = {
   openModal
 };
 
-export const NavBar = ({ loggedIn, logout, openModal, location }) => {
+export const NavBar = ({ loggedIn, logout, openModal, location, history }) => {
   const logoutUser = () => {
     logout();
   };
@@ -54,9 +54,17 @@ export const NavBar = ({ loggedIn, logout, openModal, location }) => {
     }
   };
 
+  const clickLogo = () => {
+    if (loggedIn) {
+      if (location.pathname !== '/home') history.push('/home');
+    } else {
+      if (location.pathname !== '/') history.push('/');
+    }
+  }
+
   return (
     <header>
-      <h1 id="logo">KOKO</h1>
+      <h1 id="logo" onClick={clickLogo}>Koko</h1>
       <nav>{ getLinks() }</nav>
     </header>
   );
