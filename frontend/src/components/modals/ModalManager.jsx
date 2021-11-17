@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group';
 import { withRouter } from 'react-router-dom';
 import { closeModal }  from '../../actions/modal_actions';
-import RegisterFormModal from '../session/RegisterFormModal';
-import LoginFormModal from '../session/LoginFormModal';
+import RegisterFormModal from './RegisterFormModal';
+import LoginFormModal from './LoginFormModal';
 
 export const ModalManager = ({ modal, closeModal, history }) => {
   let component;

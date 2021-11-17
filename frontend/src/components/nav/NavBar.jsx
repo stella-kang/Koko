@@ -28,7 +28,6 @@ export const NavBar = ({ loggedIn, logout, openModal }) => {
     } else {
       return (
         <div className="signup-login-container">
-          {/* <Link to={'/register'}>Register</Link> */}
           <button onClick={() => openModal({
             type: "register"
           })}>

@@ -1,4 +1,4 @@
-import LoginForm from './LoginForm';
+import LoginForm from '../session/LoginForm';
 
 const LoginFormModal = ({ closeModal, history }) => {
   const postLogin = () => {
