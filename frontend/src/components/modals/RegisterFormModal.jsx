@@ -1,12 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { signup } from '../../actions/session_actions';
+import { signup, clearSessionErrors } from '../../actions/session_actions';
+import { useListenForModalClose } from '../../util/custom_hooks';
 
-export const RegisterForm = ({ errors, signup }) => {
+const mapStateToProps = (state) => ({
+  errors: state.errors.session
+})
+
+const mapDispatchToProps = {
+  signup,
+  clearSessionErrors
+}
+
+export const RegisterFormModal = ({ errors, signup, closeModal, clearSessionErrors }) => {
+
+  useListenForModalClose(closeModal);
+
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
+
+  useEffect(() => {
+    return () => clearSessionErrors();
+  }, [clearSessionErrors])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +37,10 @@ export const RegisterForm = ({ errors, signup }) => {
   }
 
   return (
-    <div>
+    <div className="modal">
+
+      <button onClick={closeModal}>Close</button>
+
       <form onSubmit={handleSubmit}>
 
         <div>
@@ -65,12 +85,4 @@ export const RegisterForm = ({ errors, signup }) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-  errors: state.errors.session
-})
-
-const mapDispatchToProps = {
-  signup
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm)
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterFormModal)

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import GoalForm from './GoalForm';
-import { updateGoal, deleteGoal } from '../../actions/goal_actions';
+import { updateGoal } from '../../actions/goal_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => ({
   currentUser: state.session.user
@@ -8,7 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   processForm: updateGoal,
-  deleteGoal
+  openModal
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoalForm)
