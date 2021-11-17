@@ -15,15 +15,15 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
-    friendshipExp: {
-      type: Number,
-      required: true,
-      default: 0
-    },
     friendshipLvl: {
       type: Number,
       required: true,
       default: 1
+    },
+    friendshipExp: {
+      type: Number,
+      required: true,
+      default: 0
     }
   }, {
     timestamps: true
