@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchDayShow } from '../../actions/day_show_actions';
 import Calendar from 'react-calendar';
 import DayShowDetailContainer from './DayShowDetailContainer';
-import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
+import ReflectionShowForm from '../reflections/ReflectionShowForm';
 
 const mSTP = (state, ownProps) => ({
   currentUserId: state.session.user.id
@@ -35,7 +35,7 @@ const DayShow = ({fetchDayShow, currentUserId, moods, goals, reflections}) => {
 
   if (showEditReflection) {
     return <div className="day-show">
-      <UpdateReflectionContainer reflection={reflectionToEdit} closeForm={() => setShowEditReflection(false)}/>
+      <ReflectionShowForm reflection={reflectionToEdit} closeForm={() => setShowEditReflection(false)}/>
       <Calendar onChange={onChange} value={calDate} />
     </div>
   } else {

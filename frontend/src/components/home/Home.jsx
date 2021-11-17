@@ -1,37 +1,58 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import ReflectionsWidget from '../reflections/ReflectionsWidget';
-import CreateReflectionContainer from '../reflections/CreateReflectionContainer';
-import UpdateReflectionContainer from '../reflections/UpdateReflectionContainer';
+import ReflectionShowForm from '../reflections/ReflectionShowForm';
+import CreateGoalContainer from '../goals/CreateGoalContainer';
+import EditGoalContainer from '../goals/EditGoalContainer';
 import GoalsWidget from '../goals/GoalsWidget';
 import MoodTracker from '../mood/MoodTracker';
 import Koko from '../koko/Koko';
 
 export const Home = (props) => {
-  const [showCreateReflection, setShowCreateReflection] = useState(false);
-  const [showEditReflection, setShowEditReflection] = useState(false);
-  const [reflectionToEdit, setReflectionToEdit] = useState(null);
+  const [showReflection, setShowReflection] = useState(false);
+  const [reflectionId, setReflectionId] = useState();
 
-  const openEditForm = (reflection) => {
-    setReflectionToEdit(reflection);
-    setShowEditReflection(true);
+  const [showCreateGoal, setShowCreateGoal] = useState(false);
+  const [showEditGoal, setShowEditGoal] = useState(false);
+  const [goalToEdit, setGoalToEdit] = useState(null);
+
+  const openEditGoalForm = (goal) => {
+    setGoalToEdit(goal);
+    setShowEditGoal(true);
   }
 
-  const displayComponents = () => {
-    if (showCreateReflection) {
+  const openReflectionShow = (reflectionId) => {
+    setReflectionId(reflectionId);
+    setShowReflection(true);
+  }
+
+  const displayGoalsComponent = () => {
+    if (showCreateGoal) {
       return (
-        <CreateReflectionContainer closeForm={() => setShowCreateReflection(false)} />
+        <CreateGoalContainer closeForm={() => setShowCreateGoal(false)} />
       )
-    } else if (showEditReflection) {
+    } else if (showEditGoal) {
       return (
-        <UpdateReflectionContainer closeForm={() => setShowEditReflection(false)} reflection={reflectionToEdit} />
+        <EditGoalContainer closeForm={() => setShowEditGoal(false)} goal={goalToEdit} />
+      )
+    } else {
+      return (
+        <GoalsWidget openCreateForm={() => setShowCreateGoal(true)} openEditForm={openEditGoalForm} />
+      )
+    }
+   }
+
+  const displayComponents = () => {
+    if (showReflection) {
+      return (
+        <ReflectionShowForm closeForm={() => setShowReflection(false)} reflectionId={reflectionId} openReflectionShow={openReflectionShow} />
       )
     } else {
       return (
         <>
           <MoodTracker />
-          <GoalsWidget />
-          <ReflectionsWidget openCreateForm={() => setShowCreateReflection(true)} openEditForm={openEditForm} />
+          { displayGoalsComponent() }
+          <ReflectionsWidget openReflectionShow={openReflectionShow} />
         </>
       )
     }

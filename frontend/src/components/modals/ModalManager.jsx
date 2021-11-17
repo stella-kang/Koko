@@ -3,15 +3,11 @@ import { connect } from 'react-redux'
 import { CSSTransition } from 'react-transition-group';
 import { withRouter } from 'react-router-dom';
 import { closeModal }  from '../../actions/modal_actions';
-import CreateGoalFormModal from '../goals/CreateGoalFormModal';
 
 export const ModalManager = ({ modal, closeModal }) => {
   let component;
 
   switch (modal.type) {
-    case "createGoal":
-      component = <CreateGoalFormModal closeModal={() => closeModal(modal)}/>
-      break;
     default:
       component = null;
   }

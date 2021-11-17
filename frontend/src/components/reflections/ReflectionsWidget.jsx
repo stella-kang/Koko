@@ -6,8 +6,7 @@ import ReflectionWidgetItem from './ReflectionWidgetItem';
 import { getSortedReflections } from '../../reducers/selectors';
 
 export const ReflectionsWidget = ({
-  openCreateForm,
-  openEditForm,
+  openReflectionShow,
   currentUser,
   reflections,
   fetchReflections,
@@ -37,13 +36,13 @@ export const ReflectionsWidget = ({
           <ReflectionWidgetItem
             key={reflection._id}
             reflection={reflection}
-            openEditForm={openEditForm}
+            openReflectionShow={openReflectionShow}
           />
         ))}
       </Slider>
       <div className='carousel-btns-container'>
         <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
-        <button onClick={openCreateForm}>Add a New Entry</button>
+        <button onClick={() => openReflectionShow(null)}>Add a New Entry</button>
         <button onClick={() => sliderRef.current.slickNext()}>Next</button>
       </div>
     </div>
