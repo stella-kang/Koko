@@ -34,13 +34,13 @@ export const GoalsWidget = ({
   return (
     <div className="goals-widget-container">
       <h2>Ongoing Goals</h2>
-      {notCompleted}
+      <div className="goals-widget-list">
+        {notCompleted}
+      </div>
 
-      { (isToday || type==="Ongoing") &&
-        <button onClick={openCreateForm}>
-          Add a Goal
-        </button>
-      }
+      <button className="add-goal-button" onClick={openCreateForm}>
+        Add a Goal
+      </button>
     </div>
   );
 };

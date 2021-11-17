@@ -50,6 +50,10 @@
   border-radius: 5px;
   color: $cream;
   cursor: pointer;
+
+  &:hover {
+    background-color: $darkorange;
+  }
   // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 }
 

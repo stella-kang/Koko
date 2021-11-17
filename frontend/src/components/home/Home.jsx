@@ -52,8 +52,10 @@ export const Home = (props) => {
       return (
         <div className="home-widgets">
           <MoodTracker />
-          { displayGoalsComponent() }
-          <ReflectionsWidget openReflectionShow={openReflectionShow} />
+          <div className="home-bottom-row">
+            {displayGoalsComponent()}
+            <ReflectionsWidget openReflectionShow={openReflectionShow} />
+          </div>
         </div>
       )
     }
