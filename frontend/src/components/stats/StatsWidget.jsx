@@ -1,51 +1,27 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { fetchMoods } from '../../actions/mood_actions';
-import { fetchReflections } from '../../actions/reflections_actions';
-import { requestGoals } from '../../actions/goal_actions';
+import { getSortedMoods } from '../../reducers/selectors';
 
 const mSTP = (state) => {
   return {
-    currentUser: state.session.user,
-    allMoods: Object.values(state.entities.moods),
+    moods: getSortedMoods(state),
     numReflections: Object.values(state.entities.reflections).length,
     numGoals: Object.values(state.entities.goals).length,
   };
 };
 
-const mDTP = (dispatch) => {
-  return {
-    fetchMoods: (userId) => dispatch(fetchMoods(userId)),
-    fetchReflections: (userId) => dispatch(fetchReflections(userId)),
-    requestGoals: (userId) => dispatch(requestGoals(userId)),
-  };
-};
-
 export const StatsWidget = ({
-  fetchMoods,
-  fetchReflections,
-  requestGoals,
-  allMoods,
+  moods,
   numReflections,
-  numGoals,
-  currentUser,
+  numGoals
 }) => {
-  useEffect(() => {
-    fetchMoods(currentUser.id);
-  }, []);
 
-  useEffect(() => {
-    fetchReflections(currentUser.id);
-  }, []);
-
-  useEffect(() => {
-    requestGoals(currentUser.id);
-  }, []);
+  console.log(moods)
 
   return (
     <div className='stats-widget-container'>
       <div className='moods-garden'>
-        <p>Total number of mood squares is: {allMoods.length}</p>
+        <p>Total number of mood squares is: {moods.length}</p>
       </div>
 
       <div className='journal-tracker'>
@@ -59,4 +35,4 @@ export const StatsWidget = ({
   );
 };
 
-export default connect(mSTP, mDTP)(StatsWidget);
+export default connect(mSTP)(StatsWidget);

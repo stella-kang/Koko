@@ -1,6 +1,6 @@
 export const getSortedReflections = state => {
   const reflections = Object.values(state.entities.reflections);
-  reflections.sort((a, b) => a.updatedAt > b.updatedAt ? -1 : 1);
+  reflections.sort((a, b) => a.updatedAt < b.updatedAt ? -1 : 1);
   return reflections;
 }
 
@@ -36,4 +36,10 @@ export const getShowDetailGoals = (state, calDate) => {
   const goals = Object.values(state.entities.goals);
   const currGoals = goals.filter(goal => new Date(goal.createdAt).toLocaleDateString() === currDate);
   return currGoals;
+}
+
+export const getSortedMoods = state => {
+  const moods = Object.values(state.entities.moods);
+  moods.sort((a, b) => a.createdAt < b.createdAt ? -1 : 1);
+  return moods;
 }
