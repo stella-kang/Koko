@@ -6,12 +6,11 @@ import Splash from './splash/Splash';
 import LoginForm from './session/LoginForm';
 import RegisterForm from './session/RegisterForm';
 import Home from './home/Home';
-import Footer from './footer/Footer';
 import DayShow from "./day_show/DayShow"
 
 const App = () => {
   return (
-    <>
+    <main>
       <NavBar />
       <ModalManager />
       <Switch>
@@ -22,9 +21,8 @@ const App = () => {
         <ProtectedRoute path='/day' component={DayShow} />
         <Redirect to='/' />
       </Switch>
-      <Footer />
-    </>
-  )
-}
+    </main>
+  );
+};
 
-export default App
+export default App;
