@@ -21,7 +21,7 @@ export const NavBar = ({ loggedIn, logout, openModal, location, history }) => {
   const getLinks = () => {
     if (loggedIn) {
       return (
-        <div>
+        <div className="signup-login-container">
           <button onClick={logoutUser}>Logout</button>
         </div>
       );
