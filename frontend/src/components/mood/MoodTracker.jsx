@@ -75,6 +75,9 @@ const MoodTracker = ({
     if (!currentMood || currentMood.mood !== parseInt(e.currentTarget.value)) {
       setChangedMood(true);
       setMood(e.currentTarget.value);
+    } else {
+      setEdit(false);
+      setChangedMood(false);
     }
   };
 
