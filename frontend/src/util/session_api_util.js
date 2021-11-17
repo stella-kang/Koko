@@ -20,6 +20,6 @@ export const fetchCurrentUser = () => {
   return axios.get(`/api/users/current`)
 };
 
-export const updateExp = userId => {
-  return axios.get(`/api/users/${userId}/friendship`)
+export const updateExp = (userId, exp) => {
+  return axios.patch(`/api/users/${userId}/friendship`, {exp})
 };

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { fetchMoods, createMood, updateMood } from '../../actions/mood_actions';
 import { getTodaysMood } from '../../reducers/selectors';
+import { updateExp } from '../../actions/session_actions';
 
 const mSTP = (state) => ({
   currentMood: getTodaysMood(state),
@@ -12,6 +13,7 @@ const mDTP = {
   fetchMoods,
   createMood,
   updateMood,
+  updateExp
 };
 
 const MoodTracker = ({
@@ -20,6 +22,7 @@ const MoodTracker = ({
   fetchMoods,
   createMood,
   updateMood,
+  updateExp
 }) => {
   const [mood, setMood] = useState(currentMood?.mood);
   const [changedMood, setChangedMood] = useState(false);
@@ -53,6 +56,7 @@ const MoodTracker = ({
         mood: mood,
         userId: currentUserId,
       });
+      updateExp(currentUserId, 2)
     }
   };
 
