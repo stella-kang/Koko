@@ -4,6 +4,7 @@ import { getSortedMoods } from '../../reducers/selectors';
 
 const mSTP = (state) => {
   return {
+    joinDate: state.session.user.createdAt,
     moods: getSortedMoods(state),
     reflections: Object.values(state.entities.reflections),
     goals: Object.values(state.entities.goals)
@@ -11,6 +12,7 @@ const mSTP = (state) => {
 };
 
 const StatsWidget = ({
+  joinDate,
   moods,
   reflections,
   goals
@@ -18,7 +20,7 @@ const StatsWidget = ({
 
   const colors = ['red', 'orange', 'yellow', 'green', 'blue']
 
-  console.log(moods);
+  console.log(joinDate);
 
   const moodsGarden = moods.map(mood => (
     <div key={mood._id} className="mood-square"
@@ -43,7 +45,7 @@ const StatsWidget = ({
       </div>
 
       <div className='goals-tracker'>
-        <p>You've completed {numCompleted} goals out of {goals.length}. { goals.length > 0 ?"Keep it up!" : "Try adding new goals!"}</p>
+        <p>You've completed {numCompleted} goals. { goals.length > 0 ? "Keep it up!" : "Try adding new goals!"}</p>
       </div>
 
       <div className='journal-tracker'>

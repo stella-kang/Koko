@@ -20,7 +20,8 @@ router.get('/current',
       username: req.user.username,
       email: req.user.email,
       friendshipExp: req.user.friendshipExp,
-      friendshipLvl: req.user.friendshipLvl
+      friendshipLvl: req.user.friendshipLvl,
+      createdAt: req.user.createdAt
   });
 })
 
@@ -53,7 +54,8 @@ router.post('/register', (req, res) => {
                 id: user.id,
                 username: user.username,
                 friendshipExp: user.friendshipExp,
-                friendshipLvl: user.friendshipLvl
+                friendshipLvl: user.friendshipLvl,
+                createdAt: req.user.createdAt
               };
 
               jwt.sign(
@@ -97,7 +99,9 @@ router.post('/login', (req, res) => {
           id: user.id,
           username: user.username,
           friendshipExp: user.friendshipExp,
-          friendshipLvl: user.friendshipLvl };
+          friendshipLvl: user.friendshipLvl,
+          createdAt: req.user.createdAt
+        };
 
         jwt.sign(
           payload,
