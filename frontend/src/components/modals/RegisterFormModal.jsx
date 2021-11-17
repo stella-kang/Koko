@@ -2,18 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { signup, clearSessionErrors } from '../../actions/session_actions';
 import { useListenForModalClose } from '../../util/custom_hooks';
+import { MdCancelPresentation } from 'react-icons/md';
 
 const mapStateToProps = (state) => ({
-  errors: state.errors.session
-})
+  errors: state.errors.session,
+});
 
 const mapDispatchToProps = {
   signup,
-  clearSessionErrors
-}
+  clearSessionErrors,
+};
 
-export const RegisterFormModal = ({ errors, signup, closeModal, clearSessionErrors }) => {
-
+export const RegisterFormModal = ({
+  errors,
+  signup,
+  closeModal,
+  clearSessionErrors,
+}) => {
   useListenForModalClose(closeModal);
 
   const [email, setEmail] = useState('');
@@ -23,7 +28,7 @@ export const RegisterFormModal = ({ errors, signup, closeModal, clearSessionErro
 
   useEffect(() => {
     return () => clearSessionErrors();
-  }, [clearSessionErrors])
+  }, [clearSessionErrors]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,58 +36,85 @@ export const RegisterFormModal = ({ errors, signup, closeModal, clearSessionErro
       email,
       username,
       password,
-      password2
+      password2,
     };
     signup(user);
-  }
+  };
 
   return (
-    <div className="modal">
-
-      <button onClick={closeModal}>Close</button>
-
-      <form onSubmit={handleSubmit}>
-
-        <div>
-          <label htmlFor="email">Email {errors.email}</label>
-          <input type="text" id="email" spellCheck="false"
-            value={email}
-            onChange={(e) => setEmail(e.currentTarget.value)}
-            placeholder="Email"
-          />
+    <div className='modal'>
+      <div className='register-form-container'>
+        <div className='cancel-div'>
+          <div className='close-btn-container'>
+            <button className='register-close-btn' onClick={closeModal}>
+              <MdCancelPresentation />
+            </button>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="username">Username {errors.username}</label>
-          <input type="text" id="username" spellCheck="false"
-            value={username}
-            onChange={(e) => setUsername(e.currentTarget.value)}
-            placeholder="Username"
-            />
-        </div>
+        <form className='register-form' onSubmit={handleSubmit}>
+          <h3>Meet Koko Today!</h3>
+          <div className='register-content'>
+            <label htmlFor='email'>Email {errors.email}</label>
+            <div className='input-box-container'>
+              <input
+                type='text'
+                id='email'
+                spellCheck='false'
+                value={email}
+                onChange={(e) => setEmail(e.currentTarget.value)}
+                placeholder='Email'
+              />
+            </div>
+          </div>
 
-        <div>
-          <label htmlFor="password">Password {errors.password}</label>
-          <input type="password" id="password"
-            value={password}
-            onChange={(e) => setPassword(e.currentTarget.value)}
-            placeholder="Password"
-            />
-        </div>
+          <div className='register-content'>
+            <label htmlFor='username'>Username {errors.username}</label>
+            <div className='input-box-container'>
+              <input
+                type='text'
+                id='username'
+                spellCheck='false'
+                value={username}
+                onChange={(e) => setUsername(e.currentTarget.value)}
+                placeholder='Username'
+              />
+            </div>
+          </div>
 
-        <div>
-          <label htmlFor="password2">Confirm Password {errors.password2}</label>
-          <input type="password" id="password2"
-            value={password2}
-            onChange={(e) => setPassword2(e.currentTarget.value)}
-            placeholder="Confirm Password"
-            />
-        </div>
+          <div className='register-content'>
+            <label htmlFor='password'>Password {errors.password}</label>
+            <div className='input-box-container'>
+              <input
+                type='password'
+                id='password'
+                value={password}
+                onChange={(e) => setPassword(e.currentTarget.value)}
+                placeholder='Password'
+              />
+            </div>
+          </div>
 
-        <button>Register</button>
-      </form>
+          <div className='register-content'>
+            <label htmlFor='password2'>
+              Confirm Password {errors.password2}
+            </label>
+            <div className='input-box-container'>
+              <input
+                type='password'
+                id='password2'
+                value={password2}
+                onChange={(e) => setPassword2(e.currentTarget.value)}
+                placeholder='Confirm Password'
+              />
+            </div>
+          </div>
+
+          <button className='register-btn'>Register</button>
+        </form>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(RegisterFormModal)
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterFormModal);
