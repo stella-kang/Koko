@@ -49,6 +49,9 @@ const KokoFriendship = ({currentUser, fetchCurrentUser}) => {
 
   return (
     <div className="koko-friendship-container">
+        <div className="koko-level">
+          <h2>Level { currentUser.friendshipLvl }</h2>
+        </div>
       <div className="koko-exp-container">
         <div className="koko-heart-container">
           <img src="https://raw.githubusercontent.com/stella-kang/Koko/14439b203d82972a43ab6e4df684cb3a3e07ede9/frontend/src/assets/heart.svg" />
@@ -59,8 +62,7 @@ const KokoFriendship = ({currentUser, fetchCurrentUser}) => {
           </div>
         </div>
       </div>
-      <div className="koko-level">
-        <h2>Level { currentUser.friendshipLvl }</h2>
+      <div className="koko-flavor">
         <span className="koko-friend-status">You and Koko are currently {titles[currentUser.friendshipLvl]}.</span>
         <span className="koko-quote">{quotes[currentUser.friendshipLvl]}</span>
       </div>
