@@ -5,7 +5,7 @@ module.exports = function validateGoal(data) {
   let errors = {};
 
   data.description = validText(data.description) ? data.description : '';
-  data.dueDate = validText(data.dueDate) ? data.dueDate : '';
+  // data.dueDate = validText(data.dueDate) ? data.dueDate : '';
 
   if (!Validator.isLength(data.description, { min: 3, max: 100 })) {
     errors.description = 'Description must be at least 3 characters';
@@ -15,13 +15,13 @@ module.exports = function validateGoal(data) {
     errors.description = 'Description field is required';
   }
 
-  if (!Validator.isDate(data.dueDate)) {
-    errors.dueDate = 'Due date must be a valid date';
-  }
+  // if (!Validator.isDate(data.dueDate)) {
+  //   errors.dueDate = 'Due date must be a valid date';
+  // }
 
-  if (Validator.isEmpty(data.dueDate)) {
-    delete errors.dueDate;
-  }
+  // if (Validator.isEmpty(data.dueDate)) {
+  //   delete errors.dueDate;
+  // }
 
   return {
     errors,

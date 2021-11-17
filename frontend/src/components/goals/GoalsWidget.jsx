@@ -18,6 +18,7 @@ export const GoalsWidget = ({
 
   const handleButtonClick = (goal) => {
     const newGoal = { ...goal };
+
     newGoal.status = !goal.status;
     updateGoal(newGoal);
   };
