@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { ImCancelCircle } from 'react-icons/im';
 
 const GoalForm = ({ currentUser, processForm, closeForm, goal, deleteGoal }) => {
 
@@ -34,7 +35,9 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, deleteGoal }) => 
   const headerPhrase = goal ? "it's okay to adjust your goals!" : "do you have any goals to tell Koko?"
 
   return (
-    <div>
+    <div className="goal-form-container">
+      <ImCancelCircle />
+
       <button onClick={() => closeForm()}>Cancel</button>
       <h1>Hello, {currentUser.username}, {headerPhrase}</h1>
       <form onSubmit={handleSubmit(onSubmit)}>

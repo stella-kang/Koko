@@ -2,13 +2,22 @@
   width: 60%;
   // height: 300px;
   height: 100%;
-  border-radius: 10px;
-  border: 2px solid $cream;
-  background-color: $blue;
+  border-radius: 30px;
+  // border: 2px solid $cream;
+  background-color: $orange;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+  padding: 20px;
+  box-sizing: border-box;
+  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+
+  h3 {
+    color: $cream;
+    font-family: 'Fredoka One', cursive;
+    font-size: 40px;
+    margin: 0;
+  }
 }
 
 .journal-carousel-item {
@@ -18,9 +27,10 @@
   padding: 15px;
   margin: 20px;
   background-color: $cream;
-  border-radius: 5px;
-  height: 150px;
-  box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+  border-radius: 10px;
+  width: 70%;
+  height: 40vh;
+  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 }
 
 .reflection-item-header {

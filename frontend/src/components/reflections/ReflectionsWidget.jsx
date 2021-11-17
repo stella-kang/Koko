@@ -26,6 +26,7 @@ export const ReflectionsWidget = ({
 
   return (
     <div className='main-reflection-widget-container'>
+      <h3>Journal Entries</h3>
       <Slider
         {...settings}
         ref={sliderRef}
