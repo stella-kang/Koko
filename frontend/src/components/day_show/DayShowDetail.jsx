@@ -49,7 +49,7 @@ export const DayShowDetail = ({ isToday, openReflectionShow, mood, goals, reflec
       </div>
 
       <div className="day-details-reflections">
-        <h2>Journal Entries:</h2>
+        {/* <h2>Journal Entries:</h2> */}
         {/* <div className="day-details-reflections-list">
           {reflections.map(reflection => {
             return <ReflectionItem openEditForm={openEditForm} reflection={reflection} key={reflection.id}/>

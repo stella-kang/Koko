@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import GoalsWidgetItem from './GoalsWidgetItem';
+import { withRouter } from 'react-router-dom'
 
-export const GoalsWidget = ({
+const GoalsWidget = ({
   type,
   isToday,
   goals,
@@ -9,7 +10,8 @@ export const GoalsWidget = ({
   updateGoal,
   currentUser,
   openCreateForm,
-  openEditForm
+  openEditForm,
+  location
 }) => {
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export const GoalsWidget = ({
   );
 
   return (
-    <div className="goals-widget-container">
+    <div className={`goals-widget-container ${location.pathname.includes("day") ? "day-show-goals" : null}`}>
       <h2>{type === "Ongoing" ? "Ongoing" : ""} Goals</h2>
 
       <div className="goals-widget-list">
@@ -44,4 +46,4 @@ export const GoalsWidget = ({
   );
 };
 
-export default GoalsWidget;
+export default withRouter(GoalsWidget);

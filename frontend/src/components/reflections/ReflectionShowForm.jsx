@@ -62,7 +62,7 @@ const ReflectionShowForm = ({
 
   const content = (!reflection || editMode) ? (
     <textarea
-      id='email'
+      id='reflection-input'
       rows='16'
       cols='84'
       wrap="hard"
