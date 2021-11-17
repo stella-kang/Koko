@@ -10,18 +10,33 @@ const mSTP = (state) => {
   };
 };
 
-export const StatsWidget = ({
+const StatsWidget = ({
   moods,
   reflections,
   goals
 }) => {
 
+  const colors = ['red', 'orange', 'yellow', 'green', 'blue']
+
+  console.log(moods);
+
+  const moodsGarden = moods.map(mood => (
+    <div key={mood._id} className="mood-square"
+      style={{backgroundColor: colors[mood.mood-1]}}
+    >
+    </div>
+  ))
+
   const numCompleted = goals.filter(goal => goal.status).length;
 
   return (
     <div className='stats-widget-container'>
-      <div className='moods-garden'>
-        <p>Total number of mood squares is: {moods.length}</p>
+      <div className='moods-garden-container'>
+        <p>Mood History</p>
+
+        <div className="mood-garden">
+          { moodsGarden }
+        </div>
       </div>
 
       <div className='goals-tracker'>

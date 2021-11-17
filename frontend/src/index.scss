@@ -22,7 +22,11 @@ $bubblefont: 'Fredoka One', cursive;
 @import './stylesheets/components/reflections_widget';
 @import './stylesheets/components/reflections_form';
 @import './stylesheets/components/mood_tracker_widget';
+<<<<<<< HEAD
 @import './stylesheets/components/koko_card.scss';
+=======
+@import './stylesheets/components/stats_widget';
+>>>>>>> 135af20 (Add colored squares to show mood history)
 @import './stylesheets/components/koko.scss';
 @import './stylesheets/components/calendar.scss';
 @import './stylesheets/components/modal.scss';
