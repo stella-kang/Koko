@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { fetchMoods, createMood, updateMood } from '../../actions/mood_actions';
 import { getTodaysMood } from '../../reducers/selectors';
-import { updateExp } from '../../actions/session_actions';
+import { AiFillEdit } from 'react-icons/ai';
+import { MdCancelPresentation } from 'react-icons/md';
+
 
 const mSTP = (state) => ({
   currentMood: getTodaysMood(state),
@@ -78,7 +80,15 @@ const MoodTracker = ({
   if (!currentMood || edit) {
     return (
       <div className='mood-tracker'>
-        <div className='mood-display'>
+        <div className='mood-form'>
+          {edit ? (
+            <div id="cancel-button">
+              <button type='button' onClick={cancelEdit}>
+                <MdCancelPresentation />
+              </button>
+            </div>
+          ) : null}
+
           <h3>How are you feeling today?</h3>
 
           <form onSubmit={handleSubmit} ref={submitRef}>
@@ -134,16 +144,16 @@ const MoodTracker = ({
             </label>
           </form>
         </div>
-        {edit ? (
-          <button type='button' onClick={cancelEdit}>
-            Cancel
-          </button>
-        ) : null}
       </div>
     );
   } else {
     return (
       <div className='mood-tracker'>
+        <div>
+          <button onClick={handleEdit}>
+            <AiFillEdit />
+          </button>
+        </div>
         <div className='mood-display'>
           <h3>Today's Mood:</h3>
           <div className='moods'>
@@ -160,7 +170,6 @@ const MoodTracker = ({
             )}
           </div>
         </div>
-        <button onClick={handleEdit}>Edit Mood</button>
       </div>
     );
   }
