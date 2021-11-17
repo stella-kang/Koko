@@ -43,11 +43,11 @@ export const StatsWidget = ({
   }, []);
 
   return (
-    <div>
+    <div className='stats-widget-container'>
       <div className='moods-garden'>
         <p>Total number of mood squares is: {allMoods.length}</p>
       </div>
-      
+
       <div className='journal-tracker'>
         <p>Total number of journal entries: {numReflections}</p>
       </div>
