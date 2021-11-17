@@ -17,8 +17,6 @@ export const ReflectionsWidget = ({
 
   const sliderRef = useRef();
 
-  console.log(reflections);
-
   const settings = {
     arrows: false,
     speed: 500,
@@ -44,7 +42,7 @@ export const ReflectionsWidget = ({
       </Slider>
       <div className='carousel-btns-container'>
         <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
-        <button onClick={openReflectionShow}>Add a New Entry</button>
+        <button onClick={() => openReflectionShow(null)}>Add a New Entry</button>
         <button onClick={() => sliderRef.current.slickNext()}>Next</button>
       </div>
     </div>

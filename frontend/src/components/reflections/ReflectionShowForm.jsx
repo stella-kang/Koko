@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux'
-import { createReflection, updateReflection } from '../../actions/reflections_actions';
+import { createReflection, updateReflection, deleteReflection } from '../../actions/reflections_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.user,
@@ -10,16 +10,18 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = {
   createReflection,
-  updateReflection
+  updateReflection,
+  deleteReflection
 }
 
-const ReflectionForm = ({
+const ReflectionShowForm = ({
   closeForm,
   openReflectionShow,
   currentUser,
   reflection,
   createReflection,
   updateReflection,
+  deleteReflection
 }) => {
   const {
     register,
@@ -32,9 +34,6 @@ const ReflectionForm = ({
   });
 
   const [editMode, setEditMode] = useState(false);
-
-  console.log(editMode);
-  console.log(reflection);
 
   const onSubmit = (data) => {
     const formReflection = {
@@ -51,6 +50,11 @@ const ReflectionForm = ({
         openReflectionShow(action.reflection._id);
       });
   };
+
+  const handleDelete = () => {
+    deleteReflection(reflection._id)
+      .then(() => closeForm());
+  }
 
   const content = (!reflection || editMode) ? (
     <input
@@ -83,9 +87,14 @@ const ReflectionForm = ({
       </button>
     </>
   ) : (
-    <button type='button' onClick={() => setEditMode(true)}>
-      Edit Entry
-    </button>
+    <>
+      <button type='button' onClick={() => setEditMode(true)}>
+        Edit Entry
+      </button>
+      <button type='button' onClick={handleDelete}>
+        Delete
+      </button>
+    </>
   )
 
   return (
@@ -103,4 +112,4 @@ const ReflectionForm = ({
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReflectionForm)
+export default connect(mapStateToProps, mapDispatchToProps)(ReflectionShowForm)

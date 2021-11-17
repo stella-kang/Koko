@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import ReflectionsWidget from '../reflections/ReflectionsWidget';
-import ReflectionForm from '../reflections/ReflectionForm';
+import ReflectionShowForm from '../reflections/ReflectionShowForm';
 import CreateGoalContainer from '../goals/CreateGoalContainer';
 import EditGoalContainer from '../goals/EditGoalContainer';
 import GoalsWidget from '../goals/GoalsWidget';
@@ -45,7 +45,7 @@ export const Home = (props) => {
   const displayComponents = () => {
     if (showReflection) {
       return (
-        <ReflectionForm closeForm={() => setShowReflection(false)} reflectionId={reflectionId} openReflectionShow={openReflectionShow} />
+        <ReflectionShowForm closeForm={() => setShowReflection(false)} reflectionId={reflectionId} openReflectionShow={openReflectionShow} />
       )
     } else {
       return (

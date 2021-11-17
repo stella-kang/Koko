@@ -37,7 +37,7 @@ export const createReflection = reflection => dispatch => (
     .catch(err => console.log(err))
 );
 
-export const deleteReflection = reflectionId => dispatch => {
-  return ReflectionApiUtil.deleteReflection(reflectionId)
+export const deleteReflection = reflectionId => dispatch => (
+  ReflectionApiUtil.deleteReflection(reflectionId)
     .then(() => dispatch(removeReflection(reflectionId)))
-}
+);

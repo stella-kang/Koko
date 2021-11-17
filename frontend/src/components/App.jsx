@@ -6,7 +6,6 @@ import Splash from './splash/Splash';
 import LoginForm from './session/LoginForm';
 import RegisterForm from './session/RegisterForm';
 import Home from './home/Home';
-import Footer from './footer/Footer';
 import DayShow from "./day_show/DayShow"
 
 const App = () => {

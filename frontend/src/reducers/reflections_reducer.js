@@ -17,9 +17,8 @@ const ReflectionReducer = (oldState = {}, action) => {
     case RECEIVE_REFLECTION:
       newState[action.reflection._id] = action.reflection;
       return newState;
-      // return Object.assign({}, oldState, { [action.reflection._id]: action.reflection })
     case REMOVE_REFLECTION:
-      delete newState[action.goalId]
+      delete newState[action.reflectionId]
       return newState;
     default:
       return oldState;
