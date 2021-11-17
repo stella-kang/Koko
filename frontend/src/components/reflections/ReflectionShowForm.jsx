@@ -52,7 +52,7 @@ const ReflectionShowForm = ({
   };
 
   const handleDelete = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     deleteReflection(reflection._id)
       .then(() => closeForm());
   }
@@ -83,9 +83,10 @@ const ReflectionShowForm = ({
       <button>
         Save Changes
       </button>
-      <button type="button" onClick={() => {
-        setEditMode(false)}
-      }>
+      <button type="button" onClick={(e) => {
+        e.preventDefault();
+        setEditMode(false)
+      }}>
         Cancel Edit
       </button>
     </>
@@ -93,8 +94,8 @@ const ReflectionShowForm = ({
     <>
       <button type='button' onClick={(e) => {
         e.preventDefault();
-        setEditMode(true)}
-      }>
+        setEditMode(true)
+      }}>
         Edit Entry
       </button>
       <button type='button' onClick={handleDelete}>
