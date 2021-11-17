@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 import { fetchMoods, createMood, updateMood } from '../../actions/mood_actions';
 import { getTodaysMood } from '../../reducers/selectors';
+import { updateExp } from '../../actions/session_actions';
 import { AiFillEdit } from 'react-icons/ai';
 import { MdCancelPresentation } from 'react-icons/md';
 

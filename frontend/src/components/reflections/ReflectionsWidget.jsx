@@ -43,7 +43,7 @@ export const ReflectionsWidget = ({
       <div className='carousel-btns-container'>
         <button onClick={() => sliderRef.current.slickPrev()}>Prev</button>
 
-        { (isToday || type==="Ongoing") &&
+        { (isToday || type==="All") &&
           <button onClick={() => openReflectionShow(null)}>Add a New Entry</button>
         }
         <button onClick={() => sliderRef.current.slickNext()}>Next</button>
