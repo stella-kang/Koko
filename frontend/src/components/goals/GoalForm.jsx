@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { ImCancelCircle } from 'react-icons/im';
 
-const GoalForm = ({ currentUser, processForm, closeForm, goal, deleteGoal }) => {
+const GoalForm = ({ currentUser, processForm, closeForm, goal, openModal }) => {
 
   const {
     register,
@@ -34,8 +34,13 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, deleteGoal }) => 
   };
 
   const handleDelete = () => {
-    deleteGoal(goal._id)
-      .then(() => closeForm());
+    // deleteGoal(goal._id)
+    //   .then(() => closeForm());
+    openModal({
+      type: "deleteGoal",
+      goal: goal,
+      closeForm: closeForm
+    })
   }
 
   const headerPhrase = goal ? "it's okay to adjust your goals!" : "do you have any goals to tell Koko?"

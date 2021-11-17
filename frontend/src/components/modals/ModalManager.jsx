@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import { closeModal }  from '../../actions/modal_actions';
 import RegisterFormModal from './RegisterFormModal';
 import LoginFormModal from './LoginFormModal';
+import DeleteGoalModal from './DeleteGoalModal';
 
 export const ModalManager = ({ modal, closeModal, history }) => {
   let component;
@@ -15,6 +16,9 @@ export const ModalManager = ({ modal, closeModal, history }) => {
       break;
     case "login":
       component = <LoginFormModal history={history} closeModal={() => closeModal(modal)} />;
+      break;
+    case "deleteGoal":
+      component = <DeleteGoalModal goal={modal.goal} closeForm={modal.closeForm} closeModal={() => closeModal(modal)} />
       break;
     default:
       component = null;
