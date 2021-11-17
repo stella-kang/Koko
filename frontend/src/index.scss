@@ -6,7 +6,7 @@ $black: #293241;
 $cream: #fff9e9;
 $beige: #f7e7ce;
 $darkorange: #cc5500;
-$lightorange: #FFD580;
+$lightorange: #ffd580;
 
 $bubblefont: 'Fredoka One', cursive;
 
@@ -31,4 +31,6 @@ $bubblefont: 'Fredoka One', cursive;
 @import './stylesheets/components/goals_widget.scss';
 @import './stylesheets/pages/home.scss';
 @import './stylesheets/components/register_form';
-@import './stylesheets//components/login_form'
+@import './stylesheets//components/login_form';
+@import './stylesheets/components/reflection_modal';
+@import './stylesheets//components/goals_modal';

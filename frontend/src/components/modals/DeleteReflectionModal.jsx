@@ -2,46 +2,52 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteReflection } from '../../actions/reflections_actions';
 import { useListenForModalClose } from '../../util/custom_hooks';
+import { MdCancelPresentation } from 'react-icons/md';
 
 const mapDispatchToProps = {
-  deleteReflection
-}
+  deleteReflection,
+};
 
-const DeleteReflectionModal = ({ reflection, closeForm, closeModal, deleteReflection }) => {
-
+const DeleteReflectionModal = ({
+  reflection,
+  closeForm,
+  closeModal,
+  deleteReflection,
+}) => {
   useListenForModalClose(closeModal);
 
   const handleDelete = () => {
-    deleteReflection(reflection._id)
-      .then(() => {
-        closeModal();
-        closeForm();
-      });
-  }
+    deleteReflection(reflection._id).then(() => {
+      closeModal();
+      closeForm();
+    });
+  };
 
   return (
-    <div className="modal">
+    <div className='modal'>
+      <div className='reflection-modal-container'>
+        <div className='close-btn-container'>
+          <button onClick={closeModal}>
+            <MdCancelPresentation />
+          </button>
+        </div>
 
-      <button onClick={closeModal}>Close</button>
+        <h3>Are you sure you want to delete this reflection?</h3>
+        <div className='delete-reflection-container'>
+          <p>{reflection.entry}</p>
+        </div>
 
-      <p>
-        Are you sure you want to delete this reflection?
-      </p>
-
-      <h2>Reflection</h2>
-
-      <p>{ reflection.entry }</p>
-
-      <button onClick={() => closeModal()}>
-        Cancel
-      </button>
-
-      <button onClick={handleDelete}>
-        Delete
-      </button>
-
+        <div className='delete-reflections-btns-container'>
+          <button className='delete-btn' onClick={handleDelete}>
+            Delete
+          </button>
+          <button className='cancel-btn' onClick={() => closeModal()}>
+            Cancel
+          </button>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default connect(null, mapDispatchToProps)(DeleteReflectionModal)
+export default connect(null, mapDispatchToProps)(DeleteReflectionModal);

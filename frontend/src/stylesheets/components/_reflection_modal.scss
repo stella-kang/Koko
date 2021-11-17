@@ -1,0 +1,84 @@
+.reflection-modal-container {
+  background-color: $darkblue;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+
+  h3 {
+    font-size: 32px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(252, 80, 80);
+    font-family: $bubblefont;
+  }
+}
+
+.delete-reflection-container {
+  width: 90%;
+  height: 100%;
+  padding: 20px;
+  background-color: $beige;
+  border-radius: 20px;
+  border: none;
+  margin: 20px 0px;
+}
+
+.delete-reflections-btns-container {
+  width: 80%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+
+  button {
+    padding: 8px 50px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-family: $bubblefont;
+    color: $cream;
+    border: none;
+    cursor: pointer;
+    transition: 0.15s ease-in;
+  }
+  .delete-btn {
+    background-color: rgb(252, 80, 80);
+
+    &:hover {
+      background-color: red;
+    }
+  }
+
+  .cancel-btn {
+    background-color: grey;
+
+    &:hover {
+      background-color: $black;
+    }
+  }
+}
+
+.close-btn-container {
+  width: 100%;
+
+  button {
+    padding: 5px 10px;
+    background-color: $orange;
+    color: $cream;
+    font-size: 18px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.15s ease-in;
+
+    &:hover {
+      background-color: $darkorange;
+    }
+  }
+}
