@@ -43,39 +43,48 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, openModal }) => {
     })
   }
 
-  const headerPhrase = goal ? "it's okay to adjust your goals!" : "do you have any goals to tell Koko?"
+  const headerPhrase = goal ? "it's okay to adjust your goals!" : "Do you have any goals to tell Koko?"
 
   return (
     <div className="goal-form-container">
-      <ImCancelCircle />
+      <div className="goal-form-cancel" onClick={() => closeForm()}>
+        <ImCancelCircle />
+        {/* <button >Cancel</button> */}
+      </div>
 
-      <button onClick={() => closeForm()}>Cancel</button>
-      <h1>Hello, {currentUser.username}, {headerPhrase}</h1>
+      <h1>Hi, <span id="current-user-name">{currentUser.username}</span>! {headerPhrase}</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
-          Current Goal { errors.description?.message }
-          <input type='text' spellCheck='false'
-          {...register('description', {
-            required: 'Goal description is required',
-            minLength: {
-              value: 3,
-              message: "Description must be at least 3 characters"
-            },
-            maxLength: {
-              value: 100,
-              message: "Description must be at most 100 characters"
-            }
-          })}
-        />
-        </label>
-        <label>
-          When do you envision to complete it?
-          <input type='date'
-            {...register('date')}
+        <div className="goal-inputs">
+          <label>
+            Goal Details <span className="goal-errors">{ errors.description?.message }</span>
+            <input type='text' spellCheck='false'
+            {...register('description', {
+              required: 'Goal description is required',
+              minLength: {
+                value: 3,
+                message: "Description must be at least 3 characters"
+              },
+              maxLength: {
+                value: 100,
+                message: "Description must be at most 100 characters"
+              }
+            })}
           />
-        </label>
-        <button>{ goal ? "Update" : "Add"} Goal</button>
-        { goal ? <button type="button" onClick={handleDelete}>Delete</button> : null}
+          </label>
+          <label>
+            <div>
+            When do you envision to complete it? <span id="optional">optional</span>
+            </div>
+            <input type='date'
+              {...register('date')}
+            />
+          </label>
+        </div>
+
+        <div className="goal-form-buttons">
+          <button className="goal-form-submit">{ goal ? "Update" : "Add"} Goal</button>
+          { goal ? <button type="button" onClick={handleDelete}>Delete</button> : null}
+        </div>
       </form>
     </div>
   );

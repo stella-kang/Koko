@@ -61,18 +61,19 @@ const ReflectionShowForm = ({
   }
 
   const content = (!reflection || editMode) ? (
-    <input
-      type='textarea'
+    <textarea
       id='email'
+      rows='16'
+      cols='84'
+      wrap="hard"
       spellCheck='false'
       {...register('entry', {
         required: 'Reflection entry is required',
       })}
-      placeholder='Reflection ...'
-      rows='5' cols='50'
+      placeholder='How are you feeling today? What is the best thing that happened today? How did it make you feel?'
     />
   ) : (
-    <div>
+    <div className="reflection-entry">
       {reflection.entry}
     </div>
   )
@@ -107,16 +108,28 @@ const ReflectionShowForm = ({
     </>
   )
 
+  const date = reflection ? new Date(reflection.updatedAt) : null;
+
   return (
     <div className='main-reflection-form-content'>
       <form className='reflection-form' onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor='email'>Daily Reflection {errors.entry}</label>
+        {reflection ?
+          <div className="reflection-form-header">
+            <span>{date.toLocaleDateString().slice(0, 5)}{' '}</span>
+            <span>{`${date.getHours()}:${date.getMinutes() > 10 ? date.getMinutes() : `0${date.getMinutes()}`} ${date
+              .toLocaleTimeString()
+              .slice(-2)}`}</span>
+          </div> : <span className="reflection-form-header">Add A New Reflection</span>
+        }
+        <label htmlFor='email'>{errors.entry}</label>
         { content }
 
+        <div className="reflection-form-buttons">
         { buttons }
         <button type='button' onClick={closeForm}>
           Back
         </button>
+        </div>
       </form>
     </div>
   );

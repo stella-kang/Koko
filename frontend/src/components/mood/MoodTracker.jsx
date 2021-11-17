@@ -91,7 +91,7 @@ const MoodTracker = ({
                 <MdCancelPresentation />
               </button>
             </div>
-          ) : null}
+          ) : <div id="empty-space"></div>}
 
           <h3>How are you feeling today?</h3>
 

@@ -66,7 +66,7 @@
 .mood-form {
   display: flex;
   flex-direction: column;
-  padding: 0 30px 30px 30px;
+  padding: 0 30px 39px 30px;
   box-sizing: border-box;
 
   h3 {
@@ -94,6 +94,10 @@
     display: flex;
     justify-content: flex-end;
     margin-left: 30px;
+  }
+
+  #empty-space {
+    height: 39px;
   }
 }
 
