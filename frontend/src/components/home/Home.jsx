@@ -7,7 +7,8 @@ import CreateGoalContainer from '../goals/CreateGoalContainer';
 import EditGoalContainer from '../goals/EditGoalContainer';
 import OngoingGoalsContainer from '../goals/OngoingGoalsContainer';
 import MoodTracker from '../mood/MoodTracker';
-import Koko from '../koko/Koko';
+// import Koko from '../koko/Koko';
+import KokoCard from '../koko/KokoCard';
 
 export const Home = (props) => {
   const [showReflection, setShowReflection] = useState(false);
@@ -63,11 +64,10 @@ export const Home = (props) => {
 
   return (
     <div className="home">
+      <KokoCard />
+
+      {displayComponents()}
       <Link to='/day'>See History</Link>
-
-      <Koko />
-
-        {displayComponents()}
     </div>
   )
 }
