@@ -22,6 +22,7 @@ const GoalsWidget = ({
     const newGoal = { ...goal };
 
     newGoal.status = !goal.status;
+    newGoal.id = goal._id;
     updateGoal(newGoal);
   };
 
