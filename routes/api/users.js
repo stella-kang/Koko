@@ -55,7 +55,7 @@ router.post('/register', (req, res) => {
                 username: user.username,
                 friendshipExp: user.friendshipExp,
                 friendshipLvl: user.friendshipLvl,
-                createdAt: req.user.createdAt
+                createdAt: user.createdAt
               };
 
               jwt.sign(
@@ -100,7 +100,7 @@ router.post('/login', (req, res) => {
           username: user.username,
           friendshipExp: user.friendshipExp,
           friendshipLvl: user.friendshipLvl,
-          createdAt: req.user.createdAt
+          createdAt: user.createdAt
         };
 
         jwt.sign(

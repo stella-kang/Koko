@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getSortedMoods } from '../../reducers/selectors';
 
 const mSTP = (state) => {
   return {
@@ -17,6 +16,12 @@ const StatsWidget = ({
   reflections,
   goals
 }) => {
+
+  const moodsRef = useRef();
+
+  useEffect(() => {
+    moodsRef.current?.scrollIntoView();
+  })
 
   const colors = ['red', 'orange', 'yellow', 'green', 'blue']
   const missingColor = 'grey';
@@ -61,6 +66,8 @@ const StatsWidget = ({
 
         <div className="mood-garden">
           { moodsGarden }
+
+          <div ref={moodsRef}></div>
         </div>
       </div>
 

@@ -37,9 +37,3 @@ export const getShowDetailGoals = (state, calDate) => {
   const currGoals = goals.filter(goal => new Date(goal.createdAt).toLocaleDateString() === currDate);
   return currGoals;
 }
-
-export const getSortedMoods = state => {
-  const moods = Object.values(state.entities.moods);
-  moods.sort((a, b) => a.createdAt < b.createdAt ? -1 : 1);
-  return moods;
-}
