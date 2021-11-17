@@ -2,12 +2,8 @@
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  // background-color: $beige;
 }
-
-// .close-btn-container {
-//   padding: 5px;
-//   background-color: $darkorange;
-// }
 
 .register-close-btn {
   padding: 5px 10px;
@@ -21,12 +17,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 20px;
 }
 
 .register-form-container {
   width: 100%;
-  height: auto;
-  padding: 30px;
+  height: 100%;
+  // padding: 30px;
+}
+
+.registration-errors {
+  height: 20px;
+  display: flex;
+
+  span {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: $orange;
+    font-style: italic;
+  }
 }
 
 .register-form {
@@ -37,18 +46,21 @@
 
   h3 {
     margin: 0px;
-    color: #ffa500;
+    color: orange;
     text-align: center;
     font-family: $bubblefont;
-    font-size: 30px;
+    font-size: 36px;
     padding: 0px;
   }
 }
 
 .register-content {
+  // border: 1px solid white;
+  padding: 10px 20px;
   label {
-    padding: 5px 10px;
     font-family: $bubblefont;
+    font-size: 24px;
+    color: $darkblue;
   }
   display: flex;
   flex-direction: column;
@@ -57,7 +69,7 @@
 .input-box-container {
   // border: 1px solid red;
   background-color: $cream;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px;
   width: 350px;
 
@@ -71,7 +83,7 @@
 }
 
 .register-btn {
-  background-color: #ffa500;
+  background-color: orange;
   font-family: $bubblefont;
   font-size: 18px;
   color: $beige;
@@ -83,4 +95,9 @@
   margin: 20px 30px;
   border: none;
   border-radius: 20px;
+
+  &:hover {
+    background-color: $orange;
+    transition: 0.35s ease-in;
+  }
 }

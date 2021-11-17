@@ -55,7 +55,10 @@ export const RegisterFormModal = ({
         <form className='register-form' onSubmit={handleSubmit}>
           <h3>Meet Koko Today!</h3>
           <div className='register-content'>
-            <label htmlFor='email'>Email {errors.email}</label>
+            <label htmlFor='email'>Email</label>
+            <div className='registration-errors'>
+              {errors.username && <span>{errors.email}</span>}
+            </div>
             <div className='input-box-container'>
               <input
                 type='text'
@@ -69,7 +72,10 @@ export const RegisterFormModal = ({
           </div>
 
           <div className='register-content'>
-            <label htmlFor='username'>Username {errors.username}</label>
+            <label htmlFor='username'>Username</label>
+            <div className='registration-errors'>
+              {errors.username && <span>{errors.username}</span>}
+            </div>
             <div className='input-box-container'>
               <input
                 type='text'
@@ -83,7 +89,10 @@ export const RegisterFormModal = ({
           </div>
 
           <div className='register-content'>
-            <label htmlFor='password'>Password {errors.password}</label>
+            <label htmlFor='password'>Password</label>
+            <div className='registration-errors'>
+              {errors.username && <span>{errors.password}</span>}
+            </div>
             <div className='input-box-container'>
               <input
                 type='password'
@@ -96,9 +105,10 @@ export const RegisterFormModal = ({
           </div>
 
           <div className='register-content'>
-            <label htmlFor='password2'>
-              Confirm Password {errors.password2}
-            </label>
+            <label htmlFor='password2'>Confirm Password</label>
+            <div className='registration-errors'>
+              {errors.username && <span>{errors.password2}</span>}
+            </div>
             <div className='input-box-container'>
               <input
                 type='password'
