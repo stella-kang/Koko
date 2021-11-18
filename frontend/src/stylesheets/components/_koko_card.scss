@@ -120,9 +120,9 @@
     margin: 20px 10px 10px 10px;
     padding: 8px 20px;
     transition: 0.1s ease-in-out;
-  }
 
-  .history-route:hover {
-    background-color: $blue;
+    &:hover {
+      background-color: $blue;
+    }
   }
 }

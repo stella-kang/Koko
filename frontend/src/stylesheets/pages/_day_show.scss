@@ -178,16 +178,16 @@
   transform: translateX(-50%);
   border: none;
   border-radius: 20px;
-  font-size: 30px;
+  font-size: 24px;
   font-family: $bubblefont;
   padding: 8px 20px;
   box-sizing: border-box;
-  background-color: $orange;
+  background-color: $darkblue;
   color: $cream;
   transition: 0.1s ease-in-out;
+  cursor: pointer;
 
   &:hover {
-    cursor: pointer;
-    background-color: $darkorange;
+    background-color: $blue;
   }
 }
