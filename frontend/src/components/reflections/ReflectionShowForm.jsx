@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux'
 import { createReflection, updateReflection } from '../../actions/reflections_actions';
 import { openModal } from '../../actions/modal_actions';
+import { updateExp } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.user,
@@ -12,7 +13,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = {
   createReflection,
   updateReflection,
-  openModal
+  openModal,
+  updateExp
 }
 
 const ReflectionShowForm = ({
@@ -22,7 +24,8 @@ const ReflectionShowForm = ({
   reflection,
   createReflection,
   updateReflection,
-  openModal
+  openModal,
+  updateExp
 }) => {
   const {
     register,
@@ -48,9 +51,12 @@ const ReflectionShowForm = ({
 
     processForm(formReflection)
       .then((action) => {
+        if (!reflection) {
+          updateExp(currentUser.id, 2);
+        }
         setEditMode(false);
         openReflectionShow(action.reflection._id);
-      });
+      })
   };
 
   const handleDelete = () => {
