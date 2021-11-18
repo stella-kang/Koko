@@ -27,7 +27,7 @@ const DeleteReflectionModal = ({
     <div className='modal'>
       <div className='reflection-modal-container'>
         <div className='close-btn-container'>
-          <button onClick={closeModal}>
+          <button className='close-btn' onClick={closeModal}>
             <MdCancelPresentation />
           </button>
         </div>

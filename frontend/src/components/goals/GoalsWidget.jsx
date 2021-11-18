@@ -17,7 +17,7 @@ const GoalsWidget = ({
 
   useEffect(() => {
     requestGoals(currentUser.id);
-  }, [requestGoals, currentUser]);
+  }, [requestGoals, currentUser.id]);
 
   const handleButtonClick = (goal) => {
     const newGoal = { ...goal };

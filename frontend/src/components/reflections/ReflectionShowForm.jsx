@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux'
 import { createReflection, updateReflection } from '../../actions/reflections_actions';
@@ -40,6 +40,8 @@ const ReflectionShowForm = ({
 
   const [editMode, setEditMode] = useState(false);
 
+  const inputRef = useRef();
+
   const onSubmit = (data) => {
     const formReflection = {
       user: currentUser.id,
@@ -69,6 +71,7 @@ const ReflectionShowForm = ({
 
   const content = (!reflection || editMode) ? (
     <textarea
+      ref={inputRef}
       id='reflection-input'
       rows='18'
       cols='83'

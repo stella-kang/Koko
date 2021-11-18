@@ -192,7 +192,8 @@ router.patch('/:userId/friendship',
         username: user.username,
         email: user.email,
         friendshipExp: user.friendshipExp,
-        friendshipLvl: user.friendshipLvl
+        friendshipLvl: user.friendshipLvl,
+        createdAt: user.createdAt
       });
 
     } catch {

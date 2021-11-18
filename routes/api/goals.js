@@ -59,6 +59,7 @@ router.patch('/:goalId',
       editedGoal.status = req.body.status;
 
       await editedGoal.save();
+
       res.json(editedGoal);
 
     } catch {

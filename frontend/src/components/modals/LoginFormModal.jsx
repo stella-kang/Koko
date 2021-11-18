@@ -13,7 +13,7 @@ const LoginFormModal = ({ closeModal, history }) => {
   return (
     <div className='modal'>
       <div className='close-btn-container'>
-        <button className='register-close-btn' onClick={closeModal}>
+        <button className='close-btn' onClick={closeModal}>
           <MdCancelPresentation />
         </button>
       </div>
