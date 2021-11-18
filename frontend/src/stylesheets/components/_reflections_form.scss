@@ -3,9 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  width: 70%;
-  height: 80vh;
+  width: 80%;
+  height: 89vh;
   // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 }
 
@@ -16,7 +15,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: $cream;
+  background-color: $beige;
   padding: 40px 40px 20px 40px;
   border-radius: 30px;
 
@@ -41,6 +40,7 @@
     border: none;
     // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
     cursor: pointer;
+    transition: 0.1s ease-in-out;
 
     &:hover {
       background-color: $darkorange;

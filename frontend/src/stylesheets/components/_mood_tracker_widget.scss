@@ -1,7 +1,7 @@
 .mood-tracker {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: $beige;
   // margin: 20px;
@@ -18,10 +18,11 @@
     margin: 0;
   }
 
-  div:first-child{
+  > div:first-child{
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 25px;
   }
 
   button {
@@ -37,6 +38,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.1s ease-in-out;
     // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 
     &:hover {
@@ -46,7 +48,7 @@
 }
 
 .mood-display {
-  padding: 10px 30px 40px 30px;
+  padding: 0 30px 60px 30px;
   border-radius: 5px;
   // background-color: $cream;
   display: flex;
@@ -93,11 +95,12 @@
   #cancel-button {
     display: flex;
     justify-content: flex-end;
-    margin-left: 30px;
+    margin-left: 60px;
   }
 
   #empty-space {
-    height: 39px;
+    height: 48px;
+    margin-bottom: 25px;
   }
 }
 
@@ -107,5 +110,35 @@
   align-items: center;
   border-radius: 20px;
   background-color: $blue;
+}
 
+.mood-radio-button {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px 0;
+  background-color: $orange;
+  width: 30px;
+  height: 60px;
+}
+
+.mood-1 {
+  background-color: #3d5a80;
+}
+
+.mood-2 {
+  background-color: #496d9c;
+}
+
+.mood-3 {
+  background-color: #5078ad;
+}
+
+.mood-4 {
+  background-color: #5b87c2;
+}
+
+.mood-5 {
+  background-color: #6393d4;
 }

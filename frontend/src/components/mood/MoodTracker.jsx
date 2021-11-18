@@ -84,19 +84,20 @@ const MoodTracker = ({
   if (!currentMood || edit) {
     return (
       <div className='mood-tracker'>
+        {edit ? (
+          <div id="cancel-button">
+            <button type='button' onClick={cancelEdit}>
+              <MdCancelPresentation />
+            </button>
+          </div>
+        ) : <div id="empty-space"></div>}
+
         <div className='mood-form'>
-          {edit ? (
-            <div id="cancel-button">
-              <button type='button' onClick={cancelEdit}>
-                <MdCancelPresentation />
-              </button>
-            </div>
-          ) : <div id="empty-space"></div>}
 
           <h3>How are you feeling today?</h3>
 
           <form onSubmit={handleSubmit} ref={submitRef}>
-            <label>
+            <label className="mood-radio-button mood-1">
               &#128542;
               <input
                 type='radio'
@@ -106,7 +107,7 @@ const MoodTracker = ({
                 defaultChecked={currentMood?.mood === 1}
               ></input>
             </label>
-            <label>
+            <label className="mood-radio-button mood-2">
               &#128533;
               <input
                 type='radio'
@@ -116,7 +117,7 @@ const MoodTracker = ({
                 defaultChecked={currentMood?.mood === 2}
               ></input>
             </label>
-            <label>
+            <label className="mood-radio-button mood-3">
               &#128528;
               <input
                 type='radio'
@@ -126,7 +127,7 @@ const MoodTracker = ({
                 defaultChecked={currentMood?.mood === 3}
               ></input>
             </label>
-            <label>
+            <label className="mood-radio-button mood-4">
               &#128522;
               <input
                 type='radio'
@@ -136,7 +137,7 @@ const MoodTracker = ({
                 defaultChecked={currentMood?.mood === 4}
               ></input>
             </label>
-            <label>
+            <label className="mood-radio-button mood-5">
               &#128513;
               <input
                 type='radio'
