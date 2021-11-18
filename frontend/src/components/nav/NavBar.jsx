@@ -64,7 +64,7 @@ export const NavBar = ({ loggedIn, logout, openModal, location, history }) => {
 
   return (
     <header>
-      <h1 id="logo" onClick={clickLogo}>Koko</h1>
+      <h1 id="logo" onClick={clickLogo}>KOKO</h1>
       <nav>{ getLinks() }</nav>
     </header>
   );
