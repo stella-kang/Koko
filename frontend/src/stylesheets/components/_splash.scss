@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // border: 1px solid red;
   width: 100%;
   margin: auto;
   background-color: $beige;
@@ -14,7 +13,6 @@
   height: 80vh;
   display: flex;
   flex-direction: column;
-  // align-items: flex-end;
 }
 
 .koko-splash-container {
@@ -56,8 +54,6 @@
   background-color: $darkblue;
   border-radius: 50px;
 
-  // border: 1px solid red;
-
   h3 {
     margin: 0px;
   }
@@ -98,7 +94,6 @@
 .splash-img {
   width: 40%;
   height: auto;
-  // background-color: $lightblue;
 
   img {
     width: 100%;
@@ -109,13 +104,11 @@
 
 .splash-gif {
   padding: 20px;
-  // border: 10px solid $darkblue;
   background-color: $darkblue;
   border-radius: 20px;
 }
 
 .splash-side-content-text {
-  // margin: 50px;
   padding: 20px;
   border-radius: 20px;
   background-color: orange;
@@ -176,7 +169,6 @@
   width: 25%;
   align-items: center;
   margin: 0px 10px 30px 20px;
-  // padding: 0px 20px 0px 20px;
   background-color: orange;
   padding: 30px;
   border-radius: 20px;

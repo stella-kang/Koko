@@ -5,11 +5,7 @@
   align-items: center;
   background-color: $beige;
   height: 100%;
-  // margin: 20px;
   border-radius: 30px;
-  // border: 3px solid $cream;
-  // border: 1px solid red;
-  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 
   h3 {
     font-family: 'Fredoka One', cursive;
@@ -32,7 +28,6 @@
     color: $cream;
     font-size: 18px;
     border: none;
-    // border: 1px solid $darkblue;
     border-radius: 20px;
     margin: 10px;
     cursor: pointer;
@@ -40,7 +35,6 @@
     justify-content: center;
     align-items: center;
     transition: 0.1s ease-in-out;
-    // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 
     &:hover {
       background-color: $darkorange;
@@ -51,14 +45,12 @@
 .mood-display {
   padding: 0 30px 60px 30px;
   border-radius: 5px;
-  // background-color: $cream;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
   box-sizing: border-box;
   font-size: 60px;
-  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 
   .moods {
     display: flex;

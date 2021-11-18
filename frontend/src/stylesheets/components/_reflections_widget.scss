@@ -1,16 +1,12 @@
 .main-reflection-widget-container {
   width: 60.5%;
-  // height: 300px;
-  // height: 62vh;
   border-radius: 30px;
-  // border: 2px solid $cream;
   background-color: $orange;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
   box-sizing: border-box;
-  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
   height: 100%;
 
   h3 {
@@ -31,7 +27,6 @@
   border-radius: 10px;
   width: 70%;
   height: 35vh;
-  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 }
 
 .reflection-item-header {
@@ -39,7 +34,6 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  // background-color: $darkblue;
 
   .date-time {
     color: $black;
@@ -50,8 +44,6 @@
     font-size: 20px;
     box-sizing: border-box;
     transition: 0.1s ease-in-out;
-    // border-radius: 5px;
-    // border-bottom: 2px solid transparent;
 
     p {
       margin: 0;
@@ -61,7 +53,6 @@
     }
 
     &:hover {
-      // border-bottom: 2px solid $orange;
       color: $orange;
       cursor: pointer;
     }
@@ -69,10 +60,6 @@
 }
 
 .edit-btn {
-  // background: $orange;
-  // padding: 7px 10px;
-  // margin: 5px 5px;
-  // border-radius: 5px;
   color: $orange;
   cursor: pointer;
   font-size: 30px;
@@ -81,18 +68,15 @@
   &:hover {
     color: $darkorange;
   }
-  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 }
 
 .reflection-item-entry {
-  // border: 1px solid red;
   padding: 0 px 5px;
   overflow: hidden auto;
   overflow-wrap: break-word;
   height: 100%;
 
   p {
-    // overflow: scroll;
     color: $black;
   }
 }
@@ -104,7 +88,6 @@
   margin-bottom: 10px;
 
   button {
-    // margin: 10px 10px 20px 10px;
     font-size: 24px;
     border-radius: 20px;
     font-family: 'Fredoka One', cursive;

@@ -8,9 +8,7 @@
 .main-login-form-container {
   display: flex;
   flex-direction: column;
-  // background-color: $blue;
   background-color: $beige;
-  // width: 100%;
   padding: 30px 30px 30px 30px;
   border-radius: 20px;
 
@@ -36,7 +34,6 @@
 
 .login-content {
   .login-content-item {
-    // border: 1px solid red;
     padding: 20px;
 
     label {
@@ -48,7 +45,6 @@
 }
 
 .login-btn {
-  // width: 30%;
   padding: 10px 25px;
   font-family: $bubblefont;
   font-size: 20px;
