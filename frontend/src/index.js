@@ -25,7 +25,7 @@ if (localStorage.jwtToken) {
 
   if (decodedUser.exp < currentTime) {
     store.dispatch(logout());
-    window.location.hreef ='/login';
+    window.location.href ='/login';
   }
 } else {
   store = configureStore({});
