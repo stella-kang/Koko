@@ -1,9 +1,10 @@
 import React from 'react';
 import Footer from '../footer/Footer';
 import Koko from '../koko/Koko';
-import kokoHappy from '../../assets/koko-happy.png';
-import kokoHome from '../../assets/koko-home.gif';
-import kokoDemo from '../../assets/koko-demo.gif';
+import KokoClickGif from '../../assets/koko-demo-click.gif';
+import KokoLevelGif from '../../assets/koko-demo-level.gif';
+import KokoCalGif from '../../assets/koko-demo-calendar.gif';
+
 import GitHub from '../../assets/github_logo.png';
 
 const Splash = () => {
@@ -28,8 +29,8 @@ const Splash = () => {
       </div>
       <div className='splash-main-contents'>
         <div className='splash-side-content'>
-          <div className='splash-img'>
-            <img src={kokoHappy} alt='' />
+          <div className='splash-img splash-gif'>
+            <img src={KokoClickGif} alt='click around Koko homepage' />
           </div>
           <div className='splash-side-content-text'>
             <h3>
@@ -52,13 +53,13 @@ const Splash = () => {
             </h3>
           </div>
           <div className='splash-img splash-gif'>
-            <img src={kokoHome} alt='' />
+            <img src={KokoLevelGif} alt='see our functionalities' />
           </div>
         </div>
 
         <div className='splash-side-content'>
           <div className='splash-img splash-gif'>
-            <img src={kokoDemo} alt='' />
+            <img src={KokoCalGif} alt='koko calendar view' />
           </div>
           <div className='splash-side-content-text'>
             <h3>
