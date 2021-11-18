@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { ImCancelCircle } from 'react-icons/im';
 import { withRouter } from 'react-router-dom';
+import { MdCancelPresentation } from 'react-icons/md';
 
 const GoalForm = ({ currentUser, processForm, updateExp, closeForm, goal, openModal, location }) => {
 
@@ -58,8 +58,7 @@ const GoalForm = ({ currentUser, processForm, updateExp, closeForm, goal, openMo
   return (
     <div className={`goal-form-container ${location.pathname.includes("day") ? 'day-show-goal-form' : null}`}>
       <div className="goal-form-cancel" onClick={() => closeForm()}>
-        <ImCancelCircle />
-        {/* <button >Cancel</button> */}
+        <MdCancelPresentation />
       </div>
 
       {location.pathname.includes("day") ? null : <h1>Hi, <span id="current-user-name">{currentUser.username}</span>! {headerPhrase}</h1>}

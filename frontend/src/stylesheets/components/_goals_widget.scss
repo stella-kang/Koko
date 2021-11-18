@@ -102,7 +102,7 @@
   border-radius: 20px;
   font-family: 'Fredoka One', cursive;
   font-size: 20px;
-  padding: 10px;
+  padding: 8px 20px;
   box-sizing: border-box;
   transition: 0.1s ease-in-out;
 
@@ -167,16 +167,21 @@
 }
 
 .goal-form-cancel {
-  box-sizing: border-box;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
+  padding: 5px 10px;
+  background-color: $orange;
   color: $cream;
-  font-size: 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: 0.1s ease-in-out;
+  align-self: flex-end;
 
   &:hover {
-    color: $orange;
+    background-color: $darkorange;
   }
 }
 
@@ -193,9 +198,10 @@
     border-radius: 20px;
     font-family: 'Fredoka One', cursive;
     font-size: 20px;
-    padding: 10px;
+    padding: 8px 20px;
     box-sizing: border-box;
     transition: 0.1s ease-in-out;
+    cursor: pointer;
 
     &:hover {
       background-color: $beige;
