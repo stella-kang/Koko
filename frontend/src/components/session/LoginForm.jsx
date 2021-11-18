@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { login, clearSessionErrors } from '../../actions/session_actions';
 
@@ -14,13 +14,14 @@ const mapDispatchToProps = {
 export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [demoLogin, setDemoLogin] = useState(false);
 
   useEffect(() => {
     return () => clearSessionErrors();
   }, [clearSessionErrors]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = useCallback((e) => {
+    e?.preventDefault();
     const user = {
       email,
       password,
@@ -28,10 +29,18 @@ export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
     login(user).then((action) => {
       if (action.type === 'RECEIVE_CURRENT_USER' && postLogin) postLogin();
     });
-  };
+  }, [email, login, password, postLogin]);
+
+  useEffect(() => {
+    if (demoLogin) {
+      setTimeout(() => handleSubmit(), 300);
+    }
+  }, [demoLogin, handleSubmit]);
 
   const handleDemo = () => {
-
+    setEmail("demo@gmail.com");
+    setPassword("password");
+    setDemoLogin(true);
   }
 
   return (
@@ -74,7 +83,7 @@ export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
         </div>
 
         <button className='login-btn'>Login</button>
-        <div className="demo-button" onClick={handleDemo}>Login as demo user</div>
+        <div className="demo-button" onClick={() => handleDemo()}>Login as demo user</div>
       </form>
     </div>
   );
