@@ -70,8 +70,8 @@ const ReflectionShowForm = ({
   const content = (!reflection || editMode) ? (
     <textarea
       id='reflection-input'
-      rows='16'
-      cols='84'
+      rows='18'
+      cols='83'
       wrap="hard"
       spellCheck='false'
       {...register('entry', {

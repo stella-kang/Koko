@@ -4,6 +4,7 @@ import { fetchDayShow } from '../../actions/day_show_actions';
 import Calendar from 'react-calendar';
 import DayShowDetailContainer from './DayShowDetailContainer';
 import ReflectionShowForm from '../reflections/ReflectionShowForm';
+import { withRouter } from 'react-router-dom';
 
 const mSTP = (state, ownProps) => ({
   currentUserId: state.session.user.id
@@ -13,7 +14,7 @@ const mDTP = (dispatch, ownProps) => ({
   fetchDayShow: (userId, date) => dispatch(fetchDayShow(userId, date))
 })
 
-const DayShow = ({fetchDayShow, currentUserId, moods, goals, reflections}) => {
+const DayShow = ({fetchDayShow, currentUserId, history}) => {
   const [calDate, setCalDate] = useState(new Date());
   const [showReflection, setShowReflection] = useState(false);
   const [reflectionId, setReflectionId] = useState();
@@ -38,11 +39,13 @@ const DayShow = ({fetchDayShow, currentUserId, moods, goals, reflections}) => {
   if (showReflection) {
     return <div className="day-show">
       <Calendar onChange={onChange} value={calDate} />
+      <button className="day-show-home-button" onClick={() => history.push('/home')}>Go to Home</button>
       <ReflectionShowForm closeForm={() => setShowReflection(false)} reflectionId={reflectionId} openReflectionShow={openReflectionShow} />
     </div>
   } else {
     return <div className="day-show">
       <Calendar onChange={onChange} value={calDate} />
+      <button className="day-show-home-button" onClick={() => history.push('/home')}>Go to Home</button>
       <DayShowDetailContainer isToday={isToday} openReflectionShow={openReflectionShow} calDate={calDate} />
     </div>
   }
