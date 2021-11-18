@@ -1,6 +1,6 @@
 import React from 'react'
-import { AiFillCheckCircle } from 'react-icons/ai';
-import { AiFillEdit } from 'react-icons/ai';
+import { AiFillCheckCircle, AiFillEdit } from 'react-icons/ai';
+import { BsCircle } from 'react-icons/bs';
 
 const GoalsWidgetItem = ({goal, handleButtonClick, openEditForm}) => {
   return (
@@ -20,7 +20,7 @@ const GoalsWidgetItem = ({goal, handleButtonClick, openEditForm}) => {
           <AiFillEdit />
         </button>
         <button onClick={handleButtonClick}>
-          <AiFillCheckCircle />
+          { goal.status ? <AiFillCheckCircle /> : <BsCircle size={26} /> }
         </button>
       </div>
     </div>
