@@ -1,7 +1,7 @@
 .home {
   display: flex;
   margin: 0 20px 0;
-  justify-content: space-between;
+  justify-content: space-evenly;
   height: 100%;
 }
 
@@ -18,5 +18,17 @@
 
 .home-bottom-row, .home-top-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+}
+
+.missing-content {
+  font-style: italic;
+  color: $black;
+  height: 100%;
+  padding-top: 50%;
+}
+
+.missing-reflections {
+  padding-top: 30%;
+  text-align: center;
 }

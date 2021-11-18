@@ -31,6 +31,7 @@ const ReflectionsWidget = ({
   return (
     <div className={`main-reflection-widget-container ${location.pathname.includes("day") ? 'day-show-reflections' : null}`}>
       <h3>Journal Entries</h3>
+      {reflections.length === 0 ? <div className="missing-content missing-reflections">No reflections recorded.</div> : null}
       <Slider
         {...settings}
         ref={sliderRef}

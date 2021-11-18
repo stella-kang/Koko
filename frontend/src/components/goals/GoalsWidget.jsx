@@ -39,7 +39,7 @@ const GoalsWidget = ({
       <h2>{type === "Ongoing" ? "Ongoing" : ""} Goals</h2>
 
       <div className="goals-widget-list">
-        {notCompleted}
+        {goals.length !== 0 ? notCompleted : <div className="missing-content">No goals recorded.</div>}
       </div>
 
       { (isToday || type==="Ongoing") &&
