@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => ({
@@ -9,20 +8,20 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  logout,
   openModal
 };
 
-export const NavBar = ({ loggedIn, logout, openModal, location, history }) => {
-  const logoutUser = () => {
-    logout();
-  };
+export const NavBar = ({ loggedIn, openModal, location, history }) => {
 
   const getLinks = () => {
     if (loggedIn) {
       return (
         <div className="signup-login-container">
-          <button onClick={logoutUser}>Logout</button>
+          <button onClick={() => openModal({
+            type: "logout"
+          })}>
+            Logout
+          </button>
         </div>
       );
     } else {
