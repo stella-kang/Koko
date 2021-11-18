@@ -25,7 +25,7 @@ const StatsWidget = ({
     moodsRef.current?.scrollIntoView();
   })
 
-  const colors = ['#3d5a80', '#496d9c', '#5078ad', '#5b87c2', '#6393d4']
+  const colors = ['#3d5a80', '#4a6f9e', '#5987c2', '#6599db', '#6ea7f0']
   const missingColor = '#959aa1';
 
 

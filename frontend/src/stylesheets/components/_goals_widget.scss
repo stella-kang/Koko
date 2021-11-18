@@ -113,10 +113,14 @@
 
 .goal-form-container {
   width: 35%;
-  border-radius: 30px;
   height: 62vh;
   padding: 20px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  background-color: $blue;
 
   h1 {
     font-family: 'Fredoka One', cursive;

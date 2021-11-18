@@ -3,7 +3,7 @@
 .react-calendar {
   background-color: $cream;
   border-radius: 20px;
-  width: 450px;
+  width: 500px;
   color: $black;
   border: none;
   padding: 20px;
@@ -63,7 +63,7 @@
 }
 
 .react-calendar__month-view__days {
-  height: 15%;
+  height: 13%;
 
   button {
     font-size: 25px;
