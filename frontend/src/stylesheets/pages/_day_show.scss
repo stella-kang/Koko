@@ -1,6 +1,6 @@
 .day-show {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 0 20px 0;
   padding: 0 10px 0;
   box-sizing: border-box;
@@ -14,7 +14,7 @@
   }
 
   .missing-reflections {
-    padding: 17% 0 18%;
+    padding: 18% 0 18%;
     text-align: center;
   }
 }
@@ -30,6 +30,7 @@
   align-items: center;
   // padding: 20px;
   box-sizing: border-box;
+  padding-left: 1%;
 
   h2 {
     font-family: 'Fredoka One', cursive;
@@ -154,7 +155,7 @@
 .day-show-home-button {
   position: absolute;
   bottom: 8%;
-  left: 160px;
+  left: 185px;
   border: none;
   border-radius: 20px;
   font-size: 30px;
