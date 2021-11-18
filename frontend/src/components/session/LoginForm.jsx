@@ -30,6 +30,10 @@ export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
     });
   };
 
+  const handleDemo = () => {
+
+  }
+
   return (
     <div className='main-login-form-container'>
       <form onSubmit={handleSubmit}>
@@ -70,6 +74,7 @@ export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
         </div>
 
         <button className='login-btn'>Login</button>
+        <div className="demo-button" onClick={handleDemo}>Login as demo user</div>
       </form>
     </div>
   );
