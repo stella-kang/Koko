@@ -20,15 +20,15 @@
 }
 
 @keyframes pulse {
-	0% {
-		transform: scale(0.95);
-	}
+  0% {
+    transform: scale(0.95);
+  }
 
-	70% {
-		transform: scale(2);
-	}
+  70% {
+    transform: scale(2);
+  }
 
-	100% {
-		transform: scale(0.95);
-	}
+  100% {
+    transform: scale(0.95);
+  }
 }

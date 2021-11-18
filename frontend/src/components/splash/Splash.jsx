@@ -6,30 +6,33 @@ import kokoDelivery from '../../assets/koko-delivery.png';
 import kokoStats from '../../assets/koko-tracker.png';
 import kokoHome from '../../assets/koko-home.gif';
 import kokoDemo from '../../assets/koko-demo.gif';
+import GitHub from '../../assets/github_logo.png';
 
 const Splash = () => {
   return (
     <div className='main-splash-container'>
       <div className='koko-picture'>
-        <div className='gradient'></div>
         <div className='meet-koko'>
-          <h3>
-            Meet <span>Koko</span>
+          <h3 className='header-spacing'>
+            Hi there, I'm <span>Koko</span> ...
           </h3>
           <p>
-            Your new <span>virtual,</span> mental health buddy
+            Your new <span>virtual,</span> mental health buddy!
           </p>
+        </div>
+        <div className='arrow-down'></div>
+        <div className='koko-splash-container'>
+          <Koko className='scaled' />
         </div>
       </div>
       <div className='who-is-koko'>
         <h3>Who is Koko?</h3>
       </div>
       <div className='splash-main-contents'>
-        {/* <Koko /> */}
-
         <div className='splash-side-content'>
           <div className='splash-img'>
             <img src={kokoHappy} alt='' />
+            {/* <Koko /> */}
           </div>
           <div className='splash-side-content-text'>
             <h3>
@@ -83,50 +86,68 @@ const Splash = () => {
           <div className='creators-content'>
             <div className='creator-container'>
               <h5>Stella Kang</h5>
-              <div className='creator-photo-container'></div>
+              {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Iusto architecto deserunt porro! Corrupti dolorum magni quam
-                  fugit facilis maxime, ducimus molestias inventore impedit,
-                  rerum eligendi? Voluptate tenetur sed beatae eaque.
+                  "While we've mad significant strides in normalizing the
+                  discussion of mental health wellness, we felt that there was
+                  still a void for affordable, user-friendly tools to help
+                  promote and sustain healthy self-care habits. It was a thrill
+                  to create something that will help fill that gap!"
                 </p>
+                <a target='_blank' href='https://github.com/stella-kang'>
+                  <img src={GitHub} />
+                </a>
               </div>
             </div>
             <div className='creator-container'>
               <h5>Victor He</h5>
-              <div className='creator-photo-container'></div>
+              {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Iusto architecto deserunt porro! Corrupti dolorum magni quam
-                  fugit facilis maxime, ducimus molestias inventore impedit,
-                  rerum eligendi? Voluptate tenetur sed beatae eaque.
+                  "Mental health is a topic that still heavily stigmatized thus
+                  we built this personalized app with the intention of helping
+                  others. We want our users to have the ability to monitor how
+                  they feel and reach out for help if they notice a negative
+                  trend. We hope that Koko can create a safe space for our users
+                  so they can live their lives to the fullest!"
                 </p>
+                <a target='_blank' href='https://github.com/VictorHeDev'>
+                  <img src={GitHub} />
+                </a>
               </div>
             </div>
             <div className='creator-container'>
               <h5>Mansoo Kim</h5>
-              <div className='creator-photo-container'></div>
+              {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Iusto architecto deserunt porro! Corrupti dolorum magni quam
-                  fugit facilis maxime, ducimus molestias inventore impedit,
-                  rerum eligendi? Voluptate tenetur sed beatae eaque.
+                  "When we decided to make a mental health wellbeing app, I knew
+                  we needed a cat. My cat Minnie is my IRL mental health buddy,
+                  and I realized Koko could be my digital mental health buddy. I
+                  hope everyone can befriend Koko and work toward building a
+                  healthier lifestyle!"
                 </p>
+                <a target='_blank' href='https://github.com/mansookim'>
+                  <img src={GitHub} />
+                </a>
               </div>
             </div>
             <div className='creator-container'>
               <h5>Emmay Alam</h5>
-              <div className='creator-photo-container'></div>
+              {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Iusto architecto deserunt porro! Corrupti dolorum magni quam
-                  fugit facilis maxime, ducimus molestias inventore impedit,
-                  rerum eligendi? Voluptate tenetur sed beatae eaque.
+                  "Especially after COVID, when people have had more time to
+                  reflect, I think the ability to quickly journal throughout the
+                  day, being motivated by befriending a cat, is a pretty
+                  wonderful thing to have. Koko definitely felt like an amazing
+                  way to be that outlet for people and it was a pleasure to work
+                  on them!"
                 </p>
+                <a target='_blank' href='https://github.com/Emmay-Alam'>
+                  <img src={GitHub} />
+                </a>
               </div>
             </div>
           </div>
