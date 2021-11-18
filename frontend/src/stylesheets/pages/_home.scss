@@ -20,3 +20,15 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.missing-content {
+  font-style: italic;
+  color: $black;
+  height: 100%;
+  padding: 50px;
+  text-align: center;
+}
+
+.missing-reflections {
+  padding: 100px;
+}

@@ -36,7 +36,7 @@ export const DayShowDetail = ({ isToday, openReflectionShow, mood, goals, reflec
       <div className="day-show-first-row">
         <div className="day-details-mood">
           <h2>Recorded Mood:</h2>
-          {mood ? <MoodItem mood={mood} /> : <div className="no-mood">Mood not recorded.</div> }
+          {mood ? <MoodItem mood={mood} /> : <div className="missing-content">Mood not recorded.</div> }
         </div>
 
         <div className="day-details-goals">

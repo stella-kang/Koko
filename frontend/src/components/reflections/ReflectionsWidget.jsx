@@ -36,13 +36,13 @@ const ReflectionsWidget = ({
         ref={sliderRef}
         className='reflection-widget-carousel-container'
       >
-        {reflections.map((reflection) => (
+        {reflections.length !== 0 ? reflections.map((reflection) => (
           <ReflectionWidgetItem
             key={reflection._id}
             reflection={reflection}
             openReflectionShow={openReflectionShow}
           />
-        ))}
+        )) : <div className="missing-content missing-reflections">No reflections recorded.</div>}
       </Slider>
       <div className='carousel-btns-container'>
         <button className="carousel-button" onClick={() => sliderRef.current.slickPrev()}>
