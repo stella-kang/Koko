@@ -11,7 +11,6 @@ const Splash = () => {
   return (
     <div className='main-splash-container'>
       <div className='koko-picture'>
-        <div className='gradient'></div>
         <div className='meet-koko'>
           <h3>
             Meet <span>Koko</span>
@@ -20,16 +19,18 @@ const Splash = () => {
             Your new <span>virtual,</span> mental health buddy
           </p>
         </div>
+        <div className='koko-splash-container'>
+          <Koko className='scaled' />
+        </div>
       </div>
       <div className='who-is-koko'>
         <h3>Who is Koko?</h3>
       </div>
       <div className='splash-main-contents'>
-        {/* <Koko /> */}
-
         <div className='splash-side-content'>
           <div className='splash-img'>
             <img src={kokoHappy} alt='' />
+            {/* <Koko /> */}
           </div>
           <div className='splash-side-content-text'>
             <h3>

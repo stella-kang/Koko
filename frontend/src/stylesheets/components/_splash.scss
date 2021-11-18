@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   // border: 1px solid red;
-  width: 100%;
+  width: 1vw;
   margin: auto;
   background-color: $beige;
 }
@@ -12,27 +12,26 @@
 .koko-picture {
   width: 100%;
   height: 85vh;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+}
 
-  background-image: url(../../assets/koko.jpeg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+.koko-splash-container {
+  width: 100%;
+  height: 100%;
+  // border: 1px solid red;
+  display: flex;
+  justify-content: center;
+}
 
-  // img {
-  //   z-index: -10;
-  //   width: 100%;
-  //   height: 100%;
-  // }
+.scaled {
+  transform: scale(2);
 }
 
 .meet-koko {
-  position: absolute;
-  z-index: 20;
   font-family: $bubblefont;
-  background: transparent;
   font-size: 48px;
-  color: $beige;
+  color: $darkblue;
   top: 0;
   left: 0;
   padding: 0px 40px;
@@ -51,22 +50,9 @@
     font-family: $bubblefont;
     text-align: center;
     font-size: 50px;
-    color: $beige;
+    color: $blue;
     margin-top: 20px;
   }
-}
-
-.gradient {
-  z-index: 10;
-  width: 100%;
-  height: 100%;
-  background: rgb(0, 0, 0);
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0.07746848739495793) 0%,
-    rgba(0, 0, 0, 0.562062324929972) 45%,
-    rgba(0, 0, 0, 0.9066001400560224) 97%
-  );
 }
 
 .splash-main-contents {
