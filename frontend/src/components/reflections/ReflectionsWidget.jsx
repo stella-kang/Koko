@@ -52,7 +52,7 @@ const ReflectionsWidget = ({
         </button> }
 
         { (isToday || type==="All") &&
-          <button onClick={() => openReflectionShow(null)}>Add a New Entry</button>
+          <button className="carousel-new-button" onClick={() => openReflectionShow(null)}>Add a New Entry</button>
         }
         { reflections.length > 3 &&
         <button className="carousel-button" onClick={() => sliderRef.current.slickNext()}>
