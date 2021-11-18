@@ -32,7 +32,6 @@ const Splash = () => {
         <div className='splash-side-content'>
           <div className='splash-img'>
             <img src={kokoHappy} alt='' />
-            {/* <Koko /> */}
           </div>
           <div className='splash-side-content-text'>
             <h3>
@@ -55,14 +54,12 @@ const Splash = () => {
             </h3>
           </div>
           <div className='splash-img splash-gif'>
-            {/* <img src={kokoDelivery} alt='' /> */}
             <img src={kokoHome} alt='' />
           </div>
         </div>
 
         <div className='splash-side-content'>
           <div className='splash-img splash-gif'>
-            {/* <img src={kokoStats} alt='' /> */}
             <img src={kokoDemo} alt='' />
           </div>
           <div className='splash-side-content-text'>
@@ -152,25 +149,6 @@ const Splash = () => {
             </div>
           </div>
         </div>
-        {/* <div>FAQ</div>
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-          beatae debitis error, provident, rerum, earum excepturi eligendi
-          voluptatem rem officiis aliquam quisquam animi fugiat commodi? Maiores
-          distinctio ab nesciunt eius.
-        </div>
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-          beatae debitis error, provident, rerum, earum excepturi eligendi
-          voluptatem rem officiis aliquam quisquam animi fugiat commodi? Maiores
-          distinctio ab nesciunt eius.
-        </div>
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-          beatae debitis error, provident, rerum, earum excepturi eligendi
-          voluptatem rem officiis aliquam quisquam animi fugiat commodi? Maiores
-          distinctio ab nesciunt eius.
-        </div> */}
       </div>
       <Footer />
     </div>
