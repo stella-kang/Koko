@@ -99,10 +99,12 @@
 .carousel-btns-container {
   display: flex;
   justify-content: space-evenly;
-  height: 48px;
+  height: 5vh;
+  align-items: center;
 
   button {
     // margin: 10px 10px 20px 10px;
+    height: 43px;
     font-size: 24px;
     border-radius: 20px;
     font-family: 'Fredoka One', cursive;
