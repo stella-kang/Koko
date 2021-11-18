@@ -64,9 +64,29 @@
   }
 }
 
-.close-btn-container {
-  // background-color: white;
-  width: 100%;
+.input-box-container {
+  background-color: $cream;
+  padding: 20px;
+  border-radius: 20px;
+  width: 350px;
+
+  input {
+    border: none;
+    outline: none;
+    width: 80%;
+    font-size: 16px;
+    background-color: $cream;
+  }
+}
+
+.registration-errors {
+  height: 20px;
   display: flex;
-  justify-content: flex-end;
+
+  span {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: $orange;
+    font-style: italic;
+  }
 }

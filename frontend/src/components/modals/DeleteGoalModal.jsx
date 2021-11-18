@@ -22,7 +22,7 @@ const DeleteGoalModal = ({ goal, closeForm, closeModal, deleteGoal }) => {
     <div className='modal'>
       <div className='goals-modal-container'>
         <div className='close-btn-container'>
-          <button onClick={closeModal}>
+          <button className='close-btn' onClick={closeModal}>
             <MdCancelPresentation />
           </button>
         </div>
