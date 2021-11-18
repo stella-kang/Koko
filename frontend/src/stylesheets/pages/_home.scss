@@ -9,6 +9,7 @@
   width: 67%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
 
   .mood-tracker {
@@ -24,11 +25,11 @@
 
 .home-top-row {
   height: 30%;
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 }
 
 .home-bottom-row {
-  height: 65%;
+  height: 68%;
 }
 
 .missing-content {
