@@ -120,19 +120,16 @@ const ReflectionShowForm = ({
     </>
   );
 
-  const date = reflection ? new Date(reflection.updatedAt) : null;
+  const date = reflection ? new Date(reflection.createdAt) : null;
+  const hour = date?.getHours()%12;
 
   return (
     <div className='main-reflection-form-content'>
       <form className='reflection-form' onSubmit={handleSubmit(onSubmit)}>
         {reflection ? (
           <div className='reflection-form-header'>
-            <span>{date.toLocaleDateString().slice(0, 5)} </span>
-            <span>{`${date.getHours()}:${
-              date.getMinutes() > 10
-                ? date.getMinutes()
-                : `0${date.getMinutes()}`
-            } ${date.toLocaleTimeString().slice(-2)}`}</span>
+            <span>{ `${date.getMonth()+1}/${date.getDate()}`}&nbsp;</span>
+            <span>{ `${hour === 0 ? 12: hour}:${date.getMinutes().toString().padStart(2, '0')} ${date.getHours() > 11 ? "PM" : "AM"}` }</span>
           </div>
         ) : (
           <div className='reflection-form-header'>

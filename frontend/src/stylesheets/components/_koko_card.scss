@@ -8,6 +8,7 @@
   border-radius: 20px;
   width: 500px;
   margin-left: 13px;
+  position: relative;
 
   .koko-bg {
     background-color: $beige;
@@ -120,6 +121,8 @@
     margin: 20px 10px 10px 10px;
     padding: 8px 20px;
     transition: 0.1s ease-in-out;
+    position: absolute;
+    bottom: 20px;
 
     &:hover {
       background-color: $blue;

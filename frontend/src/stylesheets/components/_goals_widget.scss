@@ -8,6 +8,7 @@
   // border: 2px solid $cream;
   border-radius: 30px;
   background-color: $blue;
+  position: relative;
 
   h2 {
     color: $cream;
@@ -93,7 +94,9 @@
 }
 
 .add-goal-button {
-  margin: 10px 0 30px;
+  margin: 20px 10px 10px 10px;
+  position: absolute;
+  bottom: 20px;
   border: none;
   background-color: $orange;
   color: $cream;
