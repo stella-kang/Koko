@@ -19,7 +19,7 @@ const KokoFriendship = ({currentUser, fetchCurrentUser}) => {
   )
 
   const xpToLevel = currentUser.friendshipLvl * 5
-  const completed = (currentUser.friendshipExp / xpToLevel) * 100
+  const completed = ((currentUser.friendshipExp / xpToLevel) * 100) < 3 ? 3 :((currentUser.friendshipExp / xpToLevel) * 100)
 
   const titles = {
     1: "Acquaintances",
@@ -39,12 +39,14 @@ const KokoFriendship = ({currentUser, fetchCurrentUser}) => {
   }
 
   const kokoCurrentExp = {
+    position: 'relative',
     width: `${completed}%`,
     backgroundColor: 'orange',
     textAlign: 'center',
     borderRadius: 'inherit',
     lineHeight: '24px',
-    transition: 'width 1s'
+    transition: 'width 1s',
+    zIndex: 1
   }
 
   return (
@@ -57,8 +59,8 @@ const KokoFriendship = ({currentUser, fetchCurrentUser}) => {
           <img src="https://raw.githubusercontent.com/stella-kang/Koko/14439b203d82972a43ab6e4df684cb3a3e07ede9/frontend/src/assets/heart.svg" />
         </div>
         <div className="koko-current-exp-bar">
+          {/* <span>{currentUser.friendshipExp} / {xpToLevel}</span> */}
           <div className="koko-current-exp" style={kokoCurrentExp}>
-            {currentUser.friendshipExp} / {xpToLevel}
           </div>
         </div>
       </div>

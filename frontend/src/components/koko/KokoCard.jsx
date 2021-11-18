@@ -11,7 +11,7 @@ const KokoCard = () => {
       </div>
       <KokoFriendship />
       <div className="card-separator"></div>
-      <Link className="history-route" to='/day'>Koko History</Link>
+      <Link className="history-route" to='/day'>Daily Log</Link>
     </div>
   )
 }
