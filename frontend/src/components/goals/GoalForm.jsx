@@ -22,9 +22,13 @@ const GoalForm = ({ currentUser, processForm, updateExp, closeForm, goal, openMo
     const formGoal = {
       description: data.description,
       dueDate: data.date,
-      userId: currentUser.id
+      userId: currentUser.id,
+      status: false
     };
-    if (goal) formGoal['id'] = goal._id;
+    if (goal) {
+      formGoal['status'] = goal.status;
+      formGoal['id'] = goal._id;
+    }
 
     if (formGoal.dueDate) {
       const date = new Date(formGoal.dueDate);
