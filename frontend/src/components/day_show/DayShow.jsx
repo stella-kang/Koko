@@ -4,7 +4,6 @@ import { fetchDayShow } from '../../actions/day_show_actions';
 import Calendar from 'react-calendar';
 import DayShowDetailContainer from './DayShowDetailContainer';
 import ReflectionShowForm from '../reflections/ReflectionShowForm';
-import { withRouter } from 'react-router-dom';
 
 const mSTP = (state, ownProps) => ({
   currentUserId: state.session.user.id
