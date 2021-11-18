@@ -46,16 +46,18 @@ const ReflectionsWidget = ({
         ))}
       </Slider>
       <div className='carousel-btns-container'>
+        { reflections.length > 3 &&
         <button className="carousel-button" onClick={() => sliderRef.current.slickPrev()}>
           <VscTriangleLeft />
-        </button>
+        </button> }
 
         { (isToday || type==="All") &&
           <button onClick={() => openReflectionShow(null)}>Add a New Entry</button>
         }
+        { reflections.length > 3 &&
         <button className="carousel-button" onClick={() => sliderRef.current.slickNext()}>
           <VscTriangleRight />
-        </button>
+        </button> }
       </div>
     </div>
   );

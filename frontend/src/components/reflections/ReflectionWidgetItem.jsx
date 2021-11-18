@@ -1,12 +1,13 @@
 const ReflectionWidgetItem = ({ reflection, openReflectionShow }) => {
   const date = new Date(reflection.updatedAt);
+  const hour = date.getHours()%12;
 
   return (
     <div className='journal-carousel-item'>
       <div className='reflection-item-header'>
         <div className='date-time' onClick={() => openReflectionShow(reflection._id)}>
           <p>{ `${date.getMonth()+1}/${date.getDate()}`}</p>
-          <p>{ `${date.getHours()%12}:${date.getMinutes().toString().padStart(2, '0')} ${date.getHours() > 11 ? "PM" : "AM"}` }</p>
+          <p>{ `${hour === 0 ? 12: hour}:${date.getMinutes().toString().padStart(2, '0')} ${date.getHours() > 11 ? "PM" : "AM"}` }</p>
         </div>
       </div>
 
