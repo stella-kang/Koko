@@ -62,7 +62,7 @@ export const NavBar = ({ loggedIn, openModal, location, history }) => {
   }
 
   return (
-    <header className={`${location.pathname.includes("day" || "home") ? null : 'splash-nav'}`}>
+    <header className={`${location.pathname.includes("home") || location.pathname.includes("day") ? null : 'splash-nav'}`}>
       <h1 id="logo" onClick={clickLogo}>KOKO</h1>
       <nav>{ getLinks() }</nav>
     </header>
