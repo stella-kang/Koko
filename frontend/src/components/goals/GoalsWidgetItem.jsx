@@ -19,7 +19,7 @@ const GoalsWidgetItem = ({goal, handleButtonClick, openEditForm}) => {
           <AiFillEdit />
         </button>
         <button onClick={handleButtonClick}>
-          { goal.status ? <AiFillCheckCircle /> : <AiOutlineCheckCircle size={26} /> }
+          { goal.status ? <AiFillCheckCircle /> : <AiOutlineCheckCircle /> }
         </button>
       </div>
     </div>
