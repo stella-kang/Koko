@@ -100,18 +100,10 @@
   display: flex;
   justify-content: space-evenly;
 
-  // .carousel-button:hover {
-  //   color: $darkblue;
-  //   background-color: $orange;
-  // }
-
   button {
     margin: 10px 10px 20px 10px;
-    padding: 8px 20px;
-    font-size: 30px;
+    font-size: 24px;
     border-radius: 20px;
-    background: $orange;
-    // border: 1px solid $darkblue;\
     font-family: 'Fredoka One', cursive;
     border: none;
     color: $cream;
@@ -120,11 +112,21 @@
     justify-content: center;
     align-items: center;
     transition: 0.1s ease-in-out;
-    // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+  }
 
+  .carousel-button {
+    padding: 8px;
+    background: transparent;
     &:hover {
-      background-color: $cream;
       color: $darkblue;
+    }
+  }
+
+  .carousel-new-button {
+    padding: 8px 20px;
+    background: $darkblue;
+    &:hover {
+      background-color: $blue;
     }
   }
 }
