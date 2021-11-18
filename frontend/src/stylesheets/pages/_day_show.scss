@@ -5,6 +5,18 @@
   padding: 0 10px 0;
   box-sizing: border-box;
   position: relative;
+
+  .missing-content {
+    font-style: italic;
+    color: $black;
+    height: 100%;
+    padding-top: 12%;
+  }
+
+  .missing-reflections {
+    padding: 17% 0 18%;
+    text-align: center;
+  }
 }
 
 .day-details {

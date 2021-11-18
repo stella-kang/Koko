@@ -31,18 +31,19 @@ const ReflectionsWidget = ({
   return (
     <div className={`main-reflection-widget-container ${location.pathname.includes("day") ? 'day-show-reflections' : null}`}>
       <h3>Journal Entries</h3>
+      {reflections.length === 0 ? <div className="missing-content missing-reflections">No reflections recorded.</div> : null}
       <Slider
         {...settings}
         ref={sliderRef}
         className='reflection-widget-carousel-container'
       >
-        {reflections.length !== 0 ? reflections.map((reflection) => (
+        {reflections.map((reflection) => (
           <ReflectionWidgetItem
             key={reflection._id}
             reflection={reflection}
             openReflectionShow={openReflectionShow}
           />
-        )) : <div className="missing-content missing-reflections">No reflections recorded.</div>}
+        ))}
       </Slider>
       <div className='carousel-btns-container'>
         <button className="carousel-button" onClick={() => sliderRef.current.slickPrev()}>
