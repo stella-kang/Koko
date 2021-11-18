@@ -37,14 +37,18 @@ const DayShow = ({fetchDayShow, currentUserId, history}) => {
 
   if (showReflection) {
     return <div className="day-show">
-      <Calendar onChange={onChange} value={calDate} />
-      <button className="day-show-home-button" onClick={() => history.push('/home')}>Go to Home</button>
+      <div className="day-show-left">
+        <Calendar onChange={onChange} value={calDate} />
+        <button className="day-show-home-button" onClick={() => history.push('/home')}>Go to Home</button>
+      </div>
       <ReflectionShowForm closeForm={() => setShowReflection(false)} reflectionId={reflectionId} openReflectionShow={openReflectionShow} />
     </div>
   } else {
     return <div className="day-show">
-      <Calendar onChange={onChange} value={calDate} />
-      <button className="day-show-home-button" onClick={() => history.push('/home')}>Go to Home</button>
+      <div className="day-show-left">
+        <Calendar onChange={onChange} value={calDate} />
+        <button className="day-show-home-button" onClick={() => history.push('/home')}>Go to Home</button>
+      </div>
       <DayShowDetailContainer isToday={isToday} openReflectionShow={openReflectionShow} calDate={calDate} />
     </div>
   }
