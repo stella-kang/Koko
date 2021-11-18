@@ -69,7 +69,7 @@
     width: 100%;
 
     .journal-carousel-item {
-      height: 34.7vh
+      height: 34.3vh
     }
 
     .carousel-btns-container {
@@ -97,9 +97,16 @@
     height: 100%;
     padding: 10px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
     h2 {
       margin: 0;
+    }
+
+    .goals-widget-list {
+      height: 50%;
     }
   }
 
