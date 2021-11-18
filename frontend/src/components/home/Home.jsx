@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
 import AllReflectionsContainer from '../reflections/AllReflectionsContainer';
 import ReflectionShowForm from '../reflections/ReflectionShowForm';
 import CreateGoalContainer from '../goals/CreateGoalContainer';
@@ -74,12 +73,4 @@ export const Home = (props) => {
   )
 }
 
-const mapStateToProps = (state) => ({
-
-})
-
-const mapDispatchToProps = {
-
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home;

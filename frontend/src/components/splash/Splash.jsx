@@ -85,9 +85,9 @@ const Splash = () => {
               {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
-                  "While we've mad significant strides in normalizing the
+                  "While we've made significant strides in normalizing the
                   discussion of mental health wellness, we felt that there was
-                  still a void for affordable, user-friendly tools to help
+                  still a void for readily-available, user-friendly tools to help
                   promote and sustain healthy self-care habits. It was a thrill
                   to create something that will help fill that gap!"
                 </p>
