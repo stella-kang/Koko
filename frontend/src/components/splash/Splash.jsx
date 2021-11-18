@@ -2,8 +2,6 @@ import React from 'react';
 import Footer from '../footer/Footer';
 import Koko from '../koko/Koko';
 import kokoHappy from '../../assets/koko-happy.png';
-import kokoDelivery from '../../assets/koko-delivery.png';
-import kokoStats from '../../assets/koko-tracker.png';
 import kokoHome from '../../assets/koko-home.gif';
 import kokoDemo from '../../assets/koko-demo.gif';
 import GitHub from '../../assets/github_logo.png';

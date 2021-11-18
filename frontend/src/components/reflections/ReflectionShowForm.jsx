@@ -74,8 +74,6 @@ const ReflectionShowForm = ({
       <textarea
         autoFocus
         id='reflection-input'
-        // rows='18'
-        // cols='83'
         wrap='hard'
         spellCheck='false'
         {...register('entry', {

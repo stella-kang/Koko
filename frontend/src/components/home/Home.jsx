@@ -41,7 +41,7 @@ export const Home = (props) => {
         <OngoingGoalsContainer openCreateForm={() => setShowCreateGoal(true)} openEditForm={openEditGoalForm} />
       )
     }
-   }
+  }
 
   const displayComponents = () => {
     if (showReflection) {
