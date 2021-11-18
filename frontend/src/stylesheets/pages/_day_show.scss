@@ -4,6 +4,7 @@
   margin: 0 20px 0;
   padding: 0 10px 0;
   box-sizing: border-box;
+  position: relative;
 }
 
 .day-details {
@@ -135,4 +136,24 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.day-show-home-button {
+  position: absolute;
+  bottom: 8%;
+  left: 140px;
+  border: none;
+  border-radius: 20px;
+  font-size: 30px;
+  font-family: $bubblefont;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: $orange;
+  color: $cream;
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $darkorange;
+  }
 }
