@@ -5,7 +5,6 @@
   justify-content: center;
   width: 67%;
   height: 89vh;
-  // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
 }
 
 .reflection-form {
@@ -14,20 +13,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: $beige;
-  padding: 20px 40px 20px 40px;
+  padding: 20px 80px 20px 80px;
   border-radius: 30px;
   box-sizing: border-box;
 
   label {
     font-size: 36px;
-    padding: 0px 0px 10px 0px;
   }
 
   input {
     width: 100%;
-    padding: 10px;
+  }
+
+  .reflection-form-buttons {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   button {
@@ -37,9 +42,8 @@
     font-size: 20px;
     font-family: 'Fredoka One', cursive;
     color: $cream;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
-    // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
     cursor: pointer;
     transition: 0.1s ease-in-out;
 
@@ -55,15 +59,18 @@
   color: $darkblue;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
+  margin-top: 20px;
 
-  span {
+  h3 {
     margin-right: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 }
 
 .reflection-entry {
-  line-height: 1.8;
+  line-height: 1.5;
   font-size: 20px;
   height: 100%;
   overflow: hidden auto;
@@ -74,8 +81,22 @@
   border: 5px solid transparent;
   width: 100%;
   padding: 20px;
+  margin: 10px 0px 30px 0px;
   box-sizing: border-box;
   color: $black;
+  // border: 5px solid $orange;
+}
+
+.reflection-input-errors {
+  border: 1px sold red;
+  padding: 0px;
+  margin: 0px;
+  span {
+    margin-top: 0px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    color: $orange;
+  }
 }
 
 #reflection-input {
