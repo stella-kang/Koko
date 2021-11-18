@@ -19,5 +19,5 @@ version="1.1" height="315" width="342" >
    a nearly perfect heart
 	 made of two arcs and a right angle
  </desc>
-  <use xlink:href="#heart" class="outline " fill="pink" transform="rotate(225,150,121)" />
+  <use xlink:href="#heart" class="outline " fill="#EE6D4D" transform="rotate(225,150,121)" />
 </svg>
