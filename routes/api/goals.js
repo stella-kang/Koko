@@ -56,7 +56,7 @@ router.patch('/:goalId',
 
       if (req.body.description) editedGoal.description = req.body.description;
       if (req.body.dueDate) editedGoal.dueDate = req.body.dueDate;
-      if (req.body.status) editedGoal.status = req.body.status;
+      editedGoal.status = req.body.status;
 
       await editedGoal.save();
       res.json(editedGoal);

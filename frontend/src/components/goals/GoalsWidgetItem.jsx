@@ -1,6 +1,5 @@
 import React from 'react'
-import { AiFillCheckCircle } from 'react-icons/ai';
-import { AiFillEdit } from 'react-icons/ai';
+import { AiFillCheckCircle, AiFillEdit, AiOutlineCheckCircle } from 'react-icons/ai';
 
 const GoalsWidgetItem = ({goal, handleButtonClick, openEditForm}) => {
   return (
@@ -20,7 +19,7 @@ const GoalsWidgetItem = ({goal, handleButtonClick, openEditForm}) => {
           <AiFillEdit />
         </button>
         <button onClick={handleButtonClick}>
-          <AiFillCheckCircle />
+          { goal.status ? <AiFillCheckCircle /> : <AiOutlineCheckCircle size={26} /> }
         </button>
       </div>
     </div>

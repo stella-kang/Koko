@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { ImCancelCircle } from 'react-icons/im';
 import { withRouter } from 'react-router-dom';
 
-const GoalForm = ({ currentUser, processForm, closeForm, goal, openModal, location }) => {
+const GoalForm = ({ currentUser, processForm, updateExp, closeForm, goal, openModal, location }) => {
 
   const {
     register,
@@ -12,7 +12,10 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, openModal, locati
   } = useForm({
     reValidateMode: 'onSubmit',
     shouldFocusError: false,
-    defaultValues: { description: goal ? goal.description : '' },
+    defaultValues: {
+      description: goal ? goal.description : '',
+      date: goal?.dueDate ? new Date(goal.dueDate).toISOString().substr(0, 10): ''
+    }
   });
 
   const onSubmit = (data) => {
@@ -29,14 +32,16 @@ const GoalForm = ({ currentUser, processForm, closeForm, goal, openModal, locati
       formGoal.dueDate = new Date(date.getTime() + timezoneOffset);
     }
 
-    processForm(formGoal).then(action => {
-      if (action.type ==="RECEIVE_GOAL") closeForm();
-    })
+    processForm(formGoal)
+      .then(action => {
+        if (action.type ==="RECEIVE_GOAL") closeForm();
+      }).then(() => {
+        if (!goal) updateExp(currentUser.id, 1);
+      })
+
   };
 
   const handleDelete = () => {
-    // deleteGoal(goal._id)
-    //   .then(() => closeForm());
     openModal({
       type: "deleteGoal",
       goal: goal,

@@ -42,76 +42,77 @@ export const RegisterFormModal = ({
   }
 
   return (
-    <div className='register-form-container'>
-      <form className='register-form' onSubmit={handleSubmit}>
+    <div className='main-login-form-container'>
+      <form onSubmit={handleSubmit}>
         <h3>Meet Koko Today!</h3>
-        <div className='register-content'>
-          <label htmlFor='email'>Email</label>
-          <div className='registration-errors'>
-            {errors.username && <span>{errors.email}</span>}
+        <div className='login-content'>
+          <div className='login-content-item'>
+            <label htmlFor='email'>Email</label>
+            <div className='registration-errors'>
+              {errors.username && <span>{errors.email}</span>}
+            </div>
+            <div className='input-box-container'>
+              <input
+                type='text'
+                id='email'
+                spellCheck='false'
+                value={email}
+                onChange={(e) => setEmail(e.currentTarget.value)}
+                placeholder='Email'
+              />
+            </div>
           </div>
-          <div className='input-box-container'>
-            <input
-              type='text'
-              id='email'
-              spellCheck='false'
-              value={email}
-              onChange={(e) => setEmail(e.currentTarget.value)}
-              placeholder='Email'
-            />
+
+          <div className='login-content-item'>
+            <label htmlFor='username'>Username</label>
+            <div className='registration-errors'>
+              {errors.username && <span>{errors.username}</span>}
+            </div>
+            <div className='input-box-container'>
+              <input
+                type='text'
+                id='username'
+                spellCheck='false'
+                value={username}
+                onChange={(e) => setUsername(e.currentTarget.value)}
+                placeholder='Username'
+              />
+            </div>
+          </div>
+
+          <div className='login-content-item'>
+            <label htmlFor='password'>Password</label>
+            <div className='registration-errors'>
+              {errors.username && <span>{errors.password}</span>}
+            </div>
+            <div className='input-box-container'>
+              <input
+                type='password'
+                id='password'
+                value={password}
+                onChange={(e) => setPassword(e.currentTarget.value)}
+                placeholder='Password'
+              />
+            </div>
+          </div>
+
+          <div className='login-content-item'>
+            <label htmlFor='password2'>Confirm Password</label>
+            <div className='registration-errors'>
+              {errors.username && <span>{errors.password2}</span>}
+            </div>
+            <div className='input-box-container'>
+              <input
+                type='password'
+                id='password2'
+                value={password2}
+                onChange={(e) => setPassword2(e.currentTarget.value)}
+                placeholder='Confirm Password'
+              />
+            </div>
           </div>
         </div>
-
-        <div className='register-content'>
-          <label htmlFor='username'>Username</label>
-          <div className='registration-errors'>
-            {errors.username && <span>{errors.username}</span>}
-          </div>
-          <div className='input-box-container'>
-            <input
-              type='text'
-              id='username'
-              spellCheck='false'
-              value={username}
-              onChange={(e) => setUsername(e.currentTarget.value)}
-              placeholder='Username'
-            />
-          </div>
-        </div>
-
-        <div className='register-content'>
-          <label htmlFor='password'>Password</label>
-          <div className='registration-errors'>
-            {errors.username && <span>{errors.password}</span>}
-          </div>
-          <div className='input-box-container'>
-            <input
-              type='password'
-              id='password'
-              value={password}
-              onChange={(e) => setPassword(e.currentTarget.value)}
-              placeholder='Password'
-            />
-          </div>
-        </div>
-
-        <div className='register-content'>
-          <label htmlFor='password2'>Confirm Password</label>
-          <div className='registration-errors'>
-            {errors.username && <span>{errors.password2}</span>}
-          </div>
-          <div className='input-box-container'>
-            <input
-              type='password'
-              id='password2'
-              value={password2}
-              onChange={(e) => setPassword2(e.currentTarget.value)}
-              placeholder='Confirm Password'
-            />
-          </div>
-        </div>
-
-        <button className='register-btn'>Register</button>
+        <button className='login-btn'>Register</button>
       </form>
     </div>
   );

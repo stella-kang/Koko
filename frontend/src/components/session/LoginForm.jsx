@@ -33,7 +33,7 @@ export const LoginForm = ({ postLogin, errors, login, clearSessionErrors }) => {
   return (
     <div className='main-login-form-container'>
       <form onSubmit={handleSubmit}>
-        <h3>Welcome back</h3>
+        <h3>Welcome Back</h3>
         <div className='login-content'>
           <div className='login-content-item'>
             <label htmlFor='email'>Email</label>
