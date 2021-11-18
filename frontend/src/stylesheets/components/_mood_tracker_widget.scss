@@ -4,6 +4,7 @@
   justify-content: flex-start;
   align-items: center;
   background-color: $beige;
+  height: 25vh;
   // margin: 20px;
   border-radius: 20px;
   // border: 3px solid $cream;
@@ -22,7 +23,7 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 25px;
+    margin-bottom: 8%;
   }
 
   button {
@@ -53,7 +54,7 @@
   // background-color: $cream;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   box-sizing: border-box;
   font-size: 60px;
@@ -97,11 +98,11 @@
     justify-content: flex-end;
     margin-left: 60px;
   }
+}
 
-  #empty-space {
-    height: 48px;
-    margin-bottom: 25px;
-  }
+#empty-space {
+  height: 25%;
+  margin: 0;
 }
 
 .goal-form-container {

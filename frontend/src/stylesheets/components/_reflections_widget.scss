@@ -41,7 +41,7 @@
   // background-color: $darkblue;
 
   .date-time {
-    color: $darkblue;
+    color: $black;
     font-size: 24px;
     display: flex;
     flex-direction: column;
@@ -61,7 +61,7 @@
 
     &:hover {
       // border-bottom: 2px solid $orange;
-      color: orange;
+      color: $orange;
       cursor: pointer;
     }
   }
@@ -92,7 +92,7 @@
 
   p {
     // overflow: scroll;
-    color: $darkblue;
+    color: $black;
   }
 }
 

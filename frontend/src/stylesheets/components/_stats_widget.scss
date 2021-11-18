@@ -4,12 +4,15 @@
   padding: 20px;
   width: 48%;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   h5 {
     font-family: $bubblefont;
     font-size: 20px;
     margin: 0;
-    color: $black;
+    color: $darkblue;
   }
 }
 
@@ -62,12 +65,12 @@
 .stat-counters {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .stat-tracker {
   display: flex;
   align-items: center;
-  width: 50%;
   font-size: 15px;
 
   p {
