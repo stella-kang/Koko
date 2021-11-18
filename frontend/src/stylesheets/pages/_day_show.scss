@@ -93,6 +93,7 @@
 
 .day-details-goals {
   width: 50%;
+  height: 100%;
 
   .day-show-goals {
     width: 100%;
@@ -102,14 +103,18 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 
     h2 {
       margin: 0;
     }
 
     .goals-widget-list {
-      height: 50%;
+      height: 60%;
+    }
+
+    .add-goal-button {
+      bottom: 0px;
     }
   }
 

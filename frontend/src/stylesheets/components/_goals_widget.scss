@@ -1,7 +1,7 @@
 .goals-widget-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 35%;
   height: 100%;
@@ -20,7 +20,7 @@
 
 .goals-widget-list {
   width: 100%;
-  height: 78%;
+  height: 72%;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@
   background-color: $cream;
   border-radius: 20px;
   // height: auto;
-  margin: 15px;
+  margin-top: 15px;
   // border: 1px solid red;
 }
 
