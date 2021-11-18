@@ -14,8 +14,9 @@
   }
 
   .missing-reflections {
-    padding: 18% 0 18%;
+    padding: 20vh 0 20vh;
     text-align: center;
+    height: auto;
   }
 }
 
@@ -30,7 +31,7 @@
   align-items: center;
   // padding: 20px;
   box-sizing: border-box;
-  padding-left: 1%;
+  padding: 0 1% 0;
 
   h2 {
     font-family: 'Fredoka One', cursive;
@@ -104,7 +105,7 @@
 
   .day-show-goal-form {
     width: 100%;
-    height: 26vh;
+    height: 30vh;
 
     .goal-form-cancel {
       font-size: 20px;
@@ -133,7 +134,7 @@
     }
 
     .goal-form-buttons {
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     .goal-form-submit{
