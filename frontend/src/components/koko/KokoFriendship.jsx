@@ -56,7 +56,7 @@ const KokoFriendship = ({currentUser, fetchCurrentUser}) => {
         </div>
       <div className="koko-exp-container">
         <div className="koko-heart-container">
-          <img src="https://raw.githubusercontent.com/stella-kang/Koko/14439b203d82972a43ab6e4df684cb3a3e07ede9/frontend/src/assets/heart.svg" />
+          <img src="https://raw.githubusercontent.com/stella-kang/Koko/b2b93fe0a6f474e758277e350fc1c08180ec2de9/frontend/src/assets/heart.svg" />
         </div>
         <div className="koko-current-exp-bar">
           {/* <span>{currentUser.friendshipExp} / {xpToLevel}</span> */}

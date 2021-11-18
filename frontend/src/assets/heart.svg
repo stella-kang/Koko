@@ -8,8 +8,8 @@ version="1.1" height="315" width="342" >
     .outline { stroke:none; stroke-width:0 }
   ]]></style>
    <g id="heart">
-   <path 
-    d="M0 200 v-200 h200 
+   <path
+    d="M0 200 v-200 h200
     a100,100 90 0,1 0,200
     a100,100 90 0,1 -200,0
     z" />
@@ -19,5 +19,5 @@ version="1.1" height="315" width="342" >
    a nearly perfect heart
 	 made of two arcs and a right angle
  </desc>
-  <use xlink:href="#heart" class="outline " fill="red" transform="rotate(225,150,121)" />
+  <use xlink:href="#heart" class="outline " fill="#ff2015" transform="rotate(225,150,121)" />
 </svg>

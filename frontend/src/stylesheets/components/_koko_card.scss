@@ -55,7 +55,7 @@
         border: solid 4px $orange;
         border-radius: 50%;
         box-sizing: border-box;
-        margin-right: -12px;
+        margin-right: -11px;
         padding-top: 2px;
         z-index: 1;
 
@@ -63,7 +63,7 @@
           width: 22px;
           height: 22px;
         	transform: scale(1);
-        	// animation: pulse 2s infinite;
+        	animation: pulse 2s infinite;
         }
       }
 
