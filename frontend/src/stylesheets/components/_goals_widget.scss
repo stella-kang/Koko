@@ -93,7 +93,7 @@
 }
 
 .add-goal-button {
-  margin-top: 10px;
+  margin: 10px 0 30px;
   border: none;
   background-color: $orange;
   color: $cream;
@@ -114,13 +114,13 @@
 .goal-form-container {
   width: 35%;
   border-radius: 30px;
-  height: 60vh;
+  height: 62vh;
   padding: 20px;
   box-sizing: border-box;
 
   h1 {
     font-family: 'Fredoka One', cursive;
-    font-size: 38px;
+    font-size: 32px;
     margin: 0;
     margin-bottom: 20px;
     color: $darkblue;
@@ -205,7 +205,7 @@
 }
 
 .goal-inputs {
-  height: 36vh;
+  height: 35vh;
 }
 
 .goal-errors {
