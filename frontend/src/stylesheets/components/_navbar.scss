@@ -52,7 +52,17 @@ nav {
   font-family: 'Fredoka One', cursive;
   color: orange;
   margin: 0;
-  margin-left: 45%;
+  margin-left: 44%;
   cursor: pointer;
   text-shadow: 3px 3px $orange;
+}
+
+.splash-nav {
+  background-color: $beige;
+  margin: 0;
+  padding-bottom: 10px;
+
+  #logo {
+    font-size: 90px;
+  }
 }

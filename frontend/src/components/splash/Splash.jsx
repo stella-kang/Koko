@@ -12,13 +12,14 @@ const Splash = () => {
     <div className='main-splash-container'>
       <div className='koko-picture'>
         <div className='meet-koko'>
-          <h3>
-            Meet <span>Koko</span>
+          <h3 className='header-spacing'>
+            Hi there, I'm <span>Koko</span> ...
           </h3>
           <p>
-            Your new <span>virtual,</span> mental health buddy
+            Your new <span>virtual,</span> mental health buddy!
           </p>
         </div>
+        <div className="arrow-down"></div>
         <div className='koko-splash-container'>
           <Koko className='scaled' />
         </div>
@@ -84,19 +85,21 @@ const Splash = () => {
           <div className='creators-content'>
             <div className='creator-container'>
               <h5>Stella Kang</h5>
-              <div className='creator-photo-container'></div>
+              {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Iusto architecto deserunt porro! Corrupti dolorum magni quam
-                  fugit facilis maxime, ducimus molestias inventore impedit,
-                  rerum eligendi? Voluptate tenetur sed beatae eaque.
+                  "While we've mad significant strides in normalizing the
+                  discussion of our individual mental health, we felt that there
+                  is still a void of affordable, user-friendly tools to help
+                  promote and sustain helpful self-care habits aimed towards our
+                  mental health. It was a thrill to create something that will
+                  help fill that gap!"
                 </p>
               </div>
             </div>
             <div className='creator-container'>
               <h5>Victor He</h5>
-              <div className='creator-photo-container'></div>
+              {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -108,7 +111,7 @@ const Splash = () => {
             </div>
             <div className='creator-container'>
               <h5>Mansoo Kim</h5>
-              <div className='creator-photo-container'></div>
+              {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -120,7 +123,7 @@ const Splash = () => {
             </div>
             <div className='creator-container'>
               <h5>Emmay Alam</h5>
-              <div className='creator-photo-container'></div>
+              {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.

@@ -1,11 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-const Koko = (props) => {
+const Koko = ({ location }) => {
   return (
     <div
       className={`koko-container ${
-        props.location.pathname.includes('home') ? null : 'scaled'
+        location.pathname.includes('home') ? null : 'scaled'
       }`}
     >
       <div className='koko-cat'>
