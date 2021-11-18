@@ -80,48 +80,54 @@ const Splash = () => {
             <div className='creator-container'>
               <h5>Stella Kang</h5>
               <div className='creator-photo-container'></div>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto
-                architecto deserunt porro! Corrupti dolorum magni quam fugit
-                facilis maxime, ducimus molestias inventore impedit, rerum
-                eligendi? Voluptate tenetur sed beatae eaque.
-              </p>
+              <div className='creator-text-container'>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Iusto architecto deserunt porro! Corrupti dolorum magni quam
+                  fugit facilis maxime, ducimus molestias inventore impedit,
+                  rerum eligendi? Voluptate tenetur sed beatae eaque.
+                </p>
+              </div>
             </div>
             <div className='creator-container'>
               <h5>Victor He</h5>
               <div className='creator-photo-container'></div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Praesentium dicta exercitationem veniam consequatur atque
-                dolorem ratione? Numquam nesciunt minima reiciendis non
-                reprehenderit, expedita maxime vel, soluta necessitatibus,
-                commodi fugiat deleniti!
-              </p>
+              <div className='creator-text-container'>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Iusto architecto deserunt porro! Corrupti dolorum magni quam
+                  fugit facilis maxime, ducimus molestias inventore impedit,
+                  rerum eligendi? Voluptate tenetur sed beatae eaque.
+                </p>
+              </div>
             </div>
             <div className='creator-container'>
               <h5>Mansoo Kim</h5>
               <div className='creator-photo-container'></div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Error,
-                odit. Aut, similique. Quibusdam necessitatibus nostrum rerum
-                suscipit magnam. Possimus, quo ipsam rem quos deserunt magni ab
-                ipsa odit fuga quas! Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Error, odit. Aut, similique.
-              </p>
+              <div className='creator-text-container'>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Iusto architecto deserunt porro! Corrupti dolorum magni quam
+                  fugit facilis maxime, ducimus molestias inventore impedit,
+                  rerum eligendi? Voluptate tenetur sed beatae eaque.
+                </p>
+              </div>
             </div>
             <div className='creator-container'>
               <h5>Emmay Alam</h5>
               <div className='creator-photo-container'></div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Adipisci assumenda cupiditate provident eos, exercitationem
-                autem ea beatae est nihil sint necessitatibus ratione? Deserunt
-                provident vitae pariatur maxime fugiat temporibus saepe.
-              </p>
+              <div className='creator-text-container'>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Iusto architecto deserunt porro! Corrupti dolorum magni quam
+                  fugit facilis maxime, ducimus molestias inventore impedit,
+                  rerum eligendi? Voluptate tenetur sed beatae eaque.
+                </p>
+              </div>
             </div>
           </div>
         </div>
-        <div>FAQ</div>
+        {/* <div>FAQ</div>
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
           beatae debitis error, provident, rerum, earum excepturi eligendi
@@ -139,7 +145,7 @@ const Splash = () => {
           beatae debitis error, provident, rerum, earum excepturi eligendi
           voluptatem rem officiis aliquam quisquam animi fugiat commodi? Maiores
           distinctio ab nesciunt eius.
-        </div>
+        </div> */}
       </div>
       <Footer />
     </div>
