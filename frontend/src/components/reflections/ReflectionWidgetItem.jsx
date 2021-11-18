@@ -1,5 +1,5 @@
 const ReflectionWidgetItem = ({ reflection, openReflectionShow }) => {
-  const date = new Date(reflection.updatedAt);
+  const date = new Date(reflection.createdAt);
   const hour = date.getHours()%12;
 
   return (

@@ -1,13 +1,14 @@
 .goals-widget-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 35%;
-  height: 62vh;
+  height: 100%;
   // border: 2px solid $cream;
   border-radius: 30px;
   background-color: $blue;
+  position: relative;
 
   h2 {
     color: $cream;
@@ -19,7 +20,7 @@
 
 .goals-widget-list {
   width: 100%;
-  height: 78%;
+  height: 72%;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -36,7 +37,7 @@
   background-color: $cream;
   border-radius: 20px;
   // height: auto;
-  margin: 15px;
+  margin-top: 15px;
   // border: 1px solid red;
 }
 
@@ -93,7 +94,9 @@
 }
 
 .add-goal-button {
-  margin: 10px 0 30px;
+  margin: 20px 10px 10px 10px;
+  position: absolute;
+  bottom: 20px;
   border: none;
   background-color: $orange;
   color: $cream;

@@ -11,6 +11,7 @@
   padding: 20px;
   box-sizing: border-box;
   // box-shadow: 0px 0px 10px 6px rgba(60, 90, 128, 0.2);
+  height: 100%;
 
   h3 {
     color: $cream;
@@ -100,6 +101,7 @@
   display: flex;
   justify-content: space-evenly;
   height: 48px;
+  margin-bottom: 10px;
 
   button {
     // margin: 10px 10px 20px 10px;

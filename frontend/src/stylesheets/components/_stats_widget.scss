@@ -2,11 +2,13 @@
   background-color: $lightorange;
   border-radius: 30px;
   padding: 20px;
-  width: 47%;
+  width: 50%;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
+  height: 100%;
+  box-sizing: border-box;
 
   h5 {
     font-family: $bubblefont;
