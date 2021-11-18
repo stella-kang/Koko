@@ -4,6 +4,8 @@ import Koko from '../koko/Koko';
 import kokoHappy from '../../assets/koko-happy.png';
 import kokoDelivery from '../../assets/koko-delivery.png';
 import kokoStats from '../../assets/koko-tracker.png';
+import kokoHome from '../../assets/koko-home.gif';
+import kokoDemo from '../../assets/koko-demo.gif';
 
 const Splash = () => {
   return (
@@ -49,14 +51,16 @@ const Splash = () => {
               widgets, Koko's friendship bar will grow and thrive.
             </h3>
           </div>
-          <div className='splash-img'>
-            <img src={kokoDelivery} alt='' />
+          <div className='splash-img splash-gif'>
+            {/* <img src={kokoDelivery} alt='' /> */}
+            <img src={kokoHome} alt='' />
           </div>
         </div>
 
         <div className='splash-side-content'>
-          <div className='splash-img'>
-            <img src={kokoStats} alt='' />
+          <div className='splash-img splash-gif'>
+            {/* <img src={kokoStats} alt='' /> */}
+            <img src={kokoDemo} alt='' />
           </div>
           <div className='splash-side-content-text'>
             <h3>

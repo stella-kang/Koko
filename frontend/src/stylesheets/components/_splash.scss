@@ -52,7 +52,7 @@
     text-align: center;
     font-size: 50px;
     color: $beige;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 
@@ -79,6 +79,8 @@
 .splash-side-content {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
 .splash-img {
@@ -88,8 +90,16 @@
 
   img {
     width: 100%;
-    height: 100%;
+    height: 90%;
+    border-radius: 10px;
   }
+}
+
+.splash-gif {
+  padding: 20px;
+  // border: 10px solid $darkblue;
+  background-color: $blue;
+  border-radius: 20px;
 }
 
 .splash-side-content-text {
