@@ -15,7 +15,7 @@ const ReflectionsWidget = ({
 }) => {
   useEffect(() => {
     fetchReflections(currentUser.id);
-  }, [fetchReflections, currentUser]);
+  }, [fetchReflections, currentUser.id]);
 
   const sliderRef = useRef();
 
