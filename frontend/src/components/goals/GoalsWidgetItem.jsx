@@ -9,7 +9,6 @@ const GoalsWidgetItem = ({goal, handleButtonClick, openEditForm}) => {
     >
       <div className="goals-widget-info">
         <p className="goal-due-date">{goal.dueDate ? (new Date(goal.dueDate).toDateString()) : 'No Due Date'}</p>
-        {/* <h5>{goal.title}</h5> */}
         <div className='goal-widget-desc-wrapper'>
           <p className="goal-widget-desc">{goal.description}</p>
         </div>

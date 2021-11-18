@@ -29,7 +29,7 @@ export const DayShowDetail = ({ isToday, openReflectionShow, mood, goals, reflec
         <DayGoalsContainer isToday={isToday} goals={goals} openCreateForm={() => setShowCreateGoal(true)} openEditForm={openEditGoalForm} />
       )
     }
-   }
+  }
 
   return (
     <div className="day-details">
@@ -40,24 +40,11 @@ export const DayShowDetail = ({ isToday, openReflectionShow, mood, goals, reflec
         </div>
 
         <div className="day-details-goals">
-          {/* <div className="day-details-goals-list">
-            {goals.map(goal => {
-              return <GoalItem goal={goal} key={goal.id}/>
-            })}
-          </div> */}
-
           { displayGoalsComponent() }
         </div>
       </div>
 
       <div className="day-details-reflections">
-        {/* <h2>Journal Entries:</h2> */}
-        {/* <div className="day-details-reflections-list">
-          {reflections.map(reflection => {
-            return <ReflectionItem openEditForm={openEditForm} reflection={reflection} key={reflection.id}/>
-          })}
-        </div> */}
-
         <DayReflectionsContainer isToday={isToday} reflections={reflections} openReflectionShow={openReflectionShow} />
       </div>
     </div>
