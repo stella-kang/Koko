@@ -2,13 +2,14 @@
   display: flex;
   margin: 0 20px 0;
   justify-content: space-evenly;
-  height: 100%;
+  height: 90%;
 }
 
 .home-widgets {
   width: 67%;
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   .mood-tracker {
     width: 45%;

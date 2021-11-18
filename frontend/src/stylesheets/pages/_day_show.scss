@@ -5,6 +5,7 @@
   padding: 0 10px 0;
   box-sizing: border-box;
   position: relative;
+  height: 90%;
 
   .missing-content {
     font-style: italic;
@@ -21,7 +22,7 @@
 
 .day-details {
   width: 67%;
-  height: 89vh;
+  height: 100%;
   // background-color: $cream;
   border-radius: 20px;
   // box-shadow: 0px 0px 12px 8px rgba(49, 49, 49, 0.3);
