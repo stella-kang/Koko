@@ -77,15 +77,15 @@ const StatsWidget = ({
         <div className='stat-tracker'>
           <AiFillCheckCircle className="stat-icon"/>
           <div>
-            <p>You've completed {numCompleted} goals.</p>
-            <p>Koko: '{goals.length > 0 ? "Keep it up!" : "Try adding new goals!"}'</p>
+            <p>You've completed {numCompleted} goal{`${numCompleted !== 1 ? 's' : ''}`}.</p>
+            <p>Koko: '{numCompleted > 0 ? "Keep it up!" : "Try adding new goals!"}'</p>
           </div>
         </div>
 
         <div className='stat-tracker'>
           <HiPencil className="stat-icon"/>
           <div>
-            <p>You've written {reflections.length} journal entries.</p>
+            <p>You've written {reflections.length} journal {`${reflections.length !== 1 ? 'entries' : 'entry'}`}.</p>
             <p>Koko: '{reflections.length > 0 ? "Way to go!" : "Try journaling!"}'</p>
           </div>
         </div>
