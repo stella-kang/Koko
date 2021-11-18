@@ -1,5 +1,3 @@
-import { FaEdit } from 'react-icons/fa';
-
 const ReflectionWidgetItem = ({ reflection, openReflectionShow }) => {
   const date = new Date(reflection.updatedAt);
 
@@ -7,14 +5,9 @@ const ReflectionWidgetItem = ({ reflection, openReflectionShow }) => {
     <div className='journal-carousel-item'>
       <div className='reflection-item-header'>
         <div className='date-time' onClick={() => openReflectionShow(reflection._id)}>
-          <p>{date.toLocaleDateString().slice(0, 5)}{' '}</p>
-          <p>{`${date.getHours()}:${date.getMinutes() > 10 ? date.getMinutes() : `0${date.getMinutes()}`} ${date
-            .toLocaleTimeString()
-            .slice(-2)}`}</p>
+          <p>{ `${date.getMonth()+1}/${date.getDate()}`}</p>
+          <p>{ `${date.getHours()%12}:${date.getMinutes().toString().padStart(2, '0')} ${date.getHours() > 11 ? "PM" : "AM"}` }</p>
         </div>
-        {/* <div className='edit-btn' onClick={() => openReflectionShow(reflection._id)}>
-          <FaEdit />
-        </div> */}
       </div>
 
       <div className='reflection-item-entry'>
