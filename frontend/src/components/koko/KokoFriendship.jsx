@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchCurrentUser, updateExp } from '../../actions/session_actions';
+import Heart from "../../assets/heart.svg"
 
 const mSTP = (state, ownProps) => ({
   currentUser: state.session.user
@@ -56,7 +57,7 @@ const KokoFriendship = ({currentUser, fetchCurrentUser}) => {
         </div>
       <div className="koko-exp-container">
         <div className="koko-heart-container">
-          <img src="https://raw.githubusercontent.com/stella-kang/Koko/b2b93fe0a6f474e758277e350fc1c08180ec2de9/frontend/src/assets/heart.svg" />
+          <img src={Heart} />
         </div>
         <div className="koko-current-exp-bar">
           <div className="koko-current-exp" style={kokoCurrentExp}>
