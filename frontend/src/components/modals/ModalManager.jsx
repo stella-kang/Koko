@@ -7,6 +7,7 @@ import RegisterFormModal from './RegisterFormModal';
 import LoginFormModal from './LoginFormModal';
 import DeleteGoalModal from './DeleteGoalModal';
 import DeleteReflectionModal from './DeleteReflectionModal';
+import LogoutModal from './LogoutModal';
 
 export const ModalManager = ({ modal, closeModal, history }) => {
   let component;
@@ -23,6 +24,9 @@ export const ModalManager = ({ modal, closeModal, history }) => {
       break;
     case "deleteReflection":
       component = <DeleteReflectionModal reflection={modal.reflection} closeForm={modal.closeForm} closeModal={() => closeModal(modal)} />
+      break;
+    case "logout":
+      component = <LogoutModal closeModal={() => closeModal(modal)} />
       break;
     default:
       component = null;

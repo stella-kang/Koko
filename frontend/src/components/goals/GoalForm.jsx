@@ -67,7 +67,7 @@ const GoalForm = ({ currentUser, processForm, updateExp, closeForm, goal, openMo
         <div className="goal-inputs">
           <label>
             Goal Details <span className="goal-errors">{ errors.description?.message }</span>
-            <input type='text' spellCheck='false'
+            <input type='text' spellCheck='false' autoFocus
             {...register('description', {
               required: 'Goal description is required',
               minLength: {
