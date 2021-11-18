@@ -6,7 +6,7 @@ import KokoFriendship from './KokoFriendship';
 const KokoCard = () => {
   return (
     <div className="koko-card-container">
-      <div classname="koko-bg">
+      <div className="koko-bg">
         <Koko />
       </div>
       <KokoFriendship />

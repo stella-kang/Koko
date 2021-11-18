@@ -12,7 +12,10 @@ const GoalForm = ({ currentUser, processForm, updateExp, closeForm, goal, openMo
   } = useForm({
     reValidateMode: 'onSubmit',
     shouldFocusError: false,
-    defaultValues: { description: goal ? goal.description : '' },
+    defaultValues: {
+      description: goal ? goal.description : '',
+      date: goal?.dueDate ? new Date(goal.dueDate).toISOString().substr(0, 10): ''
+    }
   });
 
   const onSubmit = (data) => {
