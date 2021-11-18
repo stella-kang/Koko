@@ -1,52 +1,73 @@
 import React from 'react';
 import Footer from '../footer/Footer';
 import Koko from '../koko/Koko';
+import kokoHappy from '../../assets/koko-happy.png';
+import kokoDelivery from '../../assets/koko-delivery.png';
+import kokoStats from '../../assets/koko-tracker.png';
 
 const Splash = () => {
   return (
     <div className='main-splash-container'>
+      <div className='koko-picture'>
+        <div className='gradient'></div>
+        <div className='meet-koko'>
+          <h3>
+            Meet <span>Koko</span>
+          </h3>
+          <p>
+            Your new <span>virtual,</span> mental health buddy
+          </p>
+        </div>
+      </div>
+      <div className='who-is-koko'>
+        <h3>Who is Koko?</h3>
+      </div>
       <div className='splash-main-contents'>
-        <Koko />
-        <h3>
-          Koko is your mental health accountability partner. Koko's goal is to
-          facilitate healthier mental wellness by encouraging healthy habits
-          such as mood tracking, goal setting, and journaling. Koko allows users
-          to set personal goals for themselves, creating a safe space of
-          accountability towards a brighter and healthier future.
-        </h3>
+        {/* <Koko /> */}
 
-        <h3>Splash Image I</h3>
-        <div className='splash-side-content-one'>
-          <div className='splash-img-one'></div>
-          <div className='splash-side-content-one-text'>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque
-              dolorum culpa distinctio omnis aliquid rem consectetur quos
-              ducimus soluta voluptas deleniti totam, reiciendis vero molestias
-              voluptates saepe. Eligendi, suscipit similique! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur magni sed eaque, voluptatum aliquid placeat ad dolorum, fuga nostrum exercitationem quia quisquam ea molestiae voluptatibus quidem error animi ratione voluptatem!
-            </p>
+        <div className='splash-side-content'>
+          <div className='splash-img'>
+            <img src={kokoHappy} alt='' />
+          </div>
+          <div className='splash-side-content-text'>
+            <h3>
+              Koko is your mental health accountability partner. Koko's goal is
+              to facilitate healthier mental wellness by encouraging healthy
+              habits such as mood tracking, goal setting, and journaling. Koko
+              allows users to set personal goals for themselves, creating a safe
+              space of accountability towards a brighter and healthier future.
+            </h3>
           </div>
         </div>
-        <div>
-          <h3>Splash Media II && Splash Image</h3>
-          <div>
-            After creating an account and logging in, users will be greeted by
-            Koko the Cat. The user will have opportunities to track their habits
-            and form new ones. By completing goals or interacting with widgets,
-            Koko's friendship bar will grow and thrive.
+
+        <div className='splash-side-content'>
+          <div className='splash-side-content-text'>
+            <h3>
+              After creating an account and logging in, users will be greeted by
+              Koko the Cat. The user will have opportunities to track their
+              habits and form new ones. By completing goals or interacting with
+              widgets, Koko's friendship bar will grow and thrive.
+            </h3>
+          </div>
+          <div className='splash-img'>
+            <img src={kokoDelivery} alt='' />
           </div>
         </div>
-        <div>
-          <h3>Splash Media III & Splash Image</h3>
-          <div>
-            The home page will also display a visual of the users past history.
-            This will include a colorgraph on the users mood over time, as well
-            as a color-dynamic counter to show how many goals the user has
-            completed and how manyj
+
+        <div className='splash-side-content'>
+          <div className='splash-img'>
+            <img src={kokoStats} alt='' />
+          </div>
+          <div className='splash-side-content-text'>
+            <h3>
+              The home page will also display a visual of the users past
+              history. This will include a colorgraph on the users mood over
+              time, as well as a color-dynamic counter to show how many goals
+              the user has completed and how many.
+            </h3>
           </div>
         </div>
-        <div>
-          <h3>Splash Media IV & Splash Image</h3>
+        <div className='splash-banner'>
           <div>
             While the home page will show a overview of recent activity, users
             can also go through the history page to view an interactive calendar
@@ -84,7 +105,8 @@ const Splash = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Error,
                 odit. Aut, similique. Quibusdam necessitatibus nostrum rerum
                 suscipit magnam. Possimus, quo ipsam rem quos deserunt magni ab
-                ipsa odit fuga quas!
+                ipsa odit fuga quas! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Error, odit. Aut, similique.
               </p>
             </div>
             <div className='creator-container'>

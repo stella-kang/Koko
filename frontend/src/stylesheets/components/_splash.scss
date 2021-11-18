@@ -6,37 +6,139 @@
   // border: 1px solid red;
   width: 100%;
   margin: auto;
-  // background-color: $blue;
+  background-color: $beige;
+}
+
+.koko-picture {
+  width: 100%;
+  height: 85vh;
+  position: relative;
+
+  background-image: url(../../assets/koko.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  // img {
+  //   z-index: -10;
+  //   width: 100%;
+  //   height: 100%;
+  // }
+}
+
+.meet-koko {
+  position: absolute;
+  z-index: 20;
+  font-family: $bubblefont;
+  background: transparent;
+  font-size: 48px;
+  color: $beige;
+  top: 0;
+  left: 0;
+  padding: 0px 40px;
+
+  span {
+    color: orange;
+  }
+}
+
+.who-is-koko {
+  height: 10vh;
+  width: 100%;
+  background-color: $darkblue;
+
+  h3 {
+    font-family: $bubblefont;
+    text-align: center;
+    font-size: 50px;
+    color: $beige;
+    margin-top: 40px;
+  }
+}
+
+.gradient {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.07746848739495793) 0%,
+    rgba(0, 0, 0, 0.562062324929972) 45%,
+    rgba(0, 0, 0, 0.9066001400560224) 97%
+  );
 }
 
 .splash-main-contents {
-  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.splash-side-content-one {
+.splash-side-content {
   display: flex;
   justify-content: space-evenly;
 }
 
-.splash-img-one {
+.splash-img {
   width: 40%;
   height: auto;
-  background-color: $lightblue;
+  // background-color: $lightblue;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.splash-side-content-one-text {
+.splash-side-content-text {
+  margin: 50px;
+  padding: 50px;
+  border-radius: 20px;
+  background-color: orange;
   width: 40%;
+
+  h3 {
+    line-height: 2;
+    font-family: $bubblefont;
+    font-size: 24px;
+    color: $cream;
+  }
+}
+
+.splash-banner {
+  width: 100%;
+  height: 150px;
+  background-color: $darkblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    font-family: $bubblefont;
+    width: 80%;
+    font-size: 24px;
+    color: $cream;
+  }
 }
 
 .creator-main-container {
   width: 100%;
-  background-color: $darkblue;
+  display: flex;
+  flex-direction: column;
+  background-color: $cream;
   border-radius: 10px;
   text-align: center;
+  justify-content: center;
 
   h3 {
-    color: white;
+    color: orange;
     padding: 15px;
+    font-family: $bubblefont;
+    font-size: 36px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 
