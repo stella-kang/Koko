@@ -95,7 +95,7 @@ const Splash = () => {
                   promote and sustain healthy self-care habits. It was a thrill
                   to create something that will help fill that gap!"
                 </p>
-                <a target='_blank' href='https://github.com/VictorHeDev'>
+                <a target='_blank' href='https://github.com/stella-kang'>
                   <img src={GitHub} />
                 </a>
               </div>
@@ -105,10 +105,12 @@ const Splash = () => {
               {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Iusto architecto deserunt porro! Corrupti dolorum magni quam
-                  fugit facilis maxime, ducimus molestias inventore impedit,
-                  rerum eligendi? Voluptate tenetur sed beatae eaque.
+                  "Mental health is a topic that still heavily stigmatized thus
+                  we built this personalized app with the intention of helping
+                  others. We want our users to have the ability to monitor how
+                  they feel and reach out for help if they notice a negative
+                  trend. We hope that Koko can create a safe space for our users
+                  so they can live their lives to the fullest!"
                 </p>
                 <a target='_blank' href='https://github.com/VictorHeDev'>
                   <img src={GitHub} />
@@ -120,11 +122,11 @@ const Splash = () => {
               {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
-                  When we decided to make a mental health wellbeing app, I knew
+                  "When we decided to make a mental health wellbeing app, I knew
                   we needed a cat. My cat Minnie is my IRL mental health buddy,
                   and I realized Koko could be my digital mental health buddy. I
                   hope everyone can befriend Koko and work toward building a
-                  healthier lifestyle!
+                  healthier lifestyle!"
                 </p>
                 <a target='_blank' href='https://github.com/mansookim'>
                   <img src={GitHub} />
@@ -136,12 +138,12 @@ const Splash = () => {
               {/* <div className='creator-photo-container'></div> */}
               <div className='creator-text-container'>
                 <p>
-                  Especially after COVID, when people have had more time to
+                  "Especially after COVID, when people have had more time to
                   reflect, I think the ability to quickly journal throughout the
                   day, being motivated by befriending a cat, is a pretty
                   wonderful thing to have. Koko definitely felt like an amazing
                   way to be that outlet for people and it was a pleasure to work
-                  on them!
+                  on them!"
                 </p>
                 <a target='_blank' href='https://github.com/Emmay-Alam'>
                   <img src={GitHub} />
