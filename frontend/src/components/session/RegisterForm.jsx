@@ -49,7 +49,7 @@ export const RegisterFormModal = ({
           <div className='login-content-item'>
             <label htmlFor='email'>Email</label>
             <div className='registration-errors'>
-              {errors.username && <span>{errors.email}</span>}
+              {errors.email && <span>{errors.email}</span>}
             </div>
             <div className='input-box-container'>
               <input
