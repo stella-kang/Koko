@@ -1,8 +1,10 @@
 # Welcome to Koko!
 
-> _“I believe depression is legitimate. But I also believe that if you don’t exercise, eat nutritious food, get sunlight, get enough sleep, consume positive material, surround yourself with support, then you aren’t giving yourself a fighting chance.”_ – Jim Carrey
-
 ## Who is Koko?
+
+<div align="center">
+  <img src="./frontend/src/assets/koko-splash-breathing.gif" width="500" />
+</div>
 
 [Koko](https://koko-the-cat.herokuapp.com/#/) is your mental health ability partner. Koko's goal is to facilitate healthier mental wellness by encouraging healthy habits such as mood tracking, goal setting, and journaling. Koko allows users to set personal goals for themselves, creating a safe space of accountability towards a brighter and healthier future.
 
@@ -16,7 +18,7 @@ _Database:_
 _Backend:_
 
 - `Express`
-- Node.`js`
+- `Node.js`
 
 _Frontend:_
 
@@ -76,12 +78,16 @@ const handleDelete = () => {
 
 The calendar was customized using CSS3 properties in order to achieve the exact aesthetics envisioned from the mockups. The calendar is fully functional and will retrieve the journal reflections, goals, and mood of the date selected.
 
+<div align="center">
+  <img src="./frontend/src/assets/koko-demo-calendar.gif" width="500" />
+</div>
+
 ### **Mood Garden**
 
 On the home screen, users have access to visual data representation of their moods since the creation of their account. Their moods will be represented with a gradient of colors to signify their recorded mood for each day.
 
 <div align="center">
-  <img src="./frontend/src/assets/koko-mood.gif" style="border-radius: 30px;" width="500" />
+  <img src="./frontend/src/assets/koko-mood.gif" width="500" />
 </div>
 
 ## Meet the Team
