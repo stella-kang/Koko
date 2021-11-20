@@ -30,32 +30,95 @@ _Frontend:_
 
 Users can create new accounts which they can use to log in and out of Koko. On successful login, they will be routed to the main app. On unsuccessful login, errors will be displayed in red. A demo user is provided so that users can browse the site without having to create an account themselves.
 
-<p align="center">
-  <img src="./frontend/src/assets/koko-user-auth.png" />
-</p>
+<div
+  style=
+    "display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    font-size: 0.75em;
+    font-style: italic;">
+  <div style=>
+    <img src="./frontend/src/assets/koko-home.png" alt="Succesful login" style=" border-radius: 5px;" width="350" />
+    <figcaption>On sucessful login</figcaption>
+  </div>
+  <div style="text-align: center;">
+    <img src="./frontend/src/assets/koko-user-auth.png" style=" border-radius: 5px;" alt="Unsucessful login" width="200" />
+    <figcaption>On unsuccessful login</figcaption>
+  </div>
+</div>
 
-### **Full CRUD cycles with journal "reflections" and "goals"**
+### **Full CRUD cycles for "Reflections" and "Goals"**
 
-Leverages both the frontend views that the user interacts with and backend database in order to create, read, update, and delete entries to be persisted upon refresh and login/logout. THe user will be able to witness their changes come to life with immediate feedback.
+Users can create, read, update, and delete both goals and reflections. Any changes will be persisted upon refresh and login/logout.
+
+```js
+// frontend/src/components/reflections/ReflectionShowForm.jsx
+
+  const [editMode, setEditMode] = useState(false);
+
+  const onSubmit = (data) => {
+    const formReflection = {
+      user: currentUser.id,
+      entry: data.entry,
+    };
+    if (reflection) formReflection['id'] = reflection._id;
+
+    const processForm = editMode ? updateReflection : createReflection;
+
+    processForm(formReflection).then((action) => {
+      if (!reflection) {
+        updateExp(currentUser.id, 2);
+      }
+      setEditMode(false);
+      openReflectionShow(action.reflection._id);
+    });
+  };
+
+  const handleDelete = () => {
+    openModal({
+      type: 'deleteReflection',
+      reflection: reflection,
+      closeForm: closeForm,
+    });
+  };
+```
+<figcaption style="font-size: 0.75em; font-style: italic; text-align: center;">
+  Leveraging modern React hooks and custom hooks in order to render specific components for CRUD.
+</figcaption>
 
 ### **Monthly Log**
 
 The calendar was customized using CSS3 properties in order to achieve the exact aesthetics envisioned from the mockups. The calendar is fully functional and will retrieve the journal reflections, goals, and mood of the date selected.
 
-### Mood Garden
+### **Mood Garden**
 
 On the home screen, users have access to visual data representation of their moods since the creation of their account. Their moods will be represented with a gradient of colors to signify their recorded mood for each day.
 
-### Meet the Team
+<div
+  style=
+    "display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    font-size: 0.75em;
+    font-style: italic;">
+    <div>
+      <img src="./frontend/src/assets/koko-mood.gif" style="border-radius: 30px;" width="500" />
+      <figcaption>Mood Garden</figcaption>
+    </div>
+</div>
+
+## Meet the Team
 
 Stella Kang // Tech Lead
 [LinkedIn](https://www.linkedin.com/in/stella-kang-33302b127/)
-
-Victor He // Frontend Lead
-[LinkedIn](https://www.linkedin.com/in/victor-he/)
 
 Mansoo Kim // Flex Developer
 [LinkedIn](https://www.linkedin.com/in/mansoo-kim/)
 
 Emmay Alam // Backend Lead
 [LinkedIn](https://www.linkedin.com/in/emmay-alam/)
+
+Victor He // Frontend Lead
+[LinkedIn](https://www.linkedin.com/in/victor-he/)
