@@ -1,28 +1,30 @@
 # Welcome to Koko!
 
+> _“I believe depression is legitimate. But I also believe that if you don’t exercise, eat nutritious food, get sunlight, get enough sleep, consume positive material, surround yourself with support, then you aren’t giving yourself a fighting chance.”_ – Jim Carrey
+
 ## Who is Koko?
 
 [Koko](https://koko-the-cat.herokuapp.com/#/) is your mental health ability partner. Koko's goal is to facilitate healthier mental wellness by encouraging healthy habits such as mood tracking, goal setting, and journaling. Koko allows users to set personal goals for themselves, creating a safe space of accountability towards a brighter and healthier future.
 
-## Notable Technologies used
+## Notable Technologies
 
 _Database:_
 
-- MongoDB
-- Mongoose
+- `MongoDB`
+- `Mongoose`
 
 _Backend:_
 
-- Express
-- Node.js
+- `Express`
+- Node.`js`
 
 _Frontend:_
 
-- React
-- Redux
-- HTML5
-- CSS3
-- SCSS
+- `React`
+- `Redux`
+- `HTML5`
+- `CSS3`
+- `SCSS`
 
 ## Notable Features
 
@@ -31,7 +33,7 @@ _Frontend:_
 Users can create new accounts which they can use to log in and out of Koko. On successful login, they will be routed to the main app. On unsuccessful login, errors will be displayed in red. A demo user is provided so that users can browse the site without having to create an account themselves.
 
 <div align="center">
-  <img src="./frontend/src/assets/koko-user-auth.png" alt="Unsucessful login" width="200" />
+  <img src="./frontend/src/assets/koko-user-auth.png" alt="Unsucessful login" width="300" />
 </div>
 
 ### **Full CRUD cycles for "Reflections" and "Goals"**
@@ -41,33 +43,33 @@ Users can create, read, update, and delete both goals and reflections. Any chang
 ```js
 // frontend/src/components/reflections/ReflectionShowForm.jsx
 
-  const [editMode, setEditMode] = useState(false);
+const [editMode, setEditMode] = useState(false);
 
-  const onSubmit = (data) => {
-    const formReflection = {
-      user: currentUser.id,
-      entry: data.entry,
-    };
-    if (reflection) formReflection['id'] = reflection._id;
-
-    const processForm = editMode ? updateReflection : createReflection;
-
-    processForm(formReflection).then((action) => {
-      if (!reflection) {
-        updateExp(currentUser.id, 2);
-      }
-      setEditMode(false);
-      openReflectionShow(action.reflection._id);
-    });
+const onSubmit = (data) => {
+  const formReflection = {
+    user: currentUser.id,
+    entry: data.entry,
   };
+  if (reflection) formReflection['id'] = reflection._id;
 
-  const handleDelete = () => {
-    openModal({
-      type: 'deleteReflection',
-      reflection: reflection,
-      closeForm: closeForm,
-    });
-  };
+  const processForm = editMode ? updateReflection : createReflection;
+
+  processForm(formReflection).then((action) => {
+    if (!reflection) {
+      updateExp(currentUser.id, 2);
+    }
+    setEditMode(false);
+    openReflectionShow(action.reflection._id);
+  });
+};
+
+const handleDelete = () => {
+  openModal({
+    type: 'deleteReflection',
+    reflection: reflection,
+    closeForm: closeForm,
+  });
+};
 ```
 
 ### **Monthly Log**
