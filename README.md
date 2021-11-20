@@ -39,95 +39,54 @@ Users can create new accounts which they can use to log in and out of Koko. On s
     font-size: 0.75em;
     font-style: italic;">
   <div style=>
-    <img src="./frontend/src/assets/koko-home.png" width="250" />
+    <img src="./frontend/src/assets/koko-home.png" alt="Succesful login" style=" border-radius: 5px;" width="350" />
     <figcaption>On sucessful login</figcaption>
   </div>
   <div style="text-align: center;">
-    <img src="./frontend/src/assets/koko-user-auth.png" alt="On unsucessful login" width="150" />
+    <img src="./frontend/src/assets/koko-user-auth.png" style=" border-radius: 5px;" alt="Unsucessful login" width="200" />
     <figcaption>On unsuccessful login</figcaption>
   </div>
 </div>
 
 ### **Full CRUD cycles for "Reflections" and "Goals"**
 
-Users can create, read, update, and delete both goals and reflections. These to be persisted upon refresh and login/logout. The user will be able to witness their changes come to life with immediate feedback.
-
-* Leveraged the use of modern React hooks and custom hooks in order to render specific components for CRUD
+Users can create, read, update, and delete both goals and reflections. Any changes will be persisted upon refresh and login/logout.
 
 ```js
 // frontend/src/components/reflections/ReflectionShowForm.jsx
 
-const [editMode, setEditMode] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
-const onSubmit = (data) => {
-  const formReflection = {
-    user: currentUser.id,
-    entry: data.entry,
+  const onSubmit = (data) => {
+    const formReflection = {
+      user: currentUser.id,
+      entry: data.entry,
+    };
+    if (reflection) formReflection['id'] = reflection._id;
+
+    const processForm = editMode ? updateReflection : createReflection;
+
+    processForm(formReflection).then((action) => {
+      if (!reflection) {
+        updateExp(currentUser.id, 2);
+      }
+      setEditMode(false);
+      openReflectionShow(action.reflection._id);
+    });
   };
-  if (reflection) formReflection['id'] = reflection._id;
 
-  const processForm = editMode ? updateReflection : createReflection;
-
-  processForm(formReflection).then((action) => {
-    if (!reflection) {
-      updateExp(currentUser.id, 2);
-    }
-    setEditMode(false);
-    openReflectionShow(action.reflection._id);
-  });
-};
-
-const handleDelete = () => {
-  openModal({
-    type: 'deleteReflection',
-    reflection: reflection,
-    closeForm: closeForm,
-  });
-};
+  const handleDelete = () => {
+    openModal({
+      type: 'deleteReflection',
+      reflection: reflection,
+      closeForm: closeForm,
+    });
+  };
 ```
-### **Use of Special Selectors to manipulate information from the backend to render particular data using the React frontend
-```js
-export const getSortedReflections = state => {
-  const reflections = Object.values(state.entities.reflections);
-  reflections.sort((a, b) => a.createdAt < b.createdAt ? -1 : 1);
-  return reflections;
-}
+<figcaption style="font-size: 0.75em; font-style: italic; text-align: center;">
+  Leveraging modern React hooks and custom hooks in order to render specific components for CRUD.
+</figcaption>
 
-export const getTodaysMood = state => {
-  const todayString = new Date().toLocaleDateString();
-  for (let mood of Object.values(state.entities.moods)) {
-    if (new Date(mood.createdAt).toLocaleDateString() === todayString) {
-      return mood;
-    }
-  }
-  return null;
-}
-
-export const getShowDetailMood = (state, calDate) => {
-  const currDate = calDate.toLocaleDateString();
-  for (let mood of Object.values(state.entities.moods)) {
-    if (new Date(mood.createdAt).toLocaleDateString() === currDate) {
-      return mood;
-    }
-  }
-  return null;
-}
-
-export const getShowDetailReflections = (state, calDate) => {
-  const currDate = calDate.toLocaleDateString();
-  const reflections = Object.values(state.entities.reflections);
-  const currReflections = reflections.filter(reflection => new Date(reflection.createdAt).toLocaleDateString() === currDate);
-  return currReflections;
-}
-
-export const getShowDetailGoals = (state, calDate) => {
-  const currDate = calDate.toLocaleDateString();
-  const goals = Object.values(state.entities.goals);
-  const currGoals = goals.filter(goal => new Date(goal.createdAt).toLocaleDateString() === currDate);
-  return currGoals;
-}
-
-```
 ### **Monthly Log**
 
 The calendar was customized using CSS3 properties in order to achieve the exact aesthetics envisioned from the mockups. The calendar is fully functional and will retrieve the journal reflections, goals, and mood of the date selected.
