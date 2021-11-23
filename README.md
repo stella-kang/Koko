@@ -6,7 +6,7 @@
   <img src="./frontend/src/assets/koko-splash-breathing.gif" width="500" />
 </div>
 
-[Koko](https://koko-the-cat.herokuapp.com/#/) is your mental health ability partner. Koko's goal is to facilitate healthier mental wellness by encouraging healthy habits such as mood tracking, goal setting, and journaling. Koko allows users to set personal goals for themselves, creating a safe space of accountability towards a brighter and healthier future.
+[Koko](https://koko-the-cat.herokuapp.com/#/) is your mental health accountability partner. Koko's goal is to facilitate healthier mental wellness by encouraging healthy habits such as mood tracking, goal setting, and journaling. Koko allows users to set personal goals for themselves, creating a safe space of accountability towards a brighter and healthier future.
 
 ## Notable Technologies
 
