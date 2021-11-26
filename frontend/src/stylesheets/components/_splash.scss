@@ -203,3 +203,20 @@
   margin: 20px;
   background-color: $lightblue;
 }
+
+.personal-links {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+
+  img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .portfolio-icon {
+    color: black;
+    font-size: 35px;
+  }
+}

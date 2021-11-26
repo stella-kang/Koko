@@ -4,8 +4,11 @@ import Koko from '../koko/Koko';
 import KokoClickGif from '../../assets/koko-demo-click.gif';
 import KokoLevelGif from '../../assets/koko-demo-level.gif';
 import KokoCalGif from '../../assets/koko-demo-calendar.gif';
+import { FaUser } from "react-icons/fa"
 
 import GitHub from '../../assets/github_logo.png';
+import LinkedIn from '../../assets/linkedin_logo.png'
+import Angel from "../../assets/angel.png";
 
 const Splash = () => {
   return (
@@ -91,9 +94,21 @@ const Splash = () => {
                   promote and sustain healthy self-care habits. It was a thrill
                   to create something that will help fill that gap!"
                 </p>
-                <a target='_blank' href='https://github.com/stella-kang'>
-                  <img src={GitHub} />
-                </a>
+
+                <div className="personal-links">
+                  <a target='_blank' href='https://github.com/stella-kang'>
+                    <img src={GitHub} />
+                  </a>
+                  <a target='_blank' href="https://www.linkedin.com/in/stella-kang-33302b127/">
+                    <img src={LinkedIn} />
+                  </a>
+                  <a target='_blank' href="https://angel.co/u/stella-kang-2">
+                    <img src={Angel} />
+                  </a>
+                  <a target='_blank' href="https://stellakang.dev/">
+                    <FaUser className="portfolio-icon"/>
+                  </a>
+                </div>
               </div>
             </div>
             <div className='creator-container'>
@@ -108,9 +123,21 @@ const Splash = () => {
                   trend. We hope that Koko can create a safe space for our users
                   so they can live their lives to the fullest!"
                 </p>
-                <a target='_blank' href='https://github.com/VictorHeDev'>
-                  <img src={GitHub} />
-                </a>
+
+                <div className="personal-links">
+                  <a target='_blank' href='https://github.com/VictorHeDev'>
+                    <img src={GitHub} />
+                  </a>
+                  <a target='_blank' href="#">
+                    <img src={LinkedIn} />
+                  </a>
+                  <a target='_blank' href="#">
+                    <img src={Angel} />
+                  </a>
+                  <a target='_blank' href="#">
+                    <FaUser className="portfolio-icon" />
+                  </a>
+                </div>
               </div>
             </div>
             <div className='creator-container'>
@@ -124,9 +151,21 @@ const Splash = () => {
                   hope everyone can befriend Koko and work toward building a
                   healthier lifestyle!"
                 </p>
-                <a target='_blank' href='https://github.com/mansookim'>
-                  <img src={GitHub} />
-                </a>
+
+                <div className="personal-links">
+                  <a target='_blank' href='https://github.com/mansookim'>
+                    <img src={GitHub} />
+                  </a>
+                  <a target='_blank' href="#">
+                    <img src={LinkedIn} />
+                  </a>
+                  <a target='_blank' href="#">
+                    <img src={Angel} />
+                  </a>
+                  <a target='_blank' href="#">
+                    <FaUser className="portfolio-icon" />
+                  </a>
+                </div>
               </div>
             </div>
             <div className='creator-container'>
@@ -141,9 +180,21 @@ const Splash = () => {
                   way to be that outlet for people and it was a pleasure to work
                   on them!"
                 </p>
-                <a target='_blank' href='https://github.com/Emmay-Alam'>
-                  <img src={GitHub} />
-                </a>
+
+                <div className="personal-links">
+                  <a target='_blank' href='https://github.com/Emmay-Alam'>
+                    <img src={GitHub} />
+                  </a>
+                  <a target='_blank' href="#">
+                    <img src={LinkedIn} />
+                  </a>
+                  <a target='_blank' href="#">
+                    <img src={Angel} />
+                  </a>
+                  <a target='_blank' href="#">
+                    <FaUser className="portfolio-icon" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
