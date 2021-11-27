@@ -153,16 +153,16 @@ const Splash = () => {
                 </p>
 
                 <div className="personal-links">
-                  <a target='_blank' href='https://github.com/mansookim'>
+                  <a target='_blank' href='https://github.com/mansoo-kim'>
                     <img src={GitHub} />
                   </a>
-                  <a target='_blank' href="#">
+                  <a target='_blank' href="https://www.linkedin.com/in/mansoo-kim/">
                     <img src={LinkedIn} />
                   </a>
-                  <a target='_blank' href="#">
+                  <a target='_blank' href="https://angel.co/u/mansoo-kim">
                     <img src={Angel} />
                   </a>
-                  <a target='_blank' href="#">
+                  <a target='_blank' href="https://mansoo.net/">
                     <FaUser className="portfolio-icon" />
                   </a>
                 </div>
