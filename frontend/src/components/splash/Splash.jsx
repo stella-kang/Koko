@@ -4,11 +4,11 @@ import Koko from '../koko/Koko';
 import KokoClickGif from '../../assets/koko-demo-click.gif';
 import KokoLevelGif from '../../assets/koko-demo-level.gif';
 import KokoCalGif from '../../assets/koko-demo-calendar.gif';
-import { FaUser } from "react-icons/fa"
+import { FaUser } from 'react-icons/fa';
 
 import GitHub from '../../assets/github_logo.png';
-import LinkedIn from '../../assets/linkedin_logo.png'
-import Angel from "../../assets/angel.png";
+import LinkedIn from '../../assets/linkedin_logo.png';
+import Angel from '../../assets/angel.png';
 
 const Splash = () => {
   return (
@@ -90,23 +90,26 @@ const Splash = () => {
                 <p>
                   "While we've made significant strides in normalizing the
                   discussion of mental health wellness, we felt that there was
-                  still a void for readily-available, user-friendly tools to help
-                  promote and sustain healthy self-care habits. It was a thrill
-                  to create something that will help fill that gap!"
+                  still a void for readily-available, user-friendly tools to
+                  help promote and sustain healthy self-care habits. It was a
+                  thrill to create something that will help fill that gap!"
                 </p>
 
-                <div className="personal-links">
+                <div className='personal-links'>
                   <a target='_blank' href='https://github.com/stella-kang'>
                     <img src={GitHub} />
                   </a>
-                  <a target='_blank' href="https://www.linkedin.com/in/stella-kang-33302b127/">
+                  <a
+                    target='_blank'
+                    href='https://www.linkedin.com/in/stella-kang-33302b127/'
+                  >
                     <img src={LinkedIn} />
                   </a>
-                  <a target='_blank' href="https://angel.co/u/stella-kang-2">
+                  <a target='_blank' href='https://angel.co/u/stella-kang-2'>
                     <img src={Angel} />
                   </a>
-                  <a target='_blank' href="https://stellakang.dev/">
-                    <FaUser className="portfolio-icon"/>
+                  <a target='_blank' href='https://stellakang.dev/'>
+                    <FaUser className='portfolio-icon' />
                   </a>
                 </div>
               </div>
@@ -124,18 +127,24 @@ const Splash = () => {
                   so they can live their lives to the fullest!"
                 </p>
 
-                <div className="personal-links">
+                <div className='personal-links'>
                   <a target='_blank' href='https://github.com/VictorHeDev'>
                     <img src={GitHub} />
                   </a>
-                  <a target='_blank' href="#">
+                  <a
+                    target='_blank'
+                    href='https://www.linkedin.com/in/victor-he/'
+                  >
                     <img src={LinkedIn} />
                   </a>
-                  <a target='_blank' href="#">
+                  <a target='_blank' href='https://angel.co/u/victor-he'>
                     <img src={Angel} />
                   </a>
-                  <a target='_blank' href="#">
-                    <FaUser className="portfolio-icon" />
+                  <a
+                    target='_blank'
+                    href='https://victorhedev.github.io/portfolio/'
+                  >
+                    <FaUser className='portfolio-icon' />
                   </a>
                 </div>
               </div>
@@ -152,18 +161,21 @@ const Splash = () => {
                   healthier lifestyle!"
                 </p>
 
-                <div className="personal-links">
+                <div className='personal-links'>
                   <a target='_blank' href='https://github.com/mansoo-kim'>
                     <img src={GitHub} />
                   </a>
-                  <a target='_blank' href="https://www.linkedin.com/in/mansoo-kim/">
+                  <a
+                    target='_blank'
+                    href='https://www.linkedin.com/in/mansoo-kim/'
+                  >
                     <img src={LinkedIn} />
                   </a>
-                  <a target='_blank' href="https://angel.co/u/mansoo-kim">
+                  <a target='_blank' href='https://angel.co/u/mansoo-kim'>
                     <img src={Angel} />
                   </a>
-                  <a target='_blank' href="https://mansoo.net/">
-                    <FaUser className="portfolio-icon" />
+                  <a target='_blank' href='https://mansoo.net/'>
+                    <FaUser className='portfolio-icon' />
                   </a>
                 </div>
               </div>
@@ -181,18 +193,18 @@ const Splash = () => {
                   on them!"
                 </p>
 
-                <div className="personal-links">
+                <div className='personal-links'>
                   <a target='_blank' href='https://github.com/Emmay-Alam'>
                     <img src={GitHub} />
                   </a>
-                  <a target='_blank' href="https://linkedin.com/emmay-alam">
+                  <a target='_blank' href='https://linkedin.com/emmay-alam'>
                     <img src={LinkedIn} />
                   </a>
-                  <a target='_blank' href="https://angel.co/u/emmay-alam">
+                  <a target='_blank' href='https://angel.co/u/emmay-alam'>
                     <img src={Angel} />
                   </a>
-                  <a target='_blank' href="#">
-                    <FaUser className="portfolio-icon" />
+                  <a target='_blank' href='#'>
+                    <FaUser className='portfolio-icon' />
                   </a>
                 </div>
               </div>
