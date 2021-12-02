@@ -65,8 +65,8 @@ const KokoFriendship = ({currentUser, fetchCurrentUser}) => {
         </div>
       </div>
       <div className="koko-flavor">
-        <span className="koko-friend-status">You and Koko are currently {titles[currentUser.friendshipLvl]}.</span>
-        <span className="koko-quote">{quotes[currentUser.friendshipLvl]}</span>
+        <span className="koko-friend-status">You and Koko are currently {titles[Math.min(currentUser.friendshipLvl, 5)]}.</span>
+        <span className="koko-quote">{quotes[Math.min(currentUser.friendshipLvl, 5)]}</span>
       </div>
     </div>
   )
