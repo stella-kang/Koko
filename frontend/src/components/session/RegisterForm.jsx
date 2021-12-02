@@ -83,7 +83,7 @@ export const RegisterFormModal = ({
           <div className='login-content-item'>
             <label htmlFor='password'>Password</label>
             <div className='registration-errors'>
-              {errors.username && <span>{errors.password}</span>}
+              {errors.password && <span>{errors.password}</span>}
             </div>
             <div className='input-box-container'>
               <input
@@ -99,7 +99,7 @@ export const RegisterFormModal = ({
           <div className='login-content-item'>
             <label htmlFor='password2'>Confirm Password</label>
             <div className='registration-errors'>
-              {errors.username && <span>{errors.password2}</span>}
+              {errors.password2 && <span>{errors.password2}</span>}
             </div>
             <div className='input-box-container'>
               <input
