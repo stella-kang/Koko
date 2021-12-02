@@ -118,6 +118,7 @@
 
     .goal-form-cancel {
       font-size: 17px;
+      position: absolute;
     }
 
     label {
@@ -146,6 +147,7 @@
       margin-top: 10px;
       display: flex;
       justify-content: flex-end;
+      position: relative;
 
       button {
         margin-left: 10px;
@@ -154,6 +156,8 @@
 
     .goal-form-submit{
       font-size: 15px;
+      position: absolute;
+      top: -1vh;
     }
 
     #goal-form-delete-button {
