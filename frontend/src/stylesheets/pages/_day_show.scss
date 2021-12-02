@@ -115,10 +115,12 @@
   .day-show-goal-form {
     width: 100%;
     height: 100%;
+    position: relative;
 
     .goal-form-cancel {
       font-size: 17px;
       position: absolute;
+      right: 5%;
     }
 
     label {
@@ -143,11 +145,17 @@
       height: 10px;
     }
 
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
     .goal-form-buttons {
       margin-top: 10px;
       display: flex;
       justify-content: flex-end;
-      position: relative;
 
       button {
         margin-left: 10px;
@@ -156,8 +164,6 @@
 
     .goal-form-submit{
       font-size: 15px;
-      position: absolute;
-      top: -1vh;
     }
 
     #goal-form-delete-button {
