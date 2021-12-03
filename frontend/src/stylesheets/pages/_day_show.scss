@@ -63,12 +63,14 @@
   margin-top: 20px;
   width: 97%;
   height: 66%;
+  min-height: 450px;
 
   .day-show-reflections {
     width: 100%;
 
     .journal-carousel-item {
-      height: 34.3vh
+      height: 33vh;
+      min-height: 250px;
     }
 
     .carousel-btns-container {
@@ -178,10 +180,12 @@
   height: 35%;
   overflow: hidden;
   justify-content: space-evenly;
+  min-height: 300px;
 }
 
 .day-show-left {
   position: relative;
+  min-height: 770px;
 }
 
 .day-show-home-button {
