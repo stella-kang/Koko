@@ -10,10 +10,11 @@
 
 .koko-picture {
   width: 90%;
-  height: 80vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   min-height: 680px;
+  margin-bottom: 20px;
 }
 
 .koko-splash-container {
@@ -21,6 +22,10 @@
   height: 100%;
   display: flex;
   justify-content: center;
+
+  .koko-container {
+    height: 400px;
+  }
 }
 
 .scaled {
@@ -66,14 +71,18 @@
 
 .who-is-koko {
   height: 10vh;
+  min-height: 85px;
   width: 100%;
   background-color: $darkblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   h3 {
     font-family: $bubblefont;
     text-align: center;
     font-size: 50px;
-    margin-top: 20px;
+    // margin-top: 20px;
     color: $cream;
   }
 }
