@@ -27,6 +27,7 @@
   border-radius: 10px;
   width: 70%;
   height: 35vh;
+  min-height: 280px;
 }
 
 .reflection-item-header {
@@ -84,7 +85,7 @@
 .carousel-btns-container {
   display: flex;
   justify-content: space-evenly;
-  height: 48px;
+  height: 43.594px;
   margin-bottom: 10px;
 
   button {
