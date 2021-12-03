@@ -63,7 +63,7 @@
   margin-top: 20px;
   width: 97%;
   height: 66%;
-  min-height: 450px;
+  min-height: 470px;
 
   .day-show-reflections {
     width: 100%;
@@ -140,6 +140,7 @@
 
     .goal-inputs {
       height: auto;
+      min-height: 160px;
     }
 
     .goal-errors {
@@ -150,14 +151,14 @@
     form {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-evenly;
       height: 100%;
     }
 
     .goal-form-buttons {
       margin-top: 20px;
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
 
       button {
         margin-left: 10px;
@@ -180,7 +181,7 @@
   height: 35%;
   overflow: hidden;
   justify-content: space-evenly;
-  min-height: 300px;
+  min-height: 280px;
 }
 
 .day-show-left {
