@@ -6,11 +6,6 @@ import configureStore from './store/store';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 
-// document.addEventListener('DOMContentLoaded', () => {
-
-//   ReactDOM.render(<App />, document.getElementById('root'));
-// })
-
 let store;
 
 if (localStorage.jwtToken) {
@@ -25,7 +20,7 @@ if (localStorage.jwtToken) {
 
   if (decodedUser.exp < currentTime) {
     store.dispatch(logout());
-    window.location.href ='/login';
+    window.location.href ='/#/login';
   }
 } else {
   store = configureStore({});
