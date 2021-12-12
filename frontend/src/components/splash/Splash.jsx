@@ -203,7 +203,7 @@ const Splash = () => {
                   <a target='_blank' href='https://angel.co/u/emmay-alam'>
                     <img src={Angel} />
                   </a>
-                  <a target='_blank' href='#'>
+                  <a target='_blank' href='https://emmay.dev/'>
                     <FaUser className='portfolio-icon' />
                   </a>
                 </div>
